@@ -1,0 +1,5 @@
+<input type="text" name="filter" [(ngModel)]="filterValue">
+<div *ngFor="let task of getFilteredTasks()">
+    <app-task [task]="task" (delete)="handleDelete($event)"></app-task>
+</div>
+<button [routerLink] = "0">CREATKE</button>

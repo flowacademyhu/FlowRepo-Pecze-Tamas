@@ -1,0 +1,10 @@
+<div class *ngFor="let task of tasks; let i = index; let odd = odd; let even = even">
+   <div *ngIf="odd" appTask6>
+   <app-task [firstname] ="task" [lastname] = "'Kovacs'" [checkboxValue] = "checkboxMark" (Happening) = "handleTaskClicked($event)" (HappeningSECOND) = "FI($event)" ></app-task>
+   </div> <!-- ez a szemet odd BOOLEAN ERTEKU-->
+   <div *ngIf="even">
+   <app-task [firstname] ="task" [lastname] = "'Kovacs'" [checkboxValue] = "checkboxMark" (Happening) = "handleTaskClicked($event)" (HappeningSECOND) = "FI($event)" ></app-task>
+   </div>
+</div>
+<input type="checkbox" (click) = "checkboxMark = !checkboxMark">
+{{checkboxMark}}

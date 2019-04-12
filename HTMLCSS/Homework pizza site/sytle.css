@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', serif; /* Arial font but in case Arial is not found serif will be loaded. */ 
+  background-color: #340700;
+}
+.navigation {
+  background-color: #340700;
+  color: #ffffff; /* this is the color of the text. */
+  list-style: none; /* removes the bullet points */
+  text-align: center;
+  margin: 0 0 0 0;
+  padding: 20px 0 20px 0; /*refers to the top/bottom/left/right positions */
+}
+.navigation > li {
+  display: inline-block;
+  padding-right: 50px;
+  font-size: 20px;
+}
+.navigation > li > a {
+  text-decoration: none; /* removes the underlines */ 
+  color: #ffffff;
+}
+.navigation > li > a:hover {
+  color: #c1c1c1;
+}
+.banner {
+  width: 1355px;
+  max-height: 10px;
+  display: block;
+}
+.banner > .banner-image {
+  width: 1355px;
+  height: 200px;
+  display: block;
+}
+.pizza1 {
+  width: 298px;
+  border: 1px solid #c1c1c1;
+  margin: 20px 10px; /* first one is top and bottom, the second one is left and right */
+  padding: 0 5px;
+  float: left;
+}
+.pizza1 > p {
+  font-size: 14px;
+  color: white;
+  max-width: 250px;
+}
+.pizzalista {
+  width: 1333px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px 0;
+  margin: 0 -6px;
+}
+.pizzak {
+  max-width: 200px;
+  margin: 15px 0 0 0;
+}
+.heading {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  opacity: 0.9;
+  margin: 200px 0 50px 0;
+}
+.pizzak:hover {
+  opacity: 0.8;
+  max-width: 200px;
+  margin-top: 15px;
+}
+.map {
+  position: absolute;
+  top: 47%;
+  float: left;
+  width: 650px;
+  height: 350px;
+  border: 2px solid;
+  margin: 10px;
+
+}
+.contact {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  color: white;
+  opacity: 0.8;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 230%;
+}
+.paragraph1 {
+  position: absolute;
+  color: white;
+  top: 52%;
+  left: 30%;
+  opacity: 0.9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 250%;
+}
+.paragraph2 {
+  position: absolute;
+  top: 71%;
+  left: 7%;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  opacity: 0.9;
+  font-size: 350%;
+}
+.paragraph3 {
+  position: absolute;
+  top: 76%;
+  left: 58%;
+  font-family: 'Source Code Pro', monospace;
+  color: white;
+  opacity: 0.9;
+  font-size: 250%;
+}
+.lefttext {
+  position: absolute;
+  font-size: 25px;
+  padding: 20px;
+  font-family: serif;
+  top: 95%;
+  margin: 3px;
+  width: 600px;
+  height: 470px;
+  border: 3px solid;
+  color: white;
+  opacity: 0.9;
+}
+.righttext {
+  position: absolute;
+  font-size: 25px;
+  font-family: serif;
+  padding: 20px;
+  top: 95%;
+  left: 50%;
+  margin: 3px;
+  width: 600px;
+  height: 470px;
+  border: 3px solid;
+  color: white;
+  opacity: 0.9;
+}
+.form {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  color: white; 
+  opacity: 0.9;
+}

@@ -1,0 +1,7 @@
+<form>
+  <label>Task Name: </label>
+  <input [(ngModel)]="task.name" type="text" name="name"> <br>
+  <label>Task Message: </label>
+  <input [(ngModel)]="task.message" type="text" name="message"> <br>
+</form>
+<button (click)="save()" [disabled]="!task.name || !task.message">UDATEKE</button>

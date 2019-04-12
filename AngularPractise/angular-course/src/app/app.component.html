@@ -1,0 +1,15 @@
+<div style="text-align:right">
+  <input [(ngModel)] = "name">
+  <p (click) = "deleter()" *ngIf="name !== ''"> {{name}} </p>
+  <p *ngIf="name === ''">Add meg a neved!!!</p>
+  <p [ngStyle]="{backgroundColor: methody()}"> {{name}} </p>
+  <p [ngClass]="{'LALA': name.length > 6}"></p>
+  <button (click) = "greeter(); alert2()" [disabled] = "name=== ''">Button</button>
+  <p>VONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONALVONAL</p>
+  <div *ngFor="let Vari of tomby; let x = index; let oddy = odd; let firsty = first">
+    <span [ngClass]="{'LALAQ' : oddy,'LALAQQ' : firsty}">{{x}} : {{Vari}}</span>
+    //ngstyle1!!
+  </div>
+  
+</div>
+

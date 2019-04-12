@@ -1,0 +1,22 @@
+<button (click)="show()">COLLAPSE</button>
+<div [style.visibility]="isCollapsed ? 'visible' : 'hidden'">
+<label name="value1">Value1: </label>
+<input [(ngModel)]="val1" type="number" name="value1">
+<label name="value2">Value2: </label>
+<input [(ngModel)]="val2" type="number" name="value2">
+<button (click)="sum()">SUM value1 with value2</button>
+<br>
+<p [ngClass]="{ CS1: decidion1, CS2: !decidion1 }">SUM: {{valSUM}}</p>
+<input [(ngModel)]="val3" type="text" #RefINP = "ngModel" [disabled]="!checked">
+<button (click)="sumToArray()" [disabled]="val3.length < 3 || val3.length > 12 && 
+  checked || booleanForbidden"
+>Add</button>
+<input type="checkbox" (click)="check()">
+EDITABLE
+<p *ngIf="array.length == 5">You reached the maximum input :(</p>
+<div *ngFor="let array1 of array; let even = even; let odd = odd">
+  <p *ngIf="odd" [ngStyle]="{'color': 'pink'}">{{array}}</p>
+  <p *ngIf="even">{{array}}</p>
+</div>
+</div>
+<app-second [array] = array [krumplisZsak] = SimpleTestMessage (Antenna) = "RECEIVER($event)"></app-second>

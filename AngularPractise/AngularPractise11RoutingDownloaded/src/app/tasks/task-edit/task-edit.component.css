@@ -1,0 +1,9 @@
+textarea.ng-touched {
+  background-color: brown;
+}
+.ng-invalid {
+  border: 1px solid red;
+}
+#taskname.ng-invalid {
+  background-color: coral;
+}

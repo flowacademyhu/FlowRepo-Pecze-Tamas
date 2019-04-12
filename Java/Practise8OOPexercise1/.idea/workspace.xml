@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d0aaceea-4603-4a85-9796-8d0cd83a5029" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../1JavaPractise/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../1JavaPractise/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2Pract/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2practiseJava/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3Pract/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3Pract/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3_1_pract/src/Animals/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3_1_pract/src/Animals/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3_1_pract/src/Animals/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3_1_pract/src/Animals/Horse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesceningOrder/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DesceningOrder/src/DescendingOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/AbstractEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/GameArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/StaticObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/badge/AbstractBadge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/badge/Achievement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/badge/Boost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/quest/Options.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise4FlowDungeon/src/hu/flowacademy/dungeon/quest/Quest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise5Heron/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise5Heron/src/Practise5Heron.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise6CubeNTimes/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise6CubeNTimes/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise7exercise21fromGyakorlasHet4-6/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practise7exercise21fromGyakorlasHet4-6/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/butorgyar/Butor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/butorgyar/Butorlap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../If you can't sleep, just count sheep!!/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../If you can't sleep, just count sheep!!/src/sheep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Practise1FIXED/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Practise1FIXED/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Practise2IntelliJ/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Practise2IntelliJ/src/Practise2IntelliJ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2Pract/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../2Pract/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2Pract/elsofeladat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/butorgyar/Butorlap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="112" column="1" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/butorgyar/Butor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/butorgyar/Butorlap.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/butorgyar/Butor.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="47" />
+    <option name="width" value="1221" />
+    <option name="height" value="602" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Practise8OOPexercise1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Practise8OOPexercise1" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553009282678" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Practise8OOPexercise1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0aaceea-4603-4a85-9796-8d0cd83a5029" name="Default Changelist" comment="" />
+      <created>1553005004204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553005004204</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="25" width="1366" height="706" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32928944" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/butorgyar/Butorlap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="112" column="1" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/butorgyar/Butor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

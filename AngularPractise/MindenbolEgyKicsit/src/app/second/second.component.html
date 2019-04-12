@@ -1,0 +1,12 @@
+<p>
+  second works!
+  {{array}}
+</p>
+<div *ngFor="let elementOf of array; let last=last">
+    <p *ngIf="last">{{elementOf}}</p>
+</div>
+<div>
+  {{krumplisZsak}}
+</div>
+<input type="text" [(ngModel)]="temporary">
+<button (click)="SendingDataToParent()" >Add</button>

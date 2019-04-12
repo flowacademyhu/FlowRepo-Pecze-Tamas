@@ -1,0 +1,49 @@
+<form #hivatkozas="ngForm" name="nameName">
+    <div class="form-group">
+        <label for="taskname">Feladat</label>
+        <input 
+        name="ref0" 
+        type="text" 
+        id="taskname" 
+        class="form-control" 
+        #ReferenciaNev0="ngModel"
+        [(ngModel)] = "model.name"
+        minlength=3
+        maxlength=10
+        required
+        />
+        <div *ngIf="ReferenciaNev0.invalid && ReferenciaNev0.touched">
+            <p> Required input text with min 3 or max 10 letters </p>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="state">Státusz</label>
+        <input 
+          id="state" 
+          class="form-control"
+          name="ref1"
+          [(ngModel)] ="model.state" 
+          #ReferenciaNev="ngModel"
+          />
+      </div>
+      <div class="form-group">
+        <label for="description">Leírás</label>
+        <textarea 
+          minlength=1
+          name="ref2"
+          id="description" 
+          class="form-control"
+          [(ngModel)] = "model.description"> </textarea>
+      </div>
+      <button 
+        name="submitt"
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="hivatkozas.form.invalid"
+        (click) = "save()"
+        >Submit</button>
+        <button (click)="clicked()">NAVIGALAS</button>
+        <button (click)="clicked2()">NAVIGALAS2</button>
+        <button type="submit" routerLink = "/tasks">3</button>
+  </form>
+{{model.name}}

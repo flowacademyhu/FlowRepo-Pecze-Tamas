@@ -1,0 +1,32 @@
+<div>
+   
+</div>
+  <div class="card" style="background-color:green">
+        <div class="card-header" style="text-align:center">
+            
+            <select [(ngModel)] = "SELECTED">
+                <option value="Arsenal">Arsenal</option>
+                <option value="Liverpool">Liverpool</option>
+                <option value="Manchester">Manchester</option>
+            </select>
+            <p style="background-color:blueviolet">{{SELECTED}}</p>
+        </div>
+        <div *ngIf="SELECTED === 'Arsenal'"><app-ars></app-ars></div>
+        <div *ngIf="SELECTED === 'Liverpool'"><app-pool></app-pool></div>
+        <div *ngIf="SELECTED === 'Manchester'"><app-manchester></app-manchester></div>
+</div>
+
+<div class="card2" style="background-color:rgb(0, 255, 21)">
+    <div class="card-header2" style="text-align:center">
+        <select [(ngModel)] = "SELECTED2">
+            <option value="Arsenal">Arsenal</option>
+            <option value="Liverpool">Liverpool</option>
+            <option value="Manchester">Manchester</option>
+        </select>
+        <div *ngIf="SELECTED2 === 'Arsenal'"><app-ars (sendingMethod)="handle($event)"></app-ars>
+              <div >
+                
+              </div>
+        </div>
+       </div>
+      </div>

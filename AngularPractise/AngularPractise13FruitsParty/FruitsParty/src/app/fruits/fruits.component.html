@@ -1,0 +1,52 @@
+<form #fruitForm="ngForm">
+  <div class="form-group" name = "nameName">
+    <label for="name" name="nameName">Name: </label>
+    <input type="text" name="nameName" id="name" class="form-control" 
+           #RefName="ngModel" [(ngModel)] = "info.name"
+           minlength="3" required>
+           <div *ngIf="RefName.invalid && RefName.touched">
+             <img src="https://i.ytimg.com/vi/3CajJaGvUbE/maxresdefault.jpg" alt="Failed to load content" width="350" height="150">
+           </div>
+           <br>
+    <label for="color" name="colorColor">Color: </label>
+    <input type="text" name="colorColor" id="color" class="form-control"
+            #RefColor="ngModel" [(ngModel)]="info.color" minlength=4 maxlength=15 required>
+            <label><span>*</span></label>
+            <div *ngIf="RefColor.invalid && RefColor.touched">Required field! Atleast 4 max 15 characters needed!</div>
+            <br>
+    <label for="calories" name="caloriesCalories">Calories: </label>
+    <input type="number" name="caloriesCalories" id="calories" class="form-control"
+            #RefCalories="ngModel" [(ngModel)]="info.calories" minlength=1 required>
+            <div *ngIf="this.value == true" [ngStyle]="{'color': 'orange'}">Too mutch calories, u fat!</div>
+            <br>
+    <label for="size" name="sizeSize">Size: </label>
+            <select type="text" name="sizeSize" id="size" class="form-control"
+            #RefSize="ngModel" [(ngModel)]="info.size" minlength=1 required>
+            <option value="" disabled selected>Please choose a size</option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="big">big</option>
+            </select> 
+            <label><span>*</span></label>
+            <br>
+    <button
+    name="submit"
+    class="btn btn-primary"
+    type="submit"
+    [disabled]="fruitForm.form.invalid"
+    (click) = "buttonClick()" (click) = "Calori()"
+    >SAVE</button>
+  </div>
+  <div *ngIf="isClicked">
+    <p>Submitted input is: </p>
+    <br>
+    {{info.name}}
+    <br>
+    {{info.color}}
+    <br>
+    {{info.calories}}
+    <br>
+    {{info.size}}
+  </div>
+  
+</form>

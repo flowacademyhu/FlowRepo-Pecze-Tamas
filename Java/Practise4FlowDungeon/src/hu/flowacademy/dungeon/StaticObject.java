@@ -1,0 +1,12 @@
+package hu.flowacademy.dungeon;
+
+import hu.flowacademy.dungeon.quest.Quest;
+
+import java.util.List;
+
+public class StaticObject extends AbstractEnemy {
+
+    StaticObject(String name, List<Quest> quests) {
+        super(name, quests);
+    }
+}

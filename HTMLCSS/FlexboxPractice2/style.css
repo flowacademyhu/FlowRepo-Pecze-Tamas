@@ -1,0 +1,54 @@
+@media(min-width:468){
+  .container-1 {
+    display: flex;
+  }
+  .container-2 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.container-1 {
+display: flex;
+/*align-items: flex-end;   moves the box borders to the BOTTOm of the flex*/
+/*align-items: flex-start; moves the box borders to the TOP of the flex*/
+/*align-items: flex-center; moves the box borders to the CENTER of the flex*/
+/*align-items: by default it is stretch/ */
+/*flex-direction: column; lists the boxes in vertical order*/
+}
+.container-2 {
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: flex-start; pushes the boxes to the left from the right */
+  /* justify-content: flex-end; pushes the boxes to the right from the left*/
+  /* justify-content: center; moves the boxes to the center*/
+  /* justify-content: space-around; does the same as space-between but adds space even 
+  to the left-right borders too*/
+}
+.container-3 {
+  display: flex;
+  flex-wrap: wrap; /* if there is not enough space, the boxes will fell down by one line*/
+  justify-content: space-between;
+}
+.container-1 div, .container-2 div, .container-3 div {
+  border: 1px #ccc solid;
+  padding: 10px;
+}
+.box-1 {
+  flex: 2; /*sets the size of the box*/
+  order: 2; /* sets the order of the boxes*/
+}
+.box-2 {
+  flex: 1;
+  order: 3;
+}
+.box-3 {
+  flex: 1;
+  order: 1;
+}
+.container-2-box{
+  /* width: 30%; */
+  flex-basis: 30% /* does the same as width but it should be used in flexbox! */
+}
+.container-3-box{
+  flex-basis: 15%;
+}

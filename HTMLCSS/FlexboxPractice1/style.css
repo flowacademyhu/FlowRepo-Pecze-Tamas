@@ -1,0 +1,11 @@
+.elso > img {
+  width: 100px;
+}
+.elso {
+  display: flex;
+  justify-content: center;
+}
+.szoveg {
+  display: flex;
+  justify-content: center;
+}
