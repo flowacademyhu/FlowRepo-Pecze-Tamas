@@ -17,6 +17,9 @@ export class PracticeComponent implements OnInit {
   array: string[] = [];
   booleanValue = false;
   booleanForbidden = false;
+  receivedFun = '';
+  sendingBackFun = '';
+  
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +27,9 @@ export class PracticeComponent implements OnInit {
   }
   RECEIVER(ADAT: string) {
     this.array.push(ADAT);
+  }
+  FUNNYRECEIVER(FUN: string) {
+    this.receivedFun = FUN;
   }
   sum() {
     this.valSUM = this.val1 + this.val2;
@@ -54,5 +60,12 @@ export class PracticeComponent implements OnInit {
     } else {
       this.isCollapsed = true;
     }
+  }
+  funnyVISSZAMENNYE() {
+    this.sendingBackFun = this.receivedFun;
+    this.DeleteFUN();
+  }
+  DeleteFUN() {
+    this.receivedFun = '';
   }
 }

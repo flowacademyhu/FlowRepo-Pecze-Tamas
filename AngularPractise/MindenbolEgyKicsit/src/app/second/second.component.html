@@ -1,3 +1,4 @@
+<div [style.visibility]="isCollapsed ? 'visible' : 'hidden'">
 <p>
   second works!
   {{array}}
@@ -10,3 +11,8 @@
 </div>
 <input type="text" [(ngModel)]="temporary">
 <button (click)="SendingDataToParent()" >Add</button>
+<br>
+<p>{{funnyFromSecond}}</p>
+<button (click)="SendingMoka()">FUNNYKULD</button>
+<button (click)="REQUESTFUN()">RECEIVE FUN</button>
+</div>

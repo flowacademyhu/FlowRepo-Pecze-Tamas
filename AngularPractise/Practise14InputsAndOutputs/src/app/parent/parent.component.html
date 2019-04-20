@@ -1,0 +1,12 @@
+<p>
+  parent works!
+</p>
+<div *ngFor="let element of TheArray; let even=even; let odd=odd">
+  <p *ngIf="odd==true">{{element}}</p>
+</div>
+<input type="submit" class="btn" [value]="btnText">
+<input type="textArea" class="txt" name="item" placeholder="Waiting for change" 
+[(ngModel)]="goalText">
+{{ goalText }}
+<div [ngStyle]="{'background-color' : 'red'}">SZINEZES</div>
+<app-kid [testvlueFROMPARENTerkezik]="testvlueFROMPARENT"></app-kid>
