@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SzerviszeljService } from '../szerviszelj.service';
 
 @Component({
   selector: 'app-thekid',
@@ -10,9 +11,11 @@ export class ThekidComponent implements OnInit {
   receive = '';
   @Output()
   e = new EventEmitter();
-  constructor() { }
+  stringReceive = '';
+  constructor(private servicee: SzerviszeljService) { }
 
   ngOnInit() {
+    this.stringReceive = this.servicee.SendingDataToAnyone();
   }
   cl() {
     this.send();

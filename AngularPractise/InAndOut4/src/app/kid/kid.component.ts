@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-kid',
@@ -11,9 +12,10 @@ export class KidComponent implements OnInit {
   @Output()
   Qemit = new EventEmitter();
   salata = 'Salata';
-  constructor() { }
-
+  constructor(private local: DataService) { }
+  empty = [];
   ngOnInit() {
+    this.empty = this.local.getData();
   }
   cl() {
     this.emiTT();

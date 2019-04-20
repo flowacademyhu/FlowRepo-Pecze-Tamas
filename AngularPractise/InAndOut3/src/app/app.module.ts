@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { ThekidComponent } from './thekid/thekid.component';
+import { SzerviszeljService } from './szerviszelj.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { ThekidComponent } from './thekid/thekid.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [SzerviszeljService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
