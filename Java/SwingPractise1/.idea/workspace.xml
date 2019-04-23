@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14cfc967-ac84-46b3-8b1f-c653bfa9744c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DB/epsilon-pub-database" beforeDir="false" afterPath="$PROJECT_DIR$/../../DB/epsilon-pub-database" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingPractise1/Swee/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingPractise1/Swee/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingPractise1/Swee/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingPractise1/Swee/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Swee/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Swee/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Swee/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Swee/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JavaTeszt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaTeszt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-basics" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-basics" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +43,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Swee/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
+            <state relative-caret-position="518">
               <caret line="106" column="12" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -61,7 +67,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -98,7 +104,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -122,6 +127,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,7 +287,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Swee/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
+        <state relative-caret-position="518">
           <caret line="106" column="12" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
