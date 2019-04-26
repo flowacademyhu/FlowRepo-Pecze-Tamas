@@ -16,9 +16,11 @@ export class KidoneComponent implements OnInit {
   kuldes = 'titkos uzenet, szall a szellel...';
   infoserviceinfo = '';
   receive: any;
+  error: any;
   ngOnInit() {
     this.infoserviceinfo = this.info.getInfo();
-    this.info.getData().subscribe(data => this.receive = data)
+    this.info.getData().subscribe(data => this.receive = data,
+                                  error =>  this.error = error);
   }
   send() {
     this.e.emit(this.kuldes);

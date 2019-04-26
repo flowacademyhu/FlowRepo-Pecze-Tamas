@@ -1,5 +1,9 @@
 <app-kidone [projectname] = "title" (e)="message=$event"></app-kidone>
 <app-kidtwo></app-kidtwo>
 <router-outlet></router-outlet>
+<nav>
+  <a routerLink="/kidone">KIDONE CLICK</a>
+  <a routerLink="/kidtwo">KIDTWO CLICK</a>
+</nav>
 {{message}}
 <button (click)="check()">CLICK CHECK</button>

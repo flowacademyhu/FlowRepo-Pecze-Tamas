@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Iinterface } from './interface1';
-import { Observable } from 'rxjs';
-
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +13,10 @@ export class InfoService {
     return this.info;
   }
   getData(): Observable<Iinterface> {
-    return this.http.get<Iinterface>('https://jsonplaceholder.typicode.com/todos');
+    return this.http.get<Iinterface>('Qhttps://jsonplaceholder.typicode.com/todos')
+    .pipe(catchError(this.ErrorHandler));
+  }
+  ErrorHandler(error: HttpErrorResponse) {
+    return throwError(error.message);
   }
 }
