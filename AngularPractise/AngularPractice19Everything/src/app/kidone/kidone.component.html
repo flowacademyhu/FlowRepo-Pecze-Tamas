@@ -1,5 +1,5 @@
 {{appcomptitle}}
-<button (click)="disable()">DISABLED</button>
+<button (click)="disable()">{{kapcsolo}}</button>
 <input type="text" [disabled]="boo2" placeholder="Type here!">
 <ul class="items" [ngStyle]="{'color' : 'red'}">
     <li (click)="onSelect(department)" *ngFor="let department of departments">
@@ -7,3 +7,6 @@
     </li>
     </ul>
 <p [ngClass]="{'classy': boo}">HELLO SZINEK</p>
+<nav>
+  <a routerLink="/pokemon-html">POKEMON DATA</a>
+</nav>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { InfoService } from '../info.service';
 
 @Component({
   selector: 'app-kidtwo',
@@ -8,9 +9,11 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class KidtwoComponent implements OnInit {
   public kidtwoID;
-  constructor(private route: ActivatedRoute) { }
+  text = 'waiting for info service...';
+  constructor(private route: ActivatedRoute, private service: InfoService) { }
 
   ngOnInit() {
+    this.text = this.service.info();
     this.route.params.subscribe(
       (params: Params) => {
         this.kidtwoID = params.id;

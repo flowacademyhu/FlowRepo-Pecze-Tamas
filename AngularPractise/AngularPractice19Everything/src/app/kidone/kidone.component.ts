@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { InfoService } from '../info.service';
 @Component({
   selector: 'app-kidone',
   templateUrl: './kidone.component.html',
@@ -19,8 +20,9 @@ export class KidoneComponent implements OnInit {
   ];
   counter = 0;
   boo = false;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: InfoService) { }
   boo2 = false;
+  kapcsolo = 'Disable';
   ngOnInit() {
   }
 
@@ -37,8 +39,11 @@ export class KidoneComponent implements OnInit {
   disable() {
     if (this.boo2 === false) {
       this.boo2 = true;
+      this.kapcsolo = 'Enable';
     } else {
       this.boo2 = false;
+      this.kapcsolo = 'Disable';
     }
+    this.service.log(this.kapcsolo);
   }
 }
