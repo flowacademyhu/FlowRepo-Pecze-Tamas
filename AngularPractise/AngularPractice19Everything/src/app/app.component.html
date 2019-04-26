@@ -1,2 +1,3 @@
 <router-outlet></router-outlet>
-<app-kidone></app-kidone>
+<app-kidone [appcomptitle]="title" (e)="msg = $event"></app-kidone>
+{{msg}}

@@ -15,7 +15,6 @@ export class KidtwoComponent implements OnInit {
       (params: Params) => {
         this.kidtwoID = params.id;
       }
-    )
+    );
   }
-
 }

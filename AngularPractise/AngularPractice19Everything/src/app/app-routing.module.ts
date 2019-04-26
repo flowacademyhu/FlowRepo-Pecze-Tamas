@@ -4,7 +4,7 @@ import { KidoneComponent } from './kidone/kidone.component';
 import { KidtwoComponent } from './kidtwo/kidtwo.component';
 
 const routes: Routes = [
-  { path: 'kidtwo/:id', component: KidtwoComponent}
+  { path: 'kidtwo/:id', component: KidtwoComponent }
 ];
 
 @NgModule({
