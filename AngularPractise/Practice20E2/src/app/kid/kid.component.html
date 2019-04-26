@@ -1,0 +1,11 @@
+<p>
+  kid works! + {{message}}
+</p>
+<input type="text" [(ngModel)]="logged">
+<button (click)="logging()">Logger service</button>
+<p *ngFor="let po of incoming | keyvalue">
+  {{po.key}}:{{po.value}}
+</p>
+{{emessage}}
+<button (click)="happen()">Show showhide!</button>
+<p>Router uzenet, szall a szellel.... Szama: {{routeruzenet}}</p>
