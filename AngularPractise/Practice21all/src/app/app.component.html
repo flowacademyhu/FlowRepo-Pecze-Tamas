@@ -1,0 +1,6 @@
+<input type="text" [placeholder]="placeholder" [(ngModel)]="valtozo">
+{{valtozo}}
+<router-outlet></router-outlet>
+<app-first [variable]="placeholder"></app-first>
+<app-second (e)="msg=$event"></app-second>
+{{msg}}

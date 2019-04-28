@@ -1,0 +1,11 @@
+<p>
+  second works!
+</p>
+{{data}}
+<nav>
+  <button routerLink="third">display third component</button>
+  <button (click)="send(randomData)">Send data</button>
+</nav>
+<p *ngFor="let r of routingData">
+  {{r.id}} {{r.name}}
+</p>
