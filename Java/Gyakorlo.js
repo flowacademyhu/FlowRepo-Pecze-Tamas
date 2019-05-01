@@ -15,6 +15,8 @@ Class A {
 		parse("invalid");
 	}
 }
+Forditasi hiba!!! mivel a float f a catchben es a finallyben nem lathato, csak a tryban!
+Hibasan válaszoltam: NumberFormatExeption + 0
 
 2.Hogyan lehet a Nav osztály, Direction enum-ját példányosítani?
 
@@ -31,6 +33,8 @@ b. Nav.Direction d = NORTH;
 c. Direction d = Direction.NORTH;
 d. Nav.Direction d = Nav.Direction.NORTH;
 
+helyes válasz a D). Van két class, az enu a navon belül van definialva. Másik osztályban van és direkten nem lehet rá hivatkozni, így kell a Nav elé.
+
 3.Mit ír ki az alábbi program?
 
 public class StringRef 
@@ -45,9 +49,12 @@ public class StringRef
     }
 }
 
-4. Lehet-e egy interface final?
-5. Definiálható-e interface osztályon belül?
-6. Öröklődéskor mi történik az ősosztály konstruktorával?
+Output: abefcd . a String nem változtatható adattipus b egyenlő ef, akkor hoz új változót létre.
+
+4. Lehet-e egy interface final? nem . Pont hogy mindig felül kell deifiniálni, az a lényege az interfacenek.
+5. Definiálható-e interface osztályon belül? Igen. lehet belül is kis private interfacet csinálni igy osztályon belül lehet belső láthatóságú interfacet csinálni. Osztályt is lehet osztályon belül létrehozni.
+6. Öröklődéskor mi történik az ősosztály konstruktorával? Superrel tudunk rá hivatkozni. 
+6.1 Amikor definiálunk tömböket, hány dimenziója lehet a tömbnek maximum? ([][][][][]) 255 a helyes valasz, mivel byte szinten van definialva.
 
 7.Mit ír ki az alábbi program?
 
@@ -64,10 +71,23 @@ class Test {
    }
 
 }
+Van különbség a prefix és a postfix között. Az összes primitiv alaperteke az 0. A nem primitiveké pedig null.
+Output: 1
 
-8. 1. Mire való a "garbage collection"?
+8. 1. Mire való a "garbage collection"? //garbage collector ami csinalja, ez pedig maga az esemeny
+
+	Felszabaditja a használaton kívüli memóriaterüelteket, melyek korábban lefoglalásra kerültek a program futása alapján.
+	Csak objektumok tünnek el. A primitivek nem, mivel azok máshol vannak. Ahol le van foglalva a memória, de nem mutat rá már semmi!!!
+
+
 9. Mi a különbség a Map és a HashMap között?
+
+Ezek interface-ek. A Hashmap egy megvalósítása a Map interfacenek.
+
 10. Mi a "final"? 
+
+Nem lehet módosítani.
+
 11. Mit ír ki az alábbi program?
 
 public class BoolTest 
@@ -96,5 +116,14 @@ public class BoolTest
     }
 }
 
+Az equals az értéket hasonlítja össze tehát azon átmegy. 10.010 a megoldás. Az ígylétrehozott boolean logikai értékű.
+
 12, Kódolós feladat:
 Adott egy nemnegatív egész számokból álló tömb, melynek az első elemén állunk. A tömb minden eleme az adott pozícióból történő legnagyobb ugorható távolságot jelöli. Döntsük el a tömbről, hogy el tudunk-e jutni benne az utolsó elemig a fenti szabályt követve. Példák: A = [2,3,1,1,4], eredménye igaz. B = [3,2,1,0,4], eredménye hamis.
+
+for(int i = 0; i < A.size; i++) {
+
+	
+
+}
+
