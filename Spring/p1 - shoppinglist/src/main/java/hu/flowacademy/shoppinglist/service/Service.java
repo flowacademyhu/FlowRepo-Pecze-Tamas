@@ -1,6 +1,6 @@
 package hu.flowacademy.shoppinglist.service;
 
-import hu.flowacademy.shoppinglist.repository.Repository;
+import hu.flowacademy.shoppinglist.repository.ShoppingListRepository;
 import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public class Service {
 
     @Autowired
-    private Repository shoppingListRepository;
+    private ShoppingListRepository shoppingListRepository;
 
 
     public ShoppingListItem save (ShoppingListItem sli) {

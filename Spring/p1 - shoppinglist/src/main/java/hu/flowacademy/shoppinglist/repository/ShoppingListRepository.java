@@ -11,21 +11,21 @@ import java.util.List;
 import java.util.Map;
 
 @org.springframework.stereotype.Repository
-public class Repository {
+public class ShoppingListRepository {
 
     public Map<String, ShoppingListItem> sl = new HashMap<>(); //sl stands for ShoppingList
 
 
     public ShoppingListItem addsl(@RequestBody ShoppingListItem sli) {
         sl.put(sli.getId(), sli);
-        Utils.log(sl);
+        Utils.logSL(sl);
         return sli;
     }
     public List<ShoppingListItem> addslList(@RequestBody List<ShoppingListItem> sli) {
         for(var i: sli) {
             sl.put(i.getId(), i);
         }
-        Utils.log(sl);
+        Utils.logSL(sl);
         return sli;
     }
     public ShoppingListItem updatesl(@RequestBody ShoppingListItem sli) {
@@ -33,16 +33,16 @@ public class Repository {
         if (foundSLI != null) {
             sl.remove(sli.getId());
             sl.put(sli.getId(), sli);
-            Utils.log(sl);
+            Utils.logSL(sl);
         }
-        Utils.log(sl);
+        Utils.logSL(sl);
         return sli;
     }
 
     public String deletesl(@PathVariable String id) {
         if(sl.get(id) != null) {
             sl.remove(id);
-            Utils.log(sl);
+            Utils.logSL(sl);
             return "Delete was successful. Id:" + id + " doesn't exist anymore.";
         } else {
             throw new ListItemNotFoundExeption(id);
@@ -51,7 +51,7 @@ public class Repository {
     }
 
     public List<ShoppingListItem> listAll() {
-        Utils.log(sl);
+        Utils.logSL(sl);
         List<ShoppingListItem> stuff = new ArrayList<>(sl.values());
         return stuff;
     }
