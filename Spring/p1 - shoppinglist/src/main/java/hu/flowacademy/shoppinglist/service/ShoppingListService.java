@@ -3,11 +3,12 @@ package hu.flowacademy.shoppinglist.service;
 import hu.flowacademy.shoppinglist.repository.ShoppingListRepository;
 import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@org.springframework.stereotype.Service
-public class Service {
+@Service
+public class ShoppingListService {
 
     @Autowired
     private ShoppingListRepository shoppingListRepository;
@@ -22,9 +23,6 @@ public class Service {
     public String delete (String s) {
         return shoppingListRepository.deletesl(s);
     }
-
-    public List<ShoppingListItem> listall () {
-        return shoppingListRepository.listAll();
-    }
+    public List<ShoppingListItem> listall () { return shoppingListRepository.listAll(); }
 
 }

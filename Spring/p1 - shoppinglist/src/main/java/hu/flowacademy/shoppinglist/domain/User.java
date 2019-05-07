@@ -39,4 +39,13 @@ public class User {
     public void setFull_name(String full_name) {
         this.full_name = full_name;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", full_name='" + full_name + '\'' +
+                '}';
+    }
 }

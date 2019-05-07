@@ -3,6 +3,7 @@ package hu.flowacademy.shoppinglist.repository;
 import hu.flowacademy.shoppinglist.domain.User;
 import hu.flowacademy.shoppinglist.exception.ListItemNotFoundExeption;
 import hu.flowacademy.shoppinglist.util.Utils;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class UserRepository {
     public Map<String, User> user_list = new HashMap<>();
 
