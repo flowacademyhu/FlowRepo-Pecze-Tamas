@@ -1,11 +1,26 @@
 package hu.flowacademy.shoppinglist;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "shopping_list_item")
 public class ShoppingListItem {
+
+    @Id
+    @Column(name = "id", length = 10)
     private String id;
+    @Column(name ="name", length = 300)
     private String name;
+    @Column(name ="category", length = 300)
     private String category;
+    @Column(name ="quantity", length = 300)
     private String quantity;
+    @Column(name ="price", length = 10)
     private int price;
+    @Column(name ="comment", length = 300)
     private String comment;
 
     public String getId() {
