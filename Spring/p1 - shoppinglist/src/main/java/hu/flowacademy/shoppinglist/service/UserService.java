@@ -16,4 +16,5 @@ public class UserService {
     public User save (User usr){ return userRepository.updateusr(usr); }
     public String delete (String s){ return userRepository.deleteusr(s); }
     public List<User> listall () { return userRepository.listAll(); }
+    public User find (String s){ return userRepository.returnUSR(s); }
 }

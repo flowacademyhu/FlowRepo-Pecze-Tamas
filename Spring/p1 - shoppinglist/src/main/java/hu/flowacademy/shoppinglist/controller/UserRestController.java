@@ -34,4 +34,8 @@ public class UserRestController {
         public ResponseEntity<List<User>> listusr(@RequestBody User usr) {
             return ResponseEntity.ok(userRestController.listall());
         }
+        @GetMapping("/find/{usr}")
+        public ResponseEntity<User> findusr(@PathVariable String usr) {
+            return ResponseEntity.ok(userRestController.find(usr));
+        }
 }

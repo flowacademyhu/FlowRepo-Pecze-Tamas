@@ -29,8 +29,8 @@ public class UserRepository {
         return usr;
     }
     public User updateusr(@RequestBody User usr) {
-        User foundSLI = user_list.get(usr.getUsername());
-        if (foundSLI != null) {
+        User foundUSR = user_list.get(usr.getUsername());
+        if (foundUSR != null) {
             user_list.remove(usr.getUsername());
             user_list.put(usr.getUsername(), usr);
             Utils.logUSR(user_list);
@@ -54,5 +54,11 @@ public class UserRepository {
         Utils.logUSR(user_list);
         List<User> stuff = new ArrayList<>(user_list.values());
         return stuff;
+    }
+
+    public User returnUSR(@PathVariable String usr) {
+        User foundUser = user_list.get(usr);
+        return foundUser;
+
     }
 }
