@@ -1,6 +1,8 @@
-package hu.flowacademy.shoppinglist;
+package hu.flowacademy.shoppinglist.repository;
 
-import org.springframework.http.ResponseEntity;
+import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
+import hu.flowacademy.shoppinglist.exception.ListItemNotFoundExeption;
+import hu.flowacademy.shoppinglist.util.Utils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,14 +18,14 @@ public class Repository {
 
     public ShoppingListItem addsl(@RequestBody ShoppingListItem sli) {
         sl.put(sli.getId(), sli);
-        log();
+        Utils.log(sl);
         return sli;
     }
     public List<ShoppingListItem> addslList(@RequestBody List<ShoppingListItem> sli) {
         for(var i: sli) {
             sl.put(i.getId(), i);
         }
-        log();
+        Utils.log(sl);
         return sli;
     }
     public ShoppingListItem updatesl(@RequestBody ShoppingListItem sli) {
@@ -31,16 +33,16 @@ public class Repository {
         if (foundSLI != null) {
             sl.remove(sli.getId());
             sl.put(sli.getId(), sli);
-            log();
+            Utils.log(sl);
         }
-        log();
+        Utils.log(sl);
         return sli;
     }
 
     public String deletesl(@PathVariable String id) {
         if(sl.get(id) != null) {
             sl.remove(id);
-            log();
+            Utils.log(sl);
             return "Delete was successful. Id:" + id + " doesn't exist anymore.";
         } else {
             throw new ListItemNotFoundExeption(id);
@@ -49,16 +51,8 @@ public class Repository {
     }
 
     public List<ShoppingListItem> listAll() {
-        log();
+        Utils.log(sl);
         List<ShoppingListItem> stuff = new ArrayList<>(sl.values());
         return stuff;
-    }
-
-    private void log() {
-        System.out.println("**********************************************************");
-        for (ShoppingListItem sli : sl.values()) {
-            System.out.println(sli.toString());
-        }
-        System.out.println("**********************************************************");
     }
 }

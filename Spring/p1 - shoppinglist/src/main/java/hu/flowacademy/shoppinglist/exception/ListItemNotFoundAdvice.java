@@ -1,4 +1,4 @@
-package hu.flowacademy.shoppinglist;
+package hu.flowacademy.shoppinglist.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

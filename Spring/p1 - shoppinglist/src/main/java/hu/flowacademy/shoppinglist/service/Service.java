@@ -1,6 +1,7 @@
-package hu.flowacademy.shoppinglist;
+package hu.flowacademy.shoppinglist.service;
 
-import hu.flowacademy.shoppinglist.Repository;
+import hu.flowacademy.shoppinglist.repository.Repository;
+import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
