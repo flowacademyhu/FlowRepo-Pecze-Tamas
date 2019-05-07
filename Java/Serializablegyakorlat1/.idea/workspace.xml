@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bca808c-7bed-445a-a6fa-e0ed1fda8d90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Lecture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/ListItemNotFoundAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/ListItemNotFoundExeption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" afterDir="false" />
@@ -17,12 +10,7 @@
       <change beforePath="$PROJECT_DIR$/../../DB/epsilon-pub-database" beforeDir="false" afterPath="$PROJECT_DIR$/../../DB/epsilon-pub-database" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JavaTeszt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaTeszt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/ShoppingListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/java/hu/flowacademy/shoppinglist/ShoppingListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring/p1 - shoppinglist/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../java-basics" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-basics" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../spring_gyak" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring_gyak" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="95">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,6 +119,9 @@
       </pane>
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -182,7 +173,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -219,8 +210,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state relative-caret-position="95">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

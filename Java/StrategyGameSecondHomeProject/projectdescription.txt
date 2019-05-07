@@ -1,4 +1,4 @@
- feladat egy egyszerű stratégia játék megvalósítása Java nyelven. A játék egy 10x10-es négyzetrács alapú pályán játszódik, ahol két játékos küzd egymás ellen, a kék és a piros. Minkét játékos rendelkezik épületekkel és különféle támadni képes egységekkel (katonákkal), amelyek a pálya egy (x,y) pontján helyezkednek el. Az a játékos nyer, amelyik az ellenfél összes épületét lerombolja.
+A feladat egy egyszerű stratégia játék megvalósítása Java nyelven. A játék egy 10x10-es négyzetrács alapú pályán játszódik, ahol két játékos küzd egymás ellen, a kék és a piros. Minkét játékos rendelkezik épületekkel és különféle támadni képes egységekkel (katonákkal), amelyek a pálya egy (x,y) pontján helyezkednek el. Az a játékos nyer, amelyik az ellenfél összes épületét lerombolja.
 
 A játékosok rendelkeznek játékponttal (jp), valamint minden egység és épület rendelkezik életponttal (ép). A játékpont felhasználható épületek vagy egységek vásárlása, továbbá ha az életpont 0-ra csökken, a kérdéses egység, vagy épület megsemmisül, és eltűnik a pályáról.
 
