@@ -1,7 +1,12 @@
+package GameArea;
+
+import Buildings.Headquarter;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GameArea extends JFrame {
+
     public GameArea() {
         super("GameArea");
         this.setSize(1000,600);
@@ -16,6 +21,7 @@ public class GameArea extends JFrame {
         this.add(playerStatus, BorderLayout.SOUTH);
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
     }
     private JLabel[] createLabels() {
         JLabel[] labels  = new JLabel[100];
@@ -26,9 +32,15 @@ public class GameArea extends JFrame {
     }
     private JPanel showGUI(JPanel map) {
         JLabel[] labels = createLabels();
+        labels[0].setText(addHeadquarter());
+        labels[99].setText(addHeadquarter());
         for(int i=0; i < labels.length; i++) {
             map.add(labels[i]);
         }
         return map;
+    }
+    public String addHeadquarter() {
+        Headquarter h1 = new Headquarter();
+        return "Headquarter";
     }
 }
