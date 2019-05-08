@@ -38,4 +38,8 @@ public class UserRestController {
         public ResponseEntity<User> findusr(@PathVariable String usr) {
             return ResponseEntity.ok(userRestController.find(usr));
         }
+        @GetMapping("/countall")
+        public ResponseEntity<List<User>> count(@PathVariable String usr) {
+            return ResponseEntity.ok(userRestController.count(usr));
+    }
 }
