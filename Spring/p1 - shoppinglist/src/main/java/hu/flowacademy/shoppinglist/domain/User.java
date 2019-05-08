@@ -13,8 +13,14 @@ public class User {
     private String username;
     @Column(name ="password", length = 300)
     private String password;
-    @Column(name ="full name", length = 300)
+    @Column(name ="full_name", length = 300)
     private String full_name;
+
+    public User(String username, String password, String full_name) {
+        username = this.username;
+        password = this.password;
+        full_name = this.full_name;
+    }
 
     public String getUsername() {
         return username;

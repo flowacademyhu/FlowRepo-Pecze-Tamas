@@ -3,7 +3,6 @@ package hu.flowacademy.shoppinglist.util;
 import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
 import hu.flowacademy.shoppinglist.domain.User;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Utils {
