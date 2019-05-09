@@ -8,7 +8,13 @@
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DB/epsilon-pub-database" beforeDir="false" afterPath="$PROJECT_DIR$/../../DB/epsilon-pub-database" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RecursionPractice - Fibonacci/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice - Fibonacci/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RecursionPractice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RecursionPractice - factorial.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RecursionPractice2-bunnyEars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice2-bunnyEars/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RecursionPractice2-bunnyEars/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice2-bunnyEars/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JavaTeszt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaTeszt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../spring_gyak" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring_gyak" afterDir="false" />
@@ -28,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="285">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
               <folding>
                 <element signature="e#63#64#0" expanded="true" />
                 <element signature="e#111#112#0" expanded="true" />
@@ -79,7 +85,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -91,6 +96,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -111,7 +117,7 @@
   <component name="RunManager">
     <configuration name="RUN" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="RecursionPractice" />
+      <module name="RecursionPractice - factorial" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,8 +171,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="285">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding>
             <element signature="e#63#64#0" expanded="true" />
             <element signature="e#111#112#0" expanded="true" />

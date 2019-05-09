@@ -15,5 +15,12 @@ public class Main {
     f(3) = 3*f(2) -> 3*2 = 6
     f(2) = 2*f(1) -> 2*1 = 2
     f(1) = 1 (returns 1)
+
+    Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1.
+    Compute the result recursively (without loops).
+
+    factorial(1) → 1
+    factorial(2) → 2
+    factorial(3) → 6
      */
 }
