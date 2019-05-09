@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8b3a0ca-8246-45d1-89c7-09774a51113a" name="Default Changelist" comment="">
+    <list default="true" id="8e023824-4d1f-4d79-8d04-0807052cd039" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DB/epsilon-pub-database" beforeDir="false" afterPath="$PROJECT_DIR$/../../DB/epsilon-pub-database" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RecursionPractice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RecursionPractice/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JavaTeszt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaTeszt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../spring_gyak" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring_gyak" afterDir="false" />
@@ -24,16 +25,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-              <folding>
-                <element signature="e#63#64#0" expanded="true" />
-                <element signature="e#111#112#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -57,13 +54,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="47" />
@@ -78,23 +68,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="RecursionPractice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecursionPractice" type="462c0819:PsiDirectoryNode" />
+              <item name="RecursionPractice2-bunnyEars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RecursionPractice2-bunnyEars" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -109,9 +96,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="RUN" type="Application" factoryName="Application">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="RecursionPractice" />
+      <module name="RecursionPractice2-bunnyEars" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,11 +109,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b8b3a0ca-8246-45d1-89c7-09774a51113a" name="Default Changelist" comment="" />
-      <created>1557411803378</created>
+      <changelist id="8e023824-4d1f-4d79-8d04-0807052cd039" name="Default Changelist" comment="" />
+      <created>1557423380611</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1557411803378</updated>
+      <updated>1557423380611</updated>
     </task>
     <servers />
   </component>
@@ -134,13 +121,17 @@
     <frame x="0" y="25" width="1366" height="706" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -148,29 +139,21 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="e#63#64#0" expanded="true" />
-            <element signature="e#111#112#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
