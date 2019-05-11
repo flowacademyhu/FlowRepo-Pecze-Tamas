@@ -1,6 +1,9 @@
 package hu.flowacademy.shoppinglist.domain;
 
+import org.aspectj.weaver.ast.Var;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "shopping_list_item")
@@ -22,6 +25,8 @@ public class ShoppingListItem {
     @OneToOne
     @JoinColumn(name="user_id", foreignKey = @ForeignKey(name = "fk_shoppinglistitem_userid"))
     private User user;
+    @OneToMany(mappedBy = "ReplacedItem")
+    private List<Variant> variantItems;
 
     public ShoppingListItem(User user) {
         this.user = user;

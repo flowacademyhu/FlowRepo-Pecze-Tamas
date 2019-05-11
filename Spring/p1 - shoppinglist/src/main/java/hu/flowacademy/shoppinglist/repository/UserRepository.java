@@ -61,8 +61,8 @@ public class UserRepository {
         return foundUser;
 
     }
-    public Long count(Long usr) {
+   /* public Long count(Long usr) {
         User foundUser = user_list.get(usr);
-        return foundUser
-    }
+        return foundUser;
+    }*/
 }

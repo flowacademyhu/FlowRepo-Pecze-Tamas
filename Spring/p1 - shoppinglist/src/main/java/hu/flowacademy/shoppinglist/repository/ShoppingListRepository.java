@@ -3,14 +3,16 @@ package hu.flowacademy.shoppinglist.repository;
 import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
 import hu.flowacademy.shoppinglist.exception.ListItemNotFoundExeption;
 import hu.flowacademy.shoppinglist.util.Utils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@org.springframework.stereotype.Repository
+@Repository
 public class ShoppingListRepository {
 
     public Map<String, ShoppingListItem> sl = new HashMap<>(); //sl stands for ShoppingList

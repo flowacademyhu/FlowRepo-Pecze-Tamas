@@ -37,9 +37,11 @@ public class UserRestController {
         @GetMapping("/find/{usr}")
         public ResponseEntity<User> findusr(@PathVariable String usr) {
             return ResponseEntity.ok(userRestController.find(usr));
+
         }
-        @GetMapping("/countall")
+        /*@GetMapping("/countall")
         public ResponseEntity<List<User>> count(@PathVariable String usr) {
             return ResponseEntity.ok(userRestController.count(usr));
-    }
+            }*/
+
 }
