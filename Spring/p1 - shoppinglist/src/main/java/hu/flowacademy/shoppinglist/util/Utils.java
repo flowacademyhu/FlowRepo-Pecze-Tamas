@@ -1,14 +1,14 @@
 package hu.flowacademy.shoppinglist.util;
 
-import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
+import hu.flowacademy.shoppinglist.domain.ShoppingItem;
 import hu.flowacademy.shoppinglist.domain.User;
 
 import java.util.Map;
 
 public class Utils {
-    public static void logSL(Map<String, ShoppingListItem> sl) {
+    public static void logSL(Map<String, ShoppingItem> sl) {
         System.out.println("**********************************************************");
-        for (ShoppingListItem sli : sl.values()) {
+        for (ShoppingItem sli : sl.values()) {
             System.out.println(sli.toString());
         }
         System.out.println("**********************************************************");

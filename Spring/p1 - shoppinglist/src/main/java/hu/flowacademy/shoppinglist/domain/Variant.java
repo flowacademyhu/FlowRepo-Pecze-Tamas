@@ -3,64 +3,71 @@ package hu.flowacademy.shoppinglist.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="variant_table")
+@Table(name="variant")
 public class Variant {
-    @Id
-    @Column(name="id")
-    @SequenceGenerator(name="VariantIdGenerator", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(generator="VariantIdGenerator", strategy = GenerationType.SEQUENCE)
-    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "replaced_item", foreignKey = @ForeignKey(name = "fk_replaced_item"))
-    private ShoppingListItem ReplacedItem;
+    @SequenceGenerator(name="generator",initialValue = 1,allocationSize = 1)
+    @GeneratedValue(generator = "subtaskItemSeqGenerator", strategy = GenerationType.SEQUENCE)
+    @Id
+    private long id;
 
     @Column
-    private Long price;
+    public String name;
 
-    public Long getId() {
+    @Column
+    private double price;
+
+    @ManyToOne()
+    @JoinColumn(name = "shopping_item_id", foreignKey = @ForeignKey(name = "fk_shoppingitem_variant"))
+    private ShoppingItem shoppingItem;
+
+
+    public Variant(String name, double price, ShoppingItem shoppingItem) {
+        this.name = name;
+        this.price = price;
+        this.shoppingItem = shoppingItem;
+    }
+
+    @Transient
+    private String shoppingItem_Id;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public ShoppingListItem getReplacedItem() {
-        return ReplacedItem;
+    public String getName() {
+        return name;
     }
 
-    public void setReplacedItem(ShoppingListItem replacedItem) {
-        ReplacedItem = replacedItem;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Variant{" +
-                "id=" + id +
-                ", ReplacedItem=" + ReplacedItem +
-                ", price=" + price +
-                '}';
+    public ShoppingItem getShoppingItem() {
+        return shoppingItem;
     }
 
-    public Variant() {
+    public void setShoppingItem(ShoppingItem shoppingItem) {
+        this.shoppingItem = shoppingItem;
     }
 
-    public Variant(Long id) {
-        this.id = id;
+    public String getShoppingItem_Id() {
+        return shoppingItem_Id;
     }
 
-    public Variant(Long id, ShoppingListItem replacedItem, Long price) {
-        this.id = id;
-        ReplacedItem = replacedItem;
-        this.price = price;
+    public void setShoppingItem_Id(String shoppingItem_Id) {
+        this.shoppingItem_Id = shoppingItem_Id;
     }
 }

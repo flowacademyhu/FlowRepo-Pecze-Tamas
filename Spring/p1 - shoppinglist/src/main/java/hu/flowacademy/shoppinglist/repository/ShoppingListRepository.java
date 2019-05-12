@@ -1,60 +1,22 @@
 package hu.flowacademy.shoppinglist.repository;
 
-import hu.flowacademy.shoppinglist.domain.ShoppingListItem;
-import hu.flowacademy.shoppinglist.exception.ListItemNotFoundExeption;
-import hu.flowacademy.shoppinglist.util.Utils;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import hu.flowacademy.shoppinglist.domain.ShoppingItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-@Repository
-public class ShoppingListRepository {
+public interface ShoppingListRepository extends JpaRepository<ShoppingItem, String> {
 
-    public Map<String, ShoppingListItem> sl = new HashMap<>(); //sl stands for ShoppingList
+    public void deleteById(String id);
 
+    @Query("SELECT SUM(shoppingItem.price) FROM ShoppingItem shoppingItem")
+    public int sumprice();
 
-    public ShoppingListItem addsl(@RequestBody ShoppingListItem sli) {
-        sl.put(sli.getId(), sli);
-        Utils.logSL(sl);
-        return sli;
-    }
-    public List<ShoppingListItem> addslList(@RequestBody List<ShoppingListItem> sli) {
-        for(var i: sli) {
-            sl.put(i.getId(), i);
-        }
-        Utils.logSL(sl);
-        return sli;
-    }
-    public ShoppingListItem updatesl(@RequestBody ShoppingListItem sli) {
-        ShoppingListItem foundSLI = sl.get(sli.getId());
-        if (foundSLI != null) {
-            sl.remove(sli.getId());
-            sl.put(sli.getId(), sli);
-            Utils.logSL(sl);
-        }
-        Utils.logSL(sl);
-        return sli;
-    }
+    @Query("SELECT COUNT(shoppingItem) FROM ShoppingItem shoppingItem WHERE shoppingItem.user.userName = ?1")
+    public long getCount(String username);
 
-    public String deletesl(@PathVariable String id) {
-        if(sl.get(id) != null) {
-            sl.remove(id);
-            Utils.logSL(sl);
-            return "Delete was successful. Id:" + id + " doesn't exist anymore.";
-        } else {
-            throw new ListItemNotFoundExeption(id);
-        }
+    public List<ShoppingItem> findByUser_userName(String login);
 
-    }
-
-    public List<ShoppingListItem> listAll() {
-        Utils.logSL(sl);
-        List<ShoppingListItem> stuff = new ArrayList<>(sl.values());
-        return stuff;
-    }
+    public List<ShoppingItem> findByUser_userNameStartingWithOrderByName(String login);
 }
