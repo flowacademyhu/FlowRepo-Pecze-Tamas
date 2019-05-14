@@ -1,8 +1,14 @@
 package Buildings;
 
+import javax.swing.*;
+
 public class Building {
-    private int hitPoints;
-    private int price;
+    protected int hitPoints;
+    protected int price;
+    protected int locationX;
+    protected int locationY;
+    protected ImageIcon img;
+
 
     public Building() {
     }
@@ -21,5 +27,29 @@ public class Building {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getLocationX() {
+        return locationX;
+    }
+
+    public void setLocationX(int locationX) {
+        this.locationX = locationX;
+    }
+
+    public int getLocationY() {
+        return locationY;
+    }
+
+    public void setLocationY(int locationY) {
+        this.locationY = locationY;
+    }
+
+    public ImageIcon getImg() {
+        return img;
+    }
+
+    public void setImg(ImageIcon img) {
+        this.img = img;
     }
 }

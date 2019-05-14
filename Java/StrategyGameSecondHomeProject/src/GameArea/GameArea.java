@@ -15,32 +15,23 @@ public class GameArea extends JFrame {
         JLabel BluePlayerLife = new JLabel("Blue players life: 200");
         JPanel playerStatus = new JPanel();
         JPanel map = new JPanel(new GridLayout(10,10));
-        this.add(showGUI(map), BorderLayout.CENTER);
         playerStatus.add(RedPlayerLife);
         playerStatus.add(BluePlayerLife);
         this.add(playerStatus, BorderLayout.SOUTH);
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        JLabel[][] labels  = new JLabel[10][10];
 
-    }
-    private JLabel[] createLabels() {
-        JLabel[] labels  = new JLabel[100];
-        for(int i=0; i<100; i++) {
-            labels[i] = new JLabel("field: " + (i+1));
+        for(int i=0; i<10; i++) {
+            for (int j=0; j<10; j++) {
+                labels[i][j] = new JLabel();
+                map.add(labels[i][j]);
+            }
         }
-        return labels;
+        Headquarter headquarter = new Headquarter(0,0);
+        labels[headquarter.getLocationX()][headquarter.getLocationY()].setIcon(headquarter.getImg());
+        this.add(map);
     }
-    private JPanel showGUI(JPanel map) {
-        JLabel[] labels = createLabels();
-        labels[0].setText(addHeadquarter());
-        labels[99].setText(addHeadquarter());
-        for(int i=0; i < labels.length; i++) {
-            map.add(labels[i]);
-        }
-        return map;
-    }
-    public String addHeadquarter() {
-        Headquarter h1 = new Headquarter();
-        return "Headquarter";
-    }
+
+    Headquarter headquarter1 = new Headquarter(1,1);
 }
