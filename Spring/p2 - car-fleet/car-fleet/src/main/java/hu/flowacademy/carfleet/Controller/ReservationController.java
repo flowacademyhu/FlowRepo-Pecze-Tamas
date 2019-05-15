@@ -17,5 +17,8 @@ public class ReservationController {
     public ResponseEntity<List<Reservation>> listReservations() {
         return ResponseEntity.ok(reservationService.listAllReservation());
     }
-    
+    @PostMapping("/add")
+    public ResponseEntity<Reservation> addReservation(@RequestBody Reservation r) {
+        return ResponseEntity.ok(reservationService.saveReservation(r));
+    }
 }
