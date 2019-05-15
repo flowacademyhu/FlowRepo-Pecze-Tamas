@@ -79,4 +79,7 @@ public class Car {
         this.timeOfExpire = timeOfExpire;
     }
 
+    public Car() {
+    }
+
 }

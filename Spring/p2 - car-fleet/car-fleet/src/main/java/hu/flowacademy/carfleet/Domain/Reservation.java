@@ -16,13 +16,45 @@ public class Reservation {
     private LocalDate endOfReservation;
     @Column
     private String JourneyDesc;
-    @Column
-    private String driver;
     @ManyToOne
-    @JoinColumn(name = "car_Id")
+    @JoinColumn(name = "car_Id", foreignKey = @ForeignKey(name = "fk_car_reservation") )
     private Car car;
     @ManyToOne
-    @JoinColumn(name = "driver_reservation")
-    private Driver reservation;
+    @JoinColumn(name = "driver_id", foreignKey = @ForeignKey(name = "fk_driver_reservation"))
+    private Driver driver;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDateTime returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public LocalDate getEndOfReservation() {
+        return endOfReservation;
+    }
+
+    public void setEndOfReservation(LocalDate endOfReservation) {
+        this.endOfReservation = endOfReservation;
+    }
+
+    public String getJourneyDesc() {
+        return JourneyDesc;
+    }
+
+    public void setJourneyDesc(String journeyDesc) {
+        JourneyDesc = journeyDesc;
+    }
+
+    public Reservation() {
+    }
 }
