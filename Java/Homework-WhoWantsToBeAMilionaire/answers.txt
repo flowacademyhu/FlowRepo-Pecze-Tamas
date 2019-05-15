@@ -1,16 +1,16 @@
-﻿Budapest
-Bécs
-Berlin
-Prága
-New York
-Lisabon
-London
-Belgrád
+﻿Bécs
 Budapest
-Bécs
 Berlin
 Prága
 New York
 Lisabon
+Berlin
+Belgrád
+Pozsony
+Bécs
+Berlin
+Prága
+New York
+Bukarest
 London
 Belgrád

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,33 +18,34 @@ public class Main {
         int counter = 0;
         int Acounter = 0;
         String useranswer;
+        Integer[] money = new Integer[] {0, 1000,5000,20000,1000000};
         try (BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(new FileInputStream("/home/poczok/Work/Java/Homework-WhoWantsToBeAMilionaire/questions.txt")))) {
-            String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
-                listQuestion.add(line);
-
-            }
+            bufferedReader.lines().forEach(
+                    a -> {
+                        listQuestion.add(a);
+                    }
+            );
         } catch (IOException e) {
             System.err.printf("File not found");
         }
         try (BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(new FileInputStream("/home/poczok/Work/Java/Homework-WhoWantsToBeAMilionaire/answers.txt")))) {
-            String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
-                listAnswers.add(line);
-
-            }
+            bufferedReader.lines().forEach(
+                    a -> {
+                        listAnswers.add(a);
+                    }
+            );
         } catch (IOException e) {
             System.err.printf("File not found");
         }
         try (BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(new FileInputStream("/home/poczok/Work/Java/Homework-WhoWantsToBeAMilionaire/correctAnswer.txt")))) {
-            String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
-                listCorrectA.add(line);
-
-            }
+            bufferedReader.lines().forEach(
+                    a -> {
+                        listCorrectA.add(a);
+                    }
+            );
         } catch (IOException e) {
             System.err.printf("File not found");
         }
@@ -55,7 +57,7 @@ public class Main {
             System.out.println(listQuestion.get(counter));
             counter++;
             for (int i = 0; i < 4; i++) {
-                System.out.print(i + 1 + " " + listAnswers.get(Acounter) + " ");
+                System.out.println(i + 1 + " " + listAnswers.get(Acounter) + " ");
                 Acounter++;
             }
             useranswer = sc.nextLine();
@@ -82,25 +84,34 @@ public class Main {
                     System.out.println("Nincs kozonseg segitseged");
                 }
             } else if (useranswer.equals("felezes")) {
-                if (h.viewers == true) {
-                    counter--;
-                    Acounter = Acounter - 4;
+                if (h.fiftyfifty == true) {
+                    Acounter -= 4;
                     h.fiftyfifty = false;
-                } else if (h.viewers == false) {
+                    int c = 2;
+                    for (int i = 0; i < c; i++) {
+                        int random = ThreadLocalRandom.current().nextInt(4);
+                        if(listCorrectA.get(counter-1).equals(listAnswers.get(Acounter+random)) || listAnswers.get(Acounter+random).equals("---")) {
+                             c++;
+                        } else {
+                            listAnswers.set(Acounter+random,"---");
+                        }
+                    }
+                    System.out.println(listAnswers);
+                    counter--;
+
+                } else if (h.fiftyfifty == false) {
                     counter--;
                     Acounter = Acounter - 4;
+                    System.out.println("Nincs felezes segitsege.");
                 }
-            } else if (Integer.parseInt(useranswer) == Integer.parseInt(listCorrectA.get(counter - 1))) {
-                System.out.println("fasza");
+            } else if (useranswer.equals(listCorrectA.get(counter - 1))) {
+                System.out.println("Helyes valasz");
             } else {
                 alive = false;
                 System.out.println("helytelen valasz, vesztettel");
             }
-            List<String> fiftyList = new ArrayList();
-            for (int i = 0; i < 4; i++) {
-                fiftyList.add(listAnswers.get(Acounter));
-                System.out.println(fiftyList);
-            }
+            System.out.println("Az On nyeremenye: " + money[counter]);
         }
+        System.out.println("Koszonjuk, hogy velunk jatszott!");
     }
 }
