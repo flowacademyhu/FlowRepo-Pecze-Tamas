@@ -1,10 +1,8 @@
-package hu.flowacademy.carfleet;
+package hu.flowacademy.carfleet.Domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="Reservation")
@@ -21,10 +19,10 @@ public class Reservation {
     @Column
     private String driver;
     @ManyToOne
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "car_Id")
     private Car car;
-    //@ManyToOne
-    //@JoinColumn(name = "reservation_driver")
-    //private Driver reservation;
+    @ManyToOne
+    @JoinColumn(name = "driver_reservation")
+    private Driver reservation;
 
 }

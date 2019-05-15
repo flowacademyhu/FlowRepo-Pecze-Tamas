@@ -1,4 +1,4 @@
-package hu.flowacademy.carfleet;
+package hu.flowacademy.carfleet.Domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +22,14 @@ public class Car {
     private int yearsOfManufacturing;
     @Column
     private LocalDate timeOfExpire;
+
+    public Car(String registrationNumber, String manufacturer, String type, int yearsOfManufacturing, LocalDate timeOfExpire) {
+        this.registrationNumber = registrationNumber;
+        this.manufacturer = manufacturer;
+        this.type = type;
+        this.yearsOfManufacturing = yearsOfManufacturing;
+        this.timeOfExpire = timeOfExpire;
+    }
 
     public String getRegistrationNumber() {
         return registrationNumber;
@@ -70,6 +78,5 @@ public class Car {
     public void setTimeOfExpire(LocalDate timeOfExpire) {
         this.timeOfExpire = timeOfExpire;
     }
-
 
 }

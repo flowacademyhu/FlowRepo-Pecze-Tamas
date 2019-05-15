@@ -1,4 +1,4 @@
-package hu.flowacademy.carfleet;
+package hu.flowacademy.carfleet.Domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -21,7 +21,7 @@ public class Driver {
     @ManyToOne
     @JoinColumn(name = "car_driver_id")
     private Car car;
-    //@OneToMany
-    //private List<Reservation> reservationsList;
+    @OneToMany(mappedBy = "driver")
+    private List<Reservation> reservationsList;
 
 }

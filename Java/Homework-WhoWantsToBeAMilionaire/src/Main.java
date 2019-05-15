@@ -1,5 +1,3 @@
-import quest.Quest;
-import quest.QuestLoader;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -53,44 +51,55 @@ public class Main {
         System.out.println(listAnswers);
         System.out.println(listCorrectA);
         Scanner sc = new Scanner(System.in);
-        while(alive == true && counter < 4) {
+        while (alive == true && counter < 4) {
             System.out.println(listQuestion.get(counter));
             counter++;
             for (int i = 0; i < 4; i++) {
-                System.out.print( i+1 + " " + listAnswers.get(Acounter) + " ");
+                System.out.print(i + 1 + " " + listAnswers.get(Acounter) + " ");
                 Acounter++;
             }
             useranswer = sc.nextLine();
-            if (useranswer.equals("telefon")){
-                if(h.telephone == true) {
-                    System.out.println("A helyes valasz valszeg a: " + listCorrectA.get(counter-1));
+            if (useranswer.equals("telefon")) {
+                if (h.telephone == true) {
+                    System.out.println("A helyes valasz valszeg a: " + listCorrectA.get(counter - 1));
                     counter--;
-                    Acounter = Acounter-4;
+                    Acounter = Acounter - 4;
                     h.telephone = false;
-                } else if(h.telephone == false) {
+                } else if (h.telephone == false) {
                     counter--;
-                    Acounter = Acounter-4;
+                    Acounter = Acounter - 4;
                     System.out.println("Nincs telefonos segitseged");
                 }
-            }
-            if (useranswer.equals("kozonseg")){
-                if(h.viewers == true) {
-                    System.out.println("A helyes valasz a kozonseg szerint: " + listCorrectA.get(counter-1));
+            } else if (useranswer.equals("kozonseg")) {
+                if (h.viewers == true) {
+                    System.out.println("A helyes valasz a kozonseg szerint: " + listCorrectA.get(counter - 1));
                     counter--;
-                    Acounter = Acounter-4;
+                    Acounter = Acounter - 4;
                     h.viewers = false;
-                } else if(h.viewers == false) {
+                } else if (h.viewers == false) {
                     counter--;
-                    Acounter = Acounter-4;
+                    Acounter = Acounter - 4;
                     System.out.println("Nincs kozonseg segitseged");
                 }
-            }
-            else if(Integer.parseInt(useranswer) == Integer.parseInt(listCorrectA.get(counter-1))) {
+            } else if (useranswer.equals("felezes")) {
+                if (h.viewers == true) {
+                    counter--;
+                    Acounter = Acounter - 4;
+                    h.fiftyfifty = false;
+                } else if (h.viewers == false) {
+                    counter--;
+                    Acounter = Acounter - 4;
+                }
+            } else if (Integer.parseInt(useranswer) == Integer.parseInt(listCorrectA.get(counter - 1))) {
                 System.out.println("fasza");
-            }
-            else {
+            } else {
                 alive = false;
                 System.out.println("helytelen valasz, vesztettel");
+            }
+            List<String> fiftyList = new ArrayList();
+            for (int i = 0; i < 4; i++) {
+                fiftyList.add(listAnswers.get(Acounter));
+                System.out.println(fiftyList);
             }
         }
     }
