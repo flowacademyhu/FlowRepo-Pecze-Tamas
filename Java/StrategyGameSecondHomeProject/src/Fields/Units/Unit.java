@@ -1,4 +1,4 @@
-package Units;
+package Fields.Units;
 
 public class Unit {
     private int health;

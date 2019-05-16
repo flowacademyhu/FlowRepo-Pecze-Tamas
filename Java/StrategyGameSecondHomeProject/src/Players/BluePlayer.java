@@ -1,5 +1,9 @@
 package Players;
 
-public class BluePlayer {
-    int GP = 1000;
+public class BluePlayer extends Player {
+
+    public BluePlayer(String name, String color) {
+        super(name);
+        color = "BLUE";
+    }
 }

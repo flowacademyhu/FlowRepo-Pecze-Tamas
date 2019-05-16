@@ -1,14 +1,13 @@
-package Buildings;
+package Fields.Buildings;
 
 import javax.swing.*;
-
 public class Building {
     protected int hitPoints;
     protected int price;
     protected int locationX;
     protected int locationY;
     protected ImageIcon img;
-
+    protected String color;
 
     public Building() {
     }
@@ -45,11 +44,17 @@ public class Building {
         this.locationY = locationY;
     }
 
-    public ImageIcon getImg() {
-        return img;
-    }
+    public ImageIcon getImg() { return img; }
 
     public void setImg(ImageIcon img) {
         this.img = img;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
