@@ -4,9 +4,7 @@ import hu.flowacademy.carfleet.Domain.Car;
 import hu.flowacademy.carfleet.Service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +14,15 @@ public class CarController {
     @Autowired
     private CarService carService;
     @GetMapping()
-    public ResponseEntity<List<Car>> listDrivers() {
+    public ResponseEntity<List<Car>> listCars() {
         return ResponseEntity.ok(carService.listCars());
+    }
+    @PostMapping()
+    public ResponseEntity<Car> addCars(@RequestBody Car car) {
+        return ResponseEntity.ok(carService.addCars(car));
+    }
+    @GetMapping("/{CarRegId}")
+    public ResponseEntity<List<Car>> findCarByRegId(@PathVariable String CarRegId) {
+        return ResponseEntity.ok(carService.getCarByReg(CarRegId));
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -16,5 +17,12 @@ public class CarService {
 
     public List<Car> listCars() {
         return carRepository.findAll();
+    }
+
+    public Car addCars(Car car) {
+        return carRepository.save(car);
+    }
+    public List<Car> getCarByReg(String registrationNumber) {
+        return carRepository.findCarByregistrationNumber(registrationNumber);
     }
 }

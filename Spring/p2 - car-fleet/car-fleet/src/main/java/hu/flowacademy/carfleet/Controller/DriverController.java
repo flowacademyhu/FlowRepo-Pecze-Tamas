@@ -4,9 +4,7 @@ import hu.flowacademy.carfleet.Domain.Driver;
 import hu.flowacademy.carfleet.Service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +16,10 @@ public class DriverController {
     @GetMapping()
     public ResponseEntity<List<Driver>> listDriver() {
         return ResponseEntity.ok(driverService.listDrivers());
+    }
+    @GetMapping("/{data}")
+    public ResponseEntity<Driver> getOneDriver(@PathVariable String data) {
+        return ResponseEntity.ok(driverService.getOneDriver(data));
     }
 
 

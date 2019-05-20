@@ -1,5 +1,6 @@
 package hu.flowacademy.carfleet.Service;
 import hu.flowacademy.carfleet.Domain.Driver;
+import hu.flowacademy.carfleet.Exception.DriverNotFoundException;
 import hu.flowacademy.carfleet.Repositories.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -32,6 +33,6 @@ public class DriverService {
         if(driverRepository.findById(id).isPresent()) {
             return driverRepository.findById(id).get();
         }
-        throw new Error();
+        throw new DriverNotFoundException(id);
     }
 }
