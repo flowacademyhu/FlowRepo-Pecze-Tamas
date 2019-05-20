@@ -1,6 +1,8 @@
 package Fields.Units;
 
-public class Unit {
+import Fields.Fields;
+
+public class Unit extends Fields {
     private int health;
     private int price;
     private int moveDistance;

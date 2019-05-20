@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b3cb979-2d3c-4913-80ac-a97f01595987" name="Default Changelist" comment="" />
+    <list default="true" id="817bc7ab-07be-4e49-8ab0-0beee8a97c07" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +17,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="120">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="e#63#64#0" expanded="true" />
-                <element signature="e#119#120#0" expanded="true" />
+                <element signature="e#125#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,24 +54,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="RemoveRegexFromLeftToRight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RemoveRegexFromLeftToRight" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RemoveRegexFromLeftToRight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RemoveRegexFromLeftToRight" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="HowGoodAreYouReallyAvgArray" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HowGoodAreYouReallyAvgArray" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -92,7 +87,7 @@
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="RemoveRegexFromLeftToRight" />
+      <module name="HowGoodAreYouReallyAvgArray" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,19 +98,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4b3cb979-2d3c-4913-80ac-a97f01595987" name="Default Changelist" comment="" />
-      <created>1558071138879</created>
+      <changelist id="817bc7ab-07be-4e49-8ab0-0beee8a97c07" name="Default Changelist" comment="" />
+      <created>1558334605746</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1558071138879</updated>
+      <updated>1558334605746</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="706" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -144,20 +138,13 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/zulu-11-amd64/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="2079" column="18" selection-start-line="2079" selection-start-column="18" selection-end-line="2079" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
             <element signature="e#63#64#0" expanded="true" />
-            <element signature="e#119#120#0" expanded="true" />
+            <element signature="e#125#126#0" expanded="true" />
           </folding>
         </state>
       </provider>

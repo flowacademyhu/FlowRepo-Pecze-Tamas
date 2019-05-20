@@ -8,5 +8,6 @@ public class Main {
             s = s.replaceFirst("!","");
         }
         return s;
+
     }
 }

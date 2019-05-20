@@ -1,7 +1,9 @@
 package Fields.Buildings;
 
+import Fields.Fields;
+
 import javax.swing.*;
-public class Building {
+public class Building extends Fields {
     protected int hitPoints;
     protected int price;
     protected int locationX;
