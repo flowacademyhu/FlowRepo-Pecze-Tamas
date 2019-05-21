@@ -1,6 +1,7 @@
 package Fields.Units;
 
 import Fields.Fields;
+import Players.Player;
 
 import javax.swing.*;
 
@@ -10,7 +11,7 @@ public class Unit extends Fields {
     protected int moveDistance;
     protected int locationX;
     protected int locationY;
-    protected String color;
+    protected Player player;
     protected ImageIcon img;
     protected int dmg;
 
@@ -54,11 +55,11 @@ public class Unit extends Fields {
         this.locationY = locationY;
     }
 
-    public String getColor() {
-        return color;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

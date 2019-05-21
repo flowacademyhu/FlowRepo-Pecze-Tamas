@@ -2,7 +2,8 @@ package Players;
 
 public class RedPlayer extends Player {
     public RedPlayer(String name, String color) {
-        super(name);
-        color = "RED";
+        this.name = name;
+        this.color = color;
+        this.GP = 1000;
     }
 }

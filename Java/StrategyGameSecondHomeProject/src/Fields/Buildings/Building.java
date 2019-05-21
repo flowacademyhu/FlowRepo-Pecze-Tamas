@@ -1,15 +1,17 @@
 package Fields.Buildings;
 
 import Fields.Fields;
+import Players.Player;
 
 import javax.swing.*;
+
 public class Building extends Fields {
     protected int hitPoints;
     protected int price;
     protected int locationX;
     protected int locationY;
     protected ImageIcon img;
-    protected String color;
+    protected Player player;
 
     public int getHitPoints() {
         return hitPoints;
@@ -49,11 +51,11 @@ public class Building extends Fields {
         this.img = img;
     }
 
-    public String getColor() {
-        return color;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
