@@ -11,9 +11,6 @@ public class Building extends Fields {
     protected ImageIcon img;
     protected String color;
 
-    public Building() {
-    }
-
     public int getHitPoints() {
         return hitPoints;
     }

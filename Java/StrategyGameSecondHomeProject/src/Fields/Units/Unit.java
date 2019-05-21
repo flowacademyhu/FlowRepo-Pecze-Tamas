@@ -2,16 +2,17 @@ package Fields.Units;
 
 import Fields.Fields;
 
-public class Unit extends Fields {
-    private int health;
-    private int price;
-    private int moveDistance;
+import javax.swing.*;
 
-    public Unit(int health, int price, int moveDistance) {
-        this.health = health;
-        this.price = price;
-        this.moveDistance = moveDistance;
-    }
+public class Unit extends Fields {
+    protected int health;
+    protected int price;
+    protected int moveDistance;
+    protected int locationX;
+    protected int locationY;
+    protected String color;
+    protected ImageIcon img;
+    protected int dmg;
 
     public int getHealth() {
         return health;
@@ -35,5 +36,29 @@ public class Unit extends Fields {
 
     public void setMoveDistance(int moveDistance) {
         this.moveDistance = moveDistance;
+    }
+
+    public int getLocationX() {
+        return locationX;
+    }
+
+    public void setLocationX(int locationX) {
+        this.locationX = locationX;
+    }
+
+    public int getLocationY() {
+        return locationY;
+    }
+
+    public void setLocationY(int locationY) {
+        this.locationY = locationY;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

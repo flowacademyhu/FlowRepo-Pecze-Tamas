@@ -14,5 +14,4 @@ public class Headquarter extends Building {
             this.img = new ImageIcon("img/hqred.png");
         }
     }
-
 }
