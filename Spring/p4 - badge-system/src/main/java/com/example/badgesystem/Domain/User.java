@@ -23,6 +23,13 @@ public class User {
     @Column
     private String role;
 
+    public User(String username, String fullname, String password, String role) {
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+        this.role = role;
+    }
+
     public String getUsername() {
         return username;
     }
