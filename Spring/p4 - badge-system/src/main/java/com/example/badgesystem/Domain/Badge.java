@@ -22,6 +22,12 @@ public class Badge {
     @Column
     private String owner;
 
+    public Badge(String name, String content, String owner) {
+        this.name = name;
+        this.content = content;
+        this.owner = owner;
+    }
+
     public int getId() {
         return id;
     }

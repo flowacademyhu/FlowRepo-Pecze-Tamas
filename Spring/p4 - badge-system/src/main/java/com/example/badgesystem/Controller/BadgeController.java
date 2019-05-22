@@ -25,4 +25,8 @@ public class BadgeController {
     public ResponseEntity<List<Badge>> getAllBadges() {
         return ResponseEntity.ok(badgeService.getAll());
     }
+    @GetMapping("/{BadgeName}")
+    public ResponseEntity<Badge> fineBadgeByName(@PathVariable String BadgeName) {
+        return ResponseEntity.ok(badgeService.getBadgeByName(BadgeName));
+    }
 }
