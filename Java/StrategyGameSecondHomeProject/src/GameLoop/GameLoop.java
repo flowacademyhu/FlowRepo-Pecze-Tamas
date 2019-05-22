@@ -69,11 +69,12 @@ public class GameLoop {
         makeSolider(3,4,rp);
         makeSolider(3,5,bp);
         int randomStart = ThreadLocalRandom.current().nextInt(2);
-        if(randomStart == 0) {
-            System.out.println("Red player starts!");
+        System.out.println("RANDOM: " + randomStart);
+        if(randomStart == 1) {
+            System.out.println(rp.getName() + " starts!");
             whosturn = rp.getName();
         } else {
-            System.out.println("Blue player starts");
+            System.out.println(bp.getName() + " starts");
             whosturn = bp.getName();
         }
     }
@@ -85,12 +86,7 @@ public class GameLoop {
        while(RedBuildings > 0 && BlueBuildings > 0) {
            endturn = false;
            while(!endturn){
-               if(whosturn.equals(rp.getName())) {
-                   System.out.println("Blue players turn!");
-                   actionSelect(bp.getName());
-               } else {
-                   System.out.println("Red players turn!");
-                   actionSelect(rp.getName());
+                   actionSelect(whosturn);
                }
            }
            System.out.println("next player");
@@ -98,7 +94,7 @@ public class GameLoop {
                System.out.println("Round: " + roundCounter);
                switch (sc.nextLine()) {
                    case "u1 attack b1":
-                       AttackBuilding((Building)arr[1][1],(Unit)arr[3][5]);
+                       AttackBuilding(whosturn,(Unit)arr[3][5], (Building)arr[1][1]);
                        break;
                }
                roundCounter++;
@@ -107,7 +103,7 @@ public class GameLoop {
         /*AttackUnit((Unit)arr[3][4], (Unit)arr[3][5]);
            AttackUnit((Unit)arr[3][4], (Unit)arr[3][5]);
            AttackUnit((Unit)arr[3][4], (Unit)arr[3][5]);*/
-       }
+
        GameEnd();
     }
 
@@ -129,21 +125,23 @@ public class GameLoop {
         }
     }
 
-    private void actionSelect(String player) {
-        if(player.equals(rp.getName())){
-            System.out.println("What you want to do?");
-            System.out.println("1 Get map information: 1MAP");
-            System.out.println("2 Attack building: 2XY");
-            System.out.println("3 Attack unit: 3XYXY");
-            System.out.println("4 Give up: 4EXIT");
-            Scanner sc = new Scanner(System.in);
+    private void actionSelect(String whosturn) {
+        System.out.println("What you want to do?");
+        System.out.println("1 Get map information: 1MAP");
+        System.out.println("2 Attack building: 2XY");
+        System.out.println("3 Attack unit: 3XYXY");
+        System.out.println("4 Give up: 4EXIT");
+        Scanner sc = new Scanner(System.in);
             String input = sc.nextLine();
             switch (input) {
-                case "1MAP":
+                case "1":
                     getMap();
+                case "2":
+                    System.out.println("YourUnit XY and Enemy Building XY (format:'XYXY') REQUIRED!x");
+                    String order = sc.nextLine();
+                    AttackBuilding(whosturn,(Unit)arr[Integer.parseInt(order.substring(0,1))][Integer.parseInt(order.substring(1,2))],
+                            (Building)arr[Integer.parseInt(order.substring(2,3))][Integer.parseInt(order.substring(3,4))]);
             }
-        }
-
     }
 
     private void getMap() {
@@ -215,19 +213,21 @@ public class GameLoop {
             return true;
         }
     }
-    private void AttackBuilding(Building b, Unit u) {
+    private void AttackBuilding(String whosturn, Unit u, Building b) {
         System.out.println("Attacking Building " + b.getLocationY() + " " + b.getLocationX() + " With unit"
                 + u.getLocationX() + " " + u.getLocationX() + " Building HP: " + b.getHitPoints());
-        if(u.getPrice() == 60) {
-            b.setHitPoints(b.getHitPoints()-45);
-        } else {
-            b.setHitPoints(b.getHitPoints()-20);
+        if(!b.getPlayer().getName().equals(whosturn)) {
+            if (u.getPrice() == 60) {
+                b.setHitPoints(b.getHitPoints() - 45);
+            } else {
+                b.setHitPoints(b.getHitPoints() - 20);
+            }
+            if (b.getHitPoints() <= 0) {
+                arr[b.getLocationX()][b.getLocationY()].setUsed(false);
+                arr[b.getLocationX()][b.getLocationY()] = null;
+            }
+            System.out.println("attack ended, building new hitpoints: " + b.getHitPoints());
         }
-        if(b.getHitPoints() <= 0) {
-            arr[b.getLocationX()][b.getLocationY()].setUsed(false);
-            arr[b.getLocationX()][b.getLocationY()] = null;
-        }
-        System.out.println("attack ended, building new hitpoints: " + b.getHitPoints());
     }
     private void AttackUnit(Unit u1, Unit u2) {
         if(u1 instanceof Sniper) {
