@@ -1,0 +1,17 @@
+<cats>
+    <cat id="0">
+        <name>Feri</name>
+        <color>Grey</color>
+        <age>2</age>
+    </cat>
+    <cat id="1">
+        <name>Józsi</name>
+        <color>Red</color>
+        <age>1</age>
+    </cat>
+    <cat id="2">
+        <name>Géza</name>
+        <color>Black</color>
+        <age>4</age>
+    </cat>
+</cats>
