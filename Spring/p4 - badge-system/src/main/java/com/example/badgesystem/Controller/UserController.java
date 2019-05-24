@@ -23,4 +23,8 @@ public class UserController {
     public ResponseEntity<List<User>> listAll() {
         return ResponseEntity.ok(userService.listAll());
     }
+   /* @PostMapping("/addBadgeToUserId/{userId}/{badgeId}")
+    public ResponseEntity<User> addBadgeToUserId(@PathVariable String userId, @PathVariable String badgeId) {
+        return ResponseEntity.ok(userService.getBadgeToUserId(userId, badgeId));
+    }*/
 }

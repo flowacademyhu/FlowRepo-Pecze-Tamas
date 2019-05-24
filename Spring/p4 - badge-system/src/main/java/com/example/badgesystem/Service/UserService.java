@@ -35,4 +35,8 @@ public class UserService {
     public List<User> listAll() {
         return userRepository.findAll();
     }
+    /*public User getBadgeToUserId(String UserId, String badgeId) {
+        userRepository.findById(UserId).
+        return userRepository.
+    }*/
 }

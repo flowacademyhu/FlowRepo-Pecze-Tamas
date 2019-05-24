@@ -33,7 +33,9 @@ public class BadgeService {
         return badgeRepository.findAll();
     }
     public Badge getBadgeByName(String badgename) {
+
         return badgeRepository.findByBadgeName(badgename);
     }
+
 
 }

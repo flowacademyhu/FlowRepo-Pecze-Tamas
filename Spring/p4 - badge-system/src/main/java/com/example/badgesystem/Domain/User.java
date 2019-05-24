@@ -1,6 +1,7 @@
 package com.example.badgesystem.Domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -11,6 +12,10 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
+
+    @ManyToMany(mappedBy = "user_badges")
+    Set<Badge> badges;
+
     @Column
     private String username;
 
@@ -25,7 +30,25 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "badge_id", foreignKey = @ForeignKey(name = "fk_badge_id"))
-    private User user;
+    private Badge badge;
+
+    public User(int id, Set<Badge> badges, String username, String fullname, String password, String role, Badge badge) {
+        this.id = id;
+        this.badges = badges;
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+        this.role = role;
+        this.badge = badge;
+    }
+
+    public Set<Badge> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(Set<Badge> badges) {
+        this.badges = badges;
+    }
 
     public User(String username, String fullname, String password, String role) {
         this.username = username;
@@ -34,12 +57,16 @@ public class User {
         this.role = role;
     }
 
-    public User getUser() {
-        return user;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public Badge getBadge() {
+        return badge;
+    }
+
+    public void setBadge(Badge badge) {
+        this.badge = badge;
     }
 
     public String getUsername() {

@@ -22,6 +22,7 @@ public class StartUpRunner implements CommandLineRunner {
 
         Badge b1 = new Badge("Best colleauge","The very best","User1");
         Badge b2 = new Badge("Best employee of the month","Hard worker...","User1");
+        Badge b3 = new Badge("Worst programmer ever","He/She was so bad...");
 
         User u1 = new User("Andorka1","Hajnal Java Andor","wqe","Java expert");
         User u2 = new User("Tamaska22","Viczian Spring Tamas","lovespring","Spring expert");

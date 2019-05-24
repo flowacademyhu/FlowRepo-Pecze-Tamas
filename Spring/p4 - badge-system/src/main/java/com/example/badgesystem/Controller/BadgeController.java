@@ -29,4 +29,5 @@ public class BadgeController {
     public ResponseEntity<Badge> fineBadgeByName(@PathVariable String BadgeName) {
         return ResponseEntity.ok(badgeService.getBadgeByName(BadgeName));
     }
+
 }
