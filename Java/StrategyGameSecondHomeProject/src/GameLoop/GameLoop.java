@@ -127,10 +127,10 @@ public class GameLoop {
 
     private void actionSelect(String whosturn) {
         System.out.println("What you want to do?");
-        System.out.println("1 Get map information: 1MAP");
-        System.out.println("2 Attack building: 2XY");
-        System.out.println("3 Attack unit: 3XYXY");
-        System.out.println("4 Give up: 4EXIT");
+        System.out.println("1 Get map information");
+        System.out.println("2 Attack building");
+        System.out.println("3 Attack unit");
+        System.out.println("4 Give up");
         Scanner sc = new Scanner(System.in);
             String input = sc.nextLine();
             switch (input) {
@@ -138,9 +138,14 @@ public class GameLoop {
                     getMap();
                 case "2":
                     System.out.println("YourUnit XY and Enemy Building XY (format:'XYXY') REQUIRED!x");
-                    String order = sc.nextLine();
-                    AttackBuilding(whosturn,(Unit)arr[Integer.parseInt(order.substring(0,1))][Integer.parseInt(order.substring(1,2))],
-                            (Building)arr[Integer.parseInt(order.substring(2,3))][Integer.parseInt(order.substring(3,4))]);
+                    input = sc.nextLine();
+                    AttackBuilding(whosturn,(Unit)arr[Integer.parseInt(input.substring(0,1))][Integer.parseInt(input.substring(1,2))],
+                            (Building)arr[Integer.parseInt(input.substring(2,3))][Integer.parseInt(input.substring(3,4))]);
+                case "3":
+                    System.out.println("YourUnit XY and Enemy Unit XY (format: 'XYXY' ");
+                    input = sc.nextLine();
+                    AttackUnit(whosturn,(Unit)arr[Integer.parseInt(input.substring(0,1))][Integer.parseInt(input.substring(1,2))],
+                            (Unit)arr[Integer.parseInt(input.substring(2,3))][Integer.parseInt(input.substring(3,4))]);
             }
     }
 
@@ -217,7 +222,7 @@ public class GameLoop {
         System.out.println("Attacking Building " + b.getLocationY() + " " + b.getLocationX() + " With unit"
                 + u.getLocationX() + " " + u.getLocationX() + " Building HP: " + b.getHitPoints());
         if(!b.getPlayer().getName().equals(whosturn)) {
-            if (u.getPrice() == 60) {
+            if (u instanceof Sniper) {
                 b.setHitPoints(b.getHitPoints() - 45);
             } else {
                 b.setHitPoints(b.getHitPoints() - 20);
@@ -227,19 +232,25 @@ public class GameLoop {
                 arr[b.getLocationX()][b.getLocationY()] = null;
             }
             System.out.println("attack ended, building new hitpoints: " + b.getHitPoints());
+        } else {
+            System.out.println("You are trying to attack your own unit: " + b.getLocationX() + ":"+ b.getLocationY());
         }
     }
-    private void AttackUnit(Unit u1, Unit u2) {
-        if(u1 instanceof Sniper) {
-            u2.setHealth(u2.getHealth()-45);
+    private void AttackUnit(String whosturn, Unit u1, Unit u2) {
+        if (!u2.getPlayer().getName().equals(whosturn)) {
+            if (u1 instanceof Sniper) {
+                u2.setHealth(u2.getHealth() - 45);
+            } else {
+                u2.setHealth(u2.getHealth() - 20);
+            }
+            if (u2.getHealth() <= 0) {
+                arr[u2.getLocationX()][u2.getLocationY()].setUsed(false);
+                arr[u2.getLocationX()][u2.getLocationY()] = null;
+                System.out.println("unit megmurdalt!");
+                System.out.println(arr[u2.getLocationX()][u2.getLocationY()].isUsed());
+            }
         } else {
-            u2.setHealth(u2.getHealth()-20);
-        }
-        if(u2.getHealth() <= 0) {
-            arr[u2.getLocationX()][u2.getLocationY()].setUsed(false);
-            arr[u2.getLocationX()][u2.getLocationY()] = null;
-            System.out.println("unit megmurdalt!");
-            System.out.println(arr[u2.getLocationX()][u2.getLocationY()].isUsed());
+            System.out.println("You can't attack your own unit:" + u2.getLocationX() + ":"+ u2.getLocationY());
         }
     }
     private boolean move(Unit u, int mtx, int mty) {
