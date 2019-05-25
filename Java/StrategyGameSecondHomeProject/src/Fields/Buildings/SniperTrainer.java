@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public class SniperTrainer extends Building {
     public SniperTrainer(int locationX, int locationY, Player player) {
-        this.hitPoints = 300;
-        this.price = 400;
+        this.hitPoints = 400;
+        this.price = 250;
         this.locationX = locationX;
         this.locationY = locationY;
         this.player = player;

@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public class Hospital extends Building {
     public Hospital(int locationX, int locationY, Player player) {
-        this.hitPoints = 300;
-        this.price = 400;
+        this.hitPoints = 100;
+        this.price = 150;
         this.locationX = locationX;
         this.locationY = locationY;
         this.player = player;

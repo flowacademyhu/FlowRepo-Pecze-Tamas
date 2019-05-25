@@ -12,6 +12,7 @@ import Players.BluePlayer;
 import Players.Player;
 import Players.RedPlayer;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,10 +36,7 @@ public class GameLoop {
         gameInit(garea);
         gameProcess();
     }
-    /*
 
-
-     */
     private void gameInit(GameArea g) {
         for(int i = 0; i < FieldX; ++i) {
             for (int j = 0; j < FieldY; ++j) {
@@ -68,6 +66,7 @@ public class GameLoop {
         makeHeadQuarter(2,3,bp);
         makeSolider(3,4,rp);
         makeSolider(3,5,bp);
+
         int randomStart = ThreadLocalRandom.current().nextInt(2);
         System.out.println("RANDOM: " + randomStart);
         if(randomStart == 1) {
@@ -84,28 +83,15 @@ public class GameLoop {
         Scanner sc = new Scanner(System.in);
         int roundCounter = 0;
        while(RedBuildings > 0 && BlueBuildings > 0) {
-           endturn = false;
            while(!endturn){
                    actionSelect(whosturn);
                }
+           System.out.println(whosturn + " turn ended. " + getEnemyName() + "'s turn!");
+           whosturn = getEnemyName();
+           endturn = false;
            }
-           System.out.println("next player");
-           while(sc.nextLine().equals("endturn")) {
-               System.out.println("Round: " + roundCounter);
-               switch (sc.nextLine()) {
-                   case "u1 attack b1":
-                       AttackBuilding(whosturn,(Unit)arr[3][5], (Building)arr[1][1]);
-                       break;
-               }
-               roundCounter++;
+              GameEnd();
            }
-
-        /*AttackUnit((Unit)arr[3][4], (Unit)arr[3][5]);
-           AttackUnit((Unit)arr[3][4], (Unit)arr[3][5]);
-           AttackUnit((Unit)arr[3][4], (Unit)arr[3][5]);*/
-
-       GameEnd();
-    }
 
     private void GameEnd() {
         String tempA = "";
@@ -130,23 +116,87 @@ public class GameLoop {
         System.out.println("1 Get map information");
         System.out.println("2 Attack building");
         System.out.println("3 Attack unit");
-        System.out.println("4 Give up");
+        System.out.println("4 Build Building/Recruit Unit");
+        System.out.println("5 Give up");
         Scanner sc = new Scanner(System.in);
             String input = sc.nextLine();
             switch (input) {
                 case "1":
                     getMap();
+                    break;
                 case "2":
                     System.out.println("YourUnit XY and Enemy Building XY (format:'XYXY') REQUIRED!x");
                     input = sc.nextLine();
-                    AttackBuilding(whosturn,(Unit)arr[Integer.parseInt(input.substring(0,1))][Integer.parseInt(input.substring(1,2))],
-                            (Building)arr[Integer.parseInt(input.substring(2,3))][Integer.parseInt(input.substring(3,4))]);
+                    AttackBuilding(whosturn, (Unit) arr[Integer.parseInt(input.substring(0, 1))][Integer.parseInt(input.substring(1, 2))],
+                            (Building) arr[Integer.parseInt(input.substring(2, 3))][Integer.parseInt(input.substring(3, 4))]);
+                    break;
                 case "3":
                     System.out.println("YourUnit XY and Enemy Unit XY (format: 'XYXY' ");
                     input = sc.nextLine();
-                    AttackUnit(whosturn,(Unit)arr[Integer.parseInt(input.substring(0,1))][Integer.parseInt(input.substring(1,2))],
-                            (Unit)arr[Integer.parseInt(input.substring(2,3))][Integer.parseInt(input.substring(3,4))]);
+                    AttackUnit(whosturn, (Unit) arr[Integer.parseInt(input.substring(0, 1))][Integer.parseInt(input.substring(1, 2))],
+                            (Unit) arr[Integer.parseInt(input.substring(2, 3))][Integer.parseInt(input.substring(3, 4))]);
+                    break;
+                case "4":
+                    if (bp.getName().equals(whosturn)) {
+                        System.out.println("You have " + bp.getGP() + " points to build");
+                    } else {
+                        System.out.println("You have " + rp.getGP() + " points to build");
+                    }
+                    System.out.println("What you want to do? 1 Build HQ" +
+                            " 2 Build SniperTrainer 3 Build Hospital 4 Recruit Solider 5 Reqcruit Sniper 6 Cancel");
+                    input = sc.nextLine();
+                    if (input.equals("1")) {
+                        getMap();
+                        System.out.println("XY coordinates please");
+                        input = sc.nextLine();
+                        makeHeadQuarter(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        break;
+                    } else if (input.equals("2")) {
+                        getMap();
+                        System.out.println("XY coordinates please");
+                        input = sc.nextLine();
+                        makeSniperTrainer(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        break;
+                    }else if (input.equals("3")) {
+                        getMap();
+                        System.out.println("XY coordinates please");
+                        input = sc.nextLine();
+                        makeHospital(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        break;
+                    }else if (input.equals("4")) {
+                        getMap();
+                        System.out.println("XY coordinates please");
+                        input = sc.nextLine();
+                        makeSolider(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        break;
+                    }else if (input.equals("5")) {
+                        getMap();
+                        System.out.println("XY coordinates please");
+                        input = sc.nextLine();
+                        makeSniper(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        break;
+                    }else if(input.equals("6")) {
+                        break;
+                    } else {
+                        System.out.println("Invalid input. Try again...");
+                    }
+                case "5":
+                    System.out.println("Are you sure you want to give up? Y/N");
+                    input = sc.nextLine();
+                    if(input.equals("y") || input.equals("Y")){
+                        System.out.println(whosturn + "gave up. " + getEnemyName() + " won the game!");
+                        GameEnd();
+                    }
+                    break;
+
             }
+    }
+
+    private String getEnemyName() {
+        if(!whosturn.equals(rp.getName())) {
+            return rp.getName();
+        }
+        return bp.getName();
     }
 
     private void getMap() {
@@ -168,6 +218,7 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
+            garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
             System.out.println("Headquarter built.");
         }
     }
