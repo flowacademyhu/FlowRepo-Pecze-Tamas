@@ -62,4 +62,18 @@ public class Unit extends Fields {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    @Override
+    public String toString() {
+        return "Unit{" +
+                "health=" + health +
+                ", price=" + price +
+                ", moveDistance=" + moveDistance +
+                ", locationX=" + locationX +
+                ", locationY=" + locationY +
+                ", player=" + player +
+                ", img=" + img +
+                ", dmg=" + dmg +
+                '}';
+    }
 }

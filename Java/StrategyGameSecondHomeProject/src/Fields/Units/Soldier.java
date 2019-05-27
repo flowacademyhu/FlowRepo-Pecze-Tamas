@@ -11,10 +11,11 @@ public class Soldier extends Unit {
         this.locationX = locationX;
         this.locationY = locationY;
         this.dmg = 20;
+        this.moveDistance = 2;
         if(player.getColor().equals("BLUE")) {
-            this.img = new ImageIcon("img/hqblue.png");
+            this.img = new ImageIcon("img/hq1blue.png");
         } else {
-            this.img = new ImageIcon("img/hqred.png");
+            this.img = new ImageIcon("img/hq1red.png");
         }
     }
 }

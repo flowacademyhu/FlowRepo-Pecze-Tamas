@@ -1,38 +1,46 @@
 package hu.flowacademy.Bidder.application.Domain;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@Table(name = "bids")
+@Table(name = "Qbid")
 public class Bid {
-    public Bid(int bidPrice, String name, Date bidTime) {
+    public Bid(int bidPrice, String name, LocalDateTime bidTime) {
         this.bidPrice = bidPrice;
         this.name = name;
         this.bidTime = bidTime;
     }
 
+    public Bid() {
+    }
+
     @Id
     @SequenceGenerator(name="bidSeqGenerator", initialValue = 1, allocationSize = 1)
     @GeneratedValue(generator = "bidSeqGenerator", strategy = GenerationType.SEQUENCE)
-    @Column
+    @Column(name = "id")
     private long id;
     @Column
     private int bidPrice;
     @Column
     private String name;
     @Column
-    private Date bidTime;
+    private LocalDateTime bidTime;
+
     @ManyToOne
-    @JoinColumn(name = "product_id", foreignKey = @ForeignKey(name = "fk_products_bid"))
-    private Product products;
+    @JoinColumn(name = "qproducts_id", foreignKey = @ForeignKey(name = "fk_qproducts_qbid"))
+    private Product Qproducts;
+
+    @Transient
+    private String qproductsid;
 
     public Product getProducts() {
-        return products;
+        return Qproducts;
     }
 
     public void setProducts(Product products) {
-        this.products = products;
+        this.Qproducts = products;
     }
 
     public int getBidPrice() {
@@ -51,15 +59,19 @@ public class Bid {
         this.name = name;
     }
 
-    public Date getBidTime() {
+    public LocalDateTime getBidTime() {
         return bidTime;
     }
 
-    public void setBidTime(Date bidTime) {
+    public void setBidTime(LocalDateTime bidTime) {
         this.bidTime = bidTime;
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

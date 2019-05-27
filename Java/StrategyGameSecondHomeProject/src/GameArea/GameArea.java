@@ -1,17 +1,22 @@
 package GameArea;
 import Fields.Buildings.Building;
-import Fields.Fields;
+import Fields.Units.Unit;
+import GameLoop.GameLoop;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
-public class GameArea extends JFrame implements MouseListener {
-         private JPanel map = new JPanel(new GridLayout(10,10));
+public class GameArea extends JFrame {
+         private GameLoop gameLoop;
+         public JPanel map = new JPanel(new GridLayout(10,10));
          private JLabel[][] labels  = new JLabel[10][10];
          private JLabel[][] labelinfo  = new JLabel[10][10];
+         private int uniqueId;
+         private List inUseUniqueId = new ArrayList();
     int counter = 0;
+    private Icon DefaultIcon = new ImageIcon("img/qwe150.png");
 
     public GameArea() {
         super("GameArea");
@@ -32,7 +37,7 @@ public class GameArea extends JFrame implements MouseListener {
         for(int i=0; i<10; i++) {
             for (int j=0; j<10; j++) {
                 labels[i][j] = new JLabel();
-                labels[i][j].setIcon(new ImageIcon("img/qwe150.png"));
+                labels[i][j].setIcon(getDefaultIcon());
                 labelinfo[i][j] = new JLabel("INFO");
                 labelinfo[i][j].setVerticalTextPosition(JLabel.BOTTOM);
                 labelinfo[i][j].setHorizontalTextPosition(JLabel.CENTER);
@@ -46,11 +51,25 @@ public class GameArea extends JFrame implements MouseListener {
     }
     public void GameAreaBuilder(ImageIcon newIcon, int x, int y) {
                 labels[x][y].setIcon(newIcon);
+                labels[x][y].setName(String.valueOf(x + "" + y));
+                map.repaint();
+                map.revalidate();
+    }
+    public void GameAreaBuilder(int OldX, int OldY, int x, int y, ImageIcon newIcon) {
+        labels[OldX][OldY].setIcon(DefaultIcon);
+        labels[x][y].setIcon(newIcon);
         map.repaint();
         map.revalidate();
     }
     public void GameAreaInfoBuilder(Building b, int x, int y) {
         labelinfo[x][y].setText(" HP: " + b.getHitPoints());
+    }
+    public void GameAreaInfoBuilder(Unit b, int oldX, int oldY, int x, int y) {
+        labelinfo[x][y].setText(" HP: " + b.getHealth());
+        labelinfo[oldX][oldY].setText("");
+    }
+    public void GameAreaInfoBuilder(Unit u, int x, int y) {
+        labelinfo[x][y].setText(" HP: " + u.getHealth());
     }
     public JLabel[][] getLabels() {
         return labels;
@@ -67,31 +86,7 @@ public class GameArea extends JFrame implements MouseListener {
     public void setMap(JPanel map) {
         this.map = map;
     }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
-        System.out.println(x + " " + y);
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
+    public Icon getDefaultIcon() {
+        return DefaultIcon;
     }
 }

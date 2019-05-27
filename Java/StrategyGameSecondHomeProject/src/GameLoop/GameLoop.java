@@ -11,6 +11,11 @@ import GameArea.GameArea;
 import Players.BluePlayer;
 import Players.Player;
 import Players.RedPlayer;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,6 +35,7 @@ public class GameLoop {
     Integer BlueBuildings = 0;
     String whosturn;
     boolean endturn = false;
+    String input = "0000";
     public GameLoop() {
         gameInit();
         gameProcess();
@@ -81,6 +87,15 @@ public class GameLoop {
         Scanner sc = new Scanner(System.in);
         int roundCounter = 0;
        while(RedBuildings > 0 && BlueBuildings > 0) {
+           garea.map.addMouseListener(new MouseAdapter() {
+               @Override
+               public void mouseClicked(MouseEvent e) {
+                   Component c = SwingUtilities.getDeepestComponentAt(
+                           e.getComponent(), e.getX(),  e.getY()
+                   );
+                   System.out.println(c.getName() + " " + c.getY());
+               }
+           });
            while(!endturn){
                    actionSelect(whosturn);
                }
@@ -115,9 +130,10 @@ public class GameLoop {
         System.out.println("2 Attack building");
         System.out.println("3 Attack unit");
         System.out.println("4 Build Building/Recruit Unit");
-        System.out.println("5 Give up");
+        System.out.println("5 Move with unit");
+        System.out.println("6 Give up");
         Scanner sc = new Scanner(System.in);
-            String input = sc.nextLine();
+            input = sc.nextLine();
             switch (input) {
                 case "1":
                     getMap();
@@ -147,38 +163,54 @@ public class GameLoop {
                         getMap();
                         System.out.println("XY coordinates please");
                         input = sc.nextLine();
-                        makeHeadQuarter(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        makeHeadQuarter(subsStringZeroOne(input), subsStringOneTwo(input), bp);
                         break;
                     } else if (input.equals("2")) {
                         getMap();
                         System.out.println("XY coordinates please");
                         input = sc.nextLine();
-                        makeSniperTrainer(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        makeSniperTrainer(subsStringZeroOne(input), subsStringOneTwo(input), bp);
                         break;
                     }else if (input.equals("3")) {
                         getMap();
                         System.out.println("XY coordinates please");
                         input = sc.nextLine();
-                        makeHospital(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        makeHospital(subsStringZeroOne(input), subsStringOneTwo(input), bp);
                         break;
                     }else if (input.equals("4")) {
                         getMap();
                         System.out.println("XY coordinates please");
                         input = sc.nextLine();
-                        makeSolider(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        makeSolider(subsStringZeroOne(input), subsStringOneTwo(input), bp);
                         break;
                     }else if (input.equals("5")) {
                         getMap();
                         System.out.println("XY coordinates please");
                         input = sc.nextLine();
-                        makeSniper(Integer.parseInt(input.substring(0, 1)), Integer.parseInt(input.substring(1, 2)), bp);
+                        makeSniper(subsStringZeroOne(input), subsStringOneTwo(input), bp);
                         break;
                     }else if(input.equals("6")) {
                         break;
                     } else {
                         System.out.println("Invalid input. Try again...");
+                        break;
                     }
                 case "5":
+                    System.out.println("what unit you wanna move? And to What coordinate? XYXY coordinates please.");
+                    input = sc.nextLine();
+                    if(arr[subsStringZeroOne(input)][subsStringOneTwo(input)] instanceof Soldier){
+                        move((Unit)arr[subsStringZeroOne(input)][subsStringOneTwo(input)],
+                                subsStringTwoThree(input),subsStringThreeFour(input), 1);
+                    } else if(arr[subsStringZeroOne(input)][subsStringOneTwo(input)] instanceof Sniper) {
+                        move((Unit) arr[subsStringZeroOne(input)][subsStringOneTwo(input)],
+                                subsStringTwoThree(input),subsStringThreeFour(input),2);
+                    } else {
+                        System.out.println(input);
+                        System.out.println(subsStringZeroOne(input) + " " + subsStringOneTwo(input));
+                        System.out.println("not a unit.");
+                    }
+                    break;
+                case "6":
                     System.out.println("Are you sure you want to give up? Y/N");
                     input = sc.nextLine();
                     if(input.equals("y") || input.equals("Y")){
@@ -230,6 +262,8 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
+            garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
+            garea.GameAreaInfoBuilder((Building)arr[x][y], x, y);
             System.out.println("Hospital built.");
         }
     }
@@ -243,6 +277,8 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
+            garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
+            garea.GameAreaInfoBuilder((Building)arr[x][y], x, y);
             System.out.println("Sniper built.");
         }
     }
@@ -251,12 +287,16 @@ public class GameLoop {
             arr[x][y] = new Sniper(x, y, player);
             arr[x][y].setUsed(true);
         }
+        garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
+        garea.GameAreaInfoBuilder((Unit) arr[x][y], x, y);
     }
     private void makeSolider(int x,int y, Player player) {
         if(checkField(x,y)) {
             arr[x][y] = new Soldier(x, y, player);
             arr[x][y].setUsed(true);
         }
+        garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
+        garea.GameAreaInfoBuilder((Unit)arr[x][y], x, y);
     }
     private boolean checkField(int x, int y) {
         if (arr[x][y].isUsed()) {
@@ -303,15 +343,31 @@ public class GameLoop {
             System.out.println("You can't attack your own unit:" + u2.getLocationX() + ":"+ u2.getLocationY());
         }
     }
-    private boolean move(Unit u, int mtx, int mty) {
-        if(!checkField(u.getLocationX() + mtx,u.getLocationY() + mty)) {
-            return false;
+    private void move(Unit u, int newX, int  newY, int distance) {
+        if(checkField(u.getLocationX() + distance,u.getLocationY() + distance)) {
+            garea.GameAreaBuilder(u.getLocationX(), u.getLocationY(),u.getLocationX() + distance,
+                    u.getLocationY() + distance, u.getImg());
+            garea.GameAreaInfoBuilder(u, u.getLocationX(), u.getLocationY(), newX, newY);
+            arr[newX][newY] = arr[u.getLocationX()][u.getLocationY()];
+            arr[u.getLocationX()][u.getLocationY()] = new Fields(false);
+            u.setLocationX(u.getLocationX() + distance);
+            u.setLocationY(u.getLocationY() + distance);
+            System.out.println("Successful move");
         } else {
-            u.setUsed(false);
-            u.setLocationX(u.getLocationX() + mtx);
-            u.setLocationY(u.getLocationY() + mty);
-            return true;
+            System.out.println("Failed to make move. Location is used by something already.");
         }
+    }
+    private int subsStringZeroOne (String input) {
+        return Integer.parseInt(input.substring(0, 1));
+    }
+    private int subsStringOneTwo (String input) {
+        return Integer.parseInt(input.substring(1, 2));
+    }
+    private int subsStringTwoThree (String input) {
+        return Integer.parseInt(input.substring(2, 3));
+    }
+    private int subsStringThreeFour (String input) {
+        return Integer.parseInt(input.substring(3, 4));
     }
 }
 

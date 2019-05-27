@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
+@Table(name = "Qproducts")
 public class Product {
     public Product(String productName, String productDesc, int minimalPrice, Date productAddedDate, Date productTimeLeft) {
         this.productName = productName;
@@ -15,14 +15,17 @@ public class Product {
         this.productTimeLeft = productTimeLeft;
     }
 
+    public Product() {
+    }
+
     @Id
-    @SequenceGenerator(name="productSeqGenerator", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(generator = "productSeqGenerator", strategy = GenerationType.SEQUENCE)
-    @Column
+    @SequenceGenerator(name="productsSeqGenerator", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(generator = "productsSeqGenerator", strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
     private long id;
 
-    @OneToMany(mappedBy = "products")
-    private List<Bid> bid;
+    @OneToMany(mappedBy = "Qproducts")
+    private List<Bid> Qbid;
 
     @Column
     private String productName;
@@ -84,10 +87,22 @@ public class Product {
     }
 
     public List<Bid> getBids() {
-        return bid;
+        return Qbid;
     }
 
     public void setBids(List<Bid> bids) {
-        this.bid = bid;
+        this.Qbid = Qbid;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public List<Bid> getBid() {
+        return Qbid;
+    }
+
+    public void setBid(List<Bid> qbid) {
+        this.Qbid = qbid;
     }
 }
