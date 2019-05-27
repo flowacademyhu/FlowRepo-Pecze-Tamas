@@ -23,6 +23,17 @@ public class Bid {
     private String name;
     @Column
     private Date bidTime;
+    @ManyToOne
+    @JoinColumn(name = "product_id", foreignKey = @ForeignKey(name = "fk_products_bid"))
+    private Product products;
+
+    public Product getProducts() {
+        return products;
+    }
+
+    public void setProducts(Product products) {
+        this.products = products;
+    }
 
     public int getBidPrice() {
         return bidPrice;

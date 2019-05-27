@@ -22,7 +22,8 @@ public class Product {
     private long id;
 
     @OneToMany(mappedBy = "products")
-    private List<Bid> bids;
+    private List<Bid> bid;
+
     @Column
     private String productName;
 
@@ -83,10 +84,10 @@ public class Product {
     }
 
     public List<Bid> getBids() {
-        return bids;
+        return bid;
     }
 
     public void setBids(List<Bid> bids) {
-        this.bids = bids;
+        this.bid = bid;
     }
 }
