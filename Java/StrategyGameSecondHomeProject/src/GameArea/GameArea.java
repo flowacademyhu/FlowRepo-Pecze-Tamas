@@ -1,19 +1,16 @@
 package GameArea;
-
-import Fields.Buildings.Headquarter;
+import Fields.Buildings.Building;
 import Fields.Fields;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class GameArea extends JFrame {
+public class GameArea extends JFrame implements MouseListener {
          private JPanel map = new JPanel(new GridLayout(10,10));
          private JLabel[][] labels  = new JLabel[10][10];
+         private JLabel[][] labelinfo  = new JLabel[10][10];
     int counter = 0;
 
     public GameArea() {
@@ -36,7 +33,14 @@ public class GameArea extends JFrame {
             for (int j=0; j<10; j++) {
                 labels[i][j] = new JLabel();
                 labels[i][j].setIcon(new ImageIcon("img/qwe150.png"));
+                labelinfo[i][j] = new JLabel("INFO");
+                labelinfo[i][j].setVerticalTextPosition(JLabel.BOTTOM);
+                labelinfo[i][j].setHorizontalTextPosition(JLabel.CENTER);
+                labelinfo[i][j].setMaximumSize(new Dimension(5,5));
+                labelinfo[i][j].setPreferredSize(new Dimension(5,5));
+                labelinfo[i][j].setMinimumSize(new Dimension(5,5));
                 map.add(labels[i][j]);
+                map.add(labelinfo[i][j]);
             }
         }
     }
@@ -45,7 +49,9 @@ public class GameArea extends JFrame {
         map.repaint();
         map.revalidate();
     }
-
+    public void GameAreaInfoBuilder(Building b, int x, int y) {
+        labelinfo[x][y].setText(" HP: " + b.getHitPoints());
+    }
     public JLabel[][] getLabels() {
         return labels;
     }
@@ -60,5 +66,32 @@ public class GameArea extends JFrame {
 
     public void setMap(JPanel map) {
         this.map = map;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        System.out.println(x + " " + y);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

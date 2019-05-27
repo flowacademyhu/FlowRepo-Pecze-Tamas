@@ -11,8 +11,6 @@ import GameArea.GameArea;
 import Players.BluePlayer;
 import Players.Player;
 import Players.RedPlayer;
-
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,11 +31,11 @@ public class GameLoop {
     String whosturn;
     boolean endturn = false;
     public GameLoop() {
-        gameInit(garea);
+        gameInit();
         gameProcess();
     }
 
-    private void gameInit(GameArea g) {
+    private void gameInit() {
         for(int i = 0; i < FieldX; ++i) {
             for (int j = 0; j < FieldY; ++j) {
                 arr[i][j] = new Fields(false);
@@ -104,7 +102,7 @@ public class GameLoop {
         }
         if(tempA.equals("YES") || tempA.equals("yes")) {
             //TODO clear data from old gameinit/processes
-            gameInit(garea);
+            gameInit();
             gameProcess();
         } else {
             System.exit(1);
@@ -219,6 +217,7 @@ public class GameLoop {
                 RedBuildings++;
             }
             garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
+            garea.GameAreaInfoBuilder((Building)arr[x][y], x, y);
             System.out.println("Headquarter built.");
         }
     }
@@ -244,7 +243,7 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
-            System.out.println("Hospital built.");
+            System.out.println("Sniper built.");
         }
     }
     private void makeSniper(int x,int y, Player player) {
