@@ -1,12 +1,7 @@
-
-import GameLoop.GameLoop;
-
+import GameArea.GameArea;
 
 public class Main {
     public static void main(String[] args) {
-        new GameLoop();
-
+        new GameArea();
     }
-
-
 }

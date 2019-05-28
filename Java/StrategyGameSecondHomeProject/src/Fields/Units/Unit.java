@@ -67,13 +67,9 @@ public class Unit extends Fields {
     public String toString() {
         return "Unit{" +
                 "health=" + health +
-                ", price=" + price +
-                ", moveDistance=" + moveDistance +
                 ", locationX=" + locationX +
                 ", locationY=" + locationY +
                 ", player=" + player +
-                ", img=" + img +
-                ", dmg=" + dmg +
                 '}';
     }
 }

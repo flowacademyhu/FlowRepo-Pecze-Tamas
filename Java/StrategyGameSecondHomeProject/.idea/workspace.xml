@@ -26,24 +26,14 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Headquarter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Hospital.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="212">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#575#576#0" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,24 +42,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/SniperTrainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="28" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="28" />
+            <state relative-caret-position="197">
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
+                <element signature="e#668#669#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GameLoop/GameLoop.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1349">
-              <caret line="51" column="37" lean-forward="true" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+            <state relative-caret-position="60">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1818#1819#0" expanded="true" />
-                <element signature="e#1898#1899#0" expanded="true" />
+                <element signature="e#90#91#0" expanded="true" />
+                <element signature="e#120#121#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,10 +69,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Units/Sniper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+            <state relative-caret-position="257">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#613#614#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Units/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="197">
+              <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1126#1127#0" expanded="true" />
@@ -106,10 +99,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Units/Soldier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <state relative-caret-position="257">
+              <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#691#692#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,21 +113,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="227">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="e#379#380#0" expanded="true" />
+                <element signature="e#405#406#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameArea/GameArea.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+            <state relative-caret-position="185">
+              <caret line="482" column="49" selection-start-line="482" selection-start-column="49" selection-end-line="482" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2951#3161#0" expanded="true" />
-                <element signature="e#3160#3161#0" expanded="true" />
+                <element signature="e#3384#3648#0" expanded="true" />
+                <element signature="e#3647#3648#0" expanded="true" />
+                <element signature="e#6132#6133#0" expanded="true" />
+                <element signature="e#6200#6201#0" expanded="true" />
+                <element signature="e#6269#6270#0" expanded="true" />
+                <element signature="e#19476#19477#0" expanded="true" />
+                <element signature="e#19588#19589#0" expanded="true" />
+                <element signature="e#19702#19703#0" expanded="true" />
+                <element signature="e#19817#19818#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,12 +149,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Building.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="437">
               <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#983#984#0" expanded="true" />
                 <element signature="e#1013#1014#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Headquarter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#672#673#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,6 +199,9 @@
       <find>not a</find>
       <find>Unit</find>
       <find>success</find>
+      <find>Fields</find>
+      <find>try</find>
+      <find>init</find>
       <find>move</find>
     </findStrings>
   </component>
@@ -194,21 +219,21 @@
         <option value="$PROJECT_DIR$/src/Buildings/SniperTrainer.java" />
         <option value="$PROJECT_DIR$/src/Buildings/Headquarter.java" />
         <option value="$PROJECT_DIR$/src/Buildings/Building.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/DeadField.java" />
         <option value="$PROJECT_DIR$/src/Players/BluePlayer.java" />
         <option value="$PROJECT_DIR$/src/Players/Player.java" />
         <option value="$PROJECT_DIR$/src/Players/RedPlayer.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Buildings/SniperTrainer.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Buildings/Hospital.java" />
         <option value="$PROJECT_DIR$/src/Fields/Buildings/Building.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Buildings/Headquarter.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Fields.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Units/Unit.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Units/Sniper.java" />
-        <option value="$PROJECT_DIR$/src/Fields/Units/Soldier.java" />
-        <option value="$PROJECT_DIR$/src/GameArea/GameArea.java" />
         <option value="$PROJECT_DIR$/src/GameLoop/GameLoop.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Units/Unit.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Fields.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Units/Soldier.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Units/Sniper.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Buildings/Headquarter.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Buildings/Hospital.java" />
+        <option value="$PROJECT_DIR$/src/Fields/Buildings/SniperTrainer.java" />
+        <option value="$PROJECT_DIR$/src/GameArea/GameArea.java" />
       </list>
     </option>
   </component>
@@ -233,6 +258,11 @@
             <path>
               <item name="StrategyGameSecondHomeProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="StrategyGameSecondHomeProject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StrategyGameSecondHomeProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StrategyGameSecondHomeProject" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StrategyGameSecondHomeProject" type="b2602c69:ProjectViewProjectNode" />
@@ -264,12 +294,6 @@
               <item name="StrategyGameSecondHomeProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameArea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyGameSecondHomeProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyGameSecondHomeProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameLoop" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -320,7 +344,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="706" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26573938" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26573938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -350,6 +374,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>gameLoop.getField(x, y)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ameLoop.getField(x, y)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>endturn = false</expression-string>
         <language-id>JAVA</language-id>
@@ -435,20 +469,6 @@
     <entry file="file://$PROJECT_DIR$/img/qwe150.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fields/Fields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/zulu-11-amd64/lib/src.zip!/java.desktop/javax/swing/JLabel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-148">
@@ -460,19 +480,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fields/Units/Soldier.java">
+    <entry file="file://$PROJECT_DIR$/src/GameLoop/GameLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        <state relative-caret-position="232">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#16285#16286#0" expanded="true" />
+            <element signature="e#16319#16320#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Building.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="437">
           <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -482,50 +504,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Headquarter.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#90#91#0" expanded="true" />
+            <element signature="e#120#121#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Hospital.java">
+    <entry file="file://$PROJECT_DIR$/src/Fields/Units/Soldier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="257">
+          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/SniperTrainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fields/Units/Sniper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="257">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Headquarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/Hospital.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fields/Buildings/SniperTrainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fields/Units/Unit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="197">
+          <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1126#1127#0" expanded="true" />
@@ -536,26 +589,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameArea/GameArea.java">
+    <entry file="file://$PROJECT_DIR$/src/Fields/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        <state relative-caret-position="227">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2951#3161#0" expanded="true" />
-            <element signature="e#3160#3161#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameLoop/GameLoop.java">
+    <entry file="file://$PROJECT_DIR$/src/GameArea/GameArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1349">
-          <caret line="51" column="37" lean-forward="true" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+        <state relative-caret-position="185">
+          <caret line="482" column="49" selection-start-line="482" selection-start-column="49" selection-end-line="482" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1818#1819#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
+            <element signature="e#3384#3648#0" expanded="true" />
+            <element signature="e#3647#3648#0" expanded="true" />
+            <element signature="e#6132#6133#0" expanded="true" />
+            <element signature="e#6200#6201#0" expanded="true" />
+            <element signature="e#6269#6270#0" expanded="true" />
+            <element signature="e#19476#19477#0" expanded="true" />
+            <element signature="e#19588#19589#0" expanded="true" />
+            <element signature="e#19702#19703#0" expanded="true" />
+            <element signature="e#19817#19818#0" expanded="true" />
           </folding>
         </state>
       </provider>

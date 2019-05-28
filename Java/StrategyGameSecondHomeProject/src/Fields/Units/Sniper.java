@@ -19,4 +19,8 @@ public class Sniper extends Unit {
             this.img = new ImageIcon("img/hq1red.png");
         }
     }
+    @Override
+    public String toString() {
+        return "Sniper, HP:" + health + ", "+ getPlayer().getName();
+    }
 }

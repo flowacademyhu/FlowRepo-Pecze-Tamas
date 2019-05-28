@@ -12,18 +12,13 @@ public class Headquarter extends Building {
         this.locationY = locationY;
         this.player = player;
         if(player.getColor().equals("BLUE")) {
-            this.img = new ImageIcon("img/korhaz.png");
+            this.img = new ImageIcon("img/korhazblue.png");
         } else {
             this.img = new ImageIcon("img/korhazblue.png");
         }
     }
     @Override
     public String toString() {
-        return "Headquarter{" +
-                "hitPoints=" + hitPoints +
-                ", locationX=" + locationX +
-                ", locationY=" + locationY +
-                ", player='" + player + '\'' +
-                '}';
+        return "Headquarter, HP:" + hitPoints + " " + getPlayer().getName();
     }
 }

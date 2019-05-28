@@ -5,6 +5,7 @@ import Players.Player;
 import javax.swing.*;
 
 public class Soldier extends Unit {
+
     public Soldier(int locationX, int locationY, Player player) {
         this.health = 50;
         this.price = 40;
@@ -18,5 +19,10 @@ public class Soldier extends Unit {
         } else {
             this.img = new ImageIcon("img/hq1red.png");
         }
+
+    }
+    @Override
+    public String toString() {
+        return "Soldier, HP:" + health + ", "+ getPlayer().getName();
     }
 }

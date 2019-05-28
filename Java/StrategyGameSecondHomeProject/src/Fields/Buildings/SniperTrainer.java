@@ -17,4 +17,9 @@ public class SniperTrainer extends Building {
             this.img = new ImageIcon("img/hqred.png");
         }
     }
+
+    @Override
+    public String toString() {
+        return "SniperTrainer, HP:" + hitPoints + " " + getPlayer().getName();
+    }
 }

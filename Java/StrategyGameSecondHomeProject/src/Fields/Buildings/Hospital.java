@@ -17,4 +17,9 @@ public class Hospital extends Building {
             this.img = new ImageIcon("img/hqred.png");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Hospital, HP:" + hitPoints + " " + getPlayer().getName();
+    }
 }

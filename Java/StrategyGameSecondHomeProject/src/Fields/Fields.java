@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Fields {
 
-    ImageIcon img = new ImageIcon("img/hqred.png");
+    ImageIcon img = new ImageIcon("img/hq1red.png");
 
     private boolean used = false;
 
@@ -29,5 +29,10 @@ public class Fields {
     }
 
     public Fields() {
+    }
+
+    @Override
+    public String toString() {
+        return "Empty field";
     }
 }
