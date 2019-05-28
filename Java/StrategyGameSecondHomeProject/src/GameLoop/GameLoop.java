@@ -14,6 +14,8 @@ import Players.RedPlayer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
@@ -50,13 +52,20 @@ public class GameLoop {
         String bpNAME = "BluePlayer";
         String rpNAME = "RedPlayer";
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        garea.log.append("\nBlue players name?");
         System.out.println("Blue players name?");
+        garea.userInput.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                garea.log.append("Text=" + garea.userInput.getText() + "\n");
+            }
+        });
         try {
             bpNAME = br.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Red players name?");
+        garea.log.append("\nRed players name?");
         try {
             rpNAME = br.readLine();
         } catch (IOException e) {
@@ -64,6 +73,7 @@ public class GameLoop {
         }
         bp = new BluePlayer(bpNAME,"BLUE");
         rp = new RedPlayer(rpNAME,"RED");
+        garea.log.append("\n" + bp.getName() + " VS " + rp.getName());
         System.out.println(bp.getName() + " VS " + rp.getName());
 
         makeHeadQuarter(1,1,rp);
@@ -75,31 +85,24 @@ public class GameLoop {
         System.out.println("RANDOM: " + randomStart);
         if(randomStart == 1) {
             System.out.println(rp.getName() + " starts!");
+            garea.log.append("\n" + rp.getName() + " starts!");
             whosturn = rp.getName();
         } else {
             System.out.println(bp.getName() + " starts");
+            garea.log.append("\n" + bp.getName() + " starts");
             whosturn = bp.getName();
         }
     }
 
     private void gameProcess() {
         System.out.println("Welcome to gameProcess!");
+        garea.log.append("\n" + "Welcome to gameProcess!");
         Scanner sc = new Scanner(System.in);
         int roundCounter = 0;
        while(RedBuildings > 0 && BlueBuildings > 0) {
-           garea.map.addMouseListener(new MouseAdapter() {
-               @Override
-               public void mouseClicked(MouseEvent e) {
-                   Component c = SwingUtilities.getDeepestComponentAt(
-                           e.getComponent(), e.getX(),  e.getY()
-                   );
-                   System.out.println(c.getName() + " " + c.getY());
-               }
-           });
            while(!endturn){
                    actionSelect(whosturn);
                }
-           System.out.println(whosturn + " turn ended. " + getEnemyName() + "'s turn!");
            whosturn = getEnemyName();
            endturn = false;
            }
@@ -109,6 +112,7 @@ public class GameLoop {
     private void GameEnd() {
         String tempA = "";
         System.out.println("Do you want to play another game?");
+        garea.log.append("\n" + "Do you want to play another game?");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             tempA = br.readLine();
@@ -131,7 +135,17 @@ public class GameLoop {
         System.out.println("3 Attack unit");
         System.out.println("4 Build Building/Recruit Unit");
         System.out.println("5 Move with unit");
-        System.out.println("6 Give up");
+        System.out.println("6 EndTurn");
+        System.out.println("7 Give up");
+        garea.log.setText("");
+        garea.log.append("\n" + "What you want to do?");
+        garea.log.append("\n" + "1 Get map information");
+        garea.log.append("\n" + "2 Attack building");
+        garea.log.append("\n" + "3 Attack unit");
+        garea.log.append("\n" + "4 Build Building/Recruit Unit");
+        garea.log.append("\n" + "5 Move with unit");
+        garea.log.append("\n" + "6 EndTurn");
+        garea.log.append("\n" + "7 Give up");
         Scanner sc = new Scanner(System.in);
             input = sc.nextLine();
             switch (input) {
@@ -200,10 +214,10 @@ public class GameLoop {
                     input = sc.nextLine();
                     if(arr[subsStringZeroOne(input)][subsStringOneTwo(input)] instanceof Soldier){
                         move((Unit)arr[subsStringZeroOne(input)][subsStringOneTwo(input)],
-                                subsStringTwoThree(input),subsStringThreeFour(input), 1);
+                                subsStringTwoThree(input),subsStringThreeFour(input), 1, whosturn);
                     } else if(arr[subsStringZeroOne(input)][subsStringOneTwo(input)] instanceof Sniper) {
                         move((Unit) arr[subsStringZeroOne(input)][subsStringOneTwo(input)],
-                                subsStringTwoThree(input),subsStringThreeFour(input),2);
+                                subsStringTwoThree(input),subsStringThreeFour(input),2, whosturn);
                     } else {
                         System.out.println(input);
                         System.out.println(subsStringZeroOne(input) + " " + subsStringOneTwo(input));
@@ -211,6 +225,14 @@ public class GameLoop {
                     }
                     break;
                 case "6":
+                    System.out.println("End turn? Y/N");
+                    input = sc.nextLine();
+                    if(input.equals("y") || input.equals("Y")){
+                        System.out.println(whosturn + " turn ended. " + getEnemyName() + "'s turn.");
+                        endturn = true;
+                    }
+                    break;
+                case "7":
                     System.out.println("Are you sure you want to give up? Y/N");
                     input = sc.nextLine();
                     if(input.equals("y") || input.equals("Y")){
@@ -248,8 +270,7 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
-            garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
-            garea.GameAreaInfoBuilder((Building)arr[x][y], x, y);
+            garea.GameAreaBuilder(arr[x][y], x, y);
             System.out.println("Headquarter built.");
         }
     }
@@ -262,8 +283,7 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
-            garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
-            garea.GameAreaInfoBuilder((Building)arr[x][y], x, y);
+            garea.GameAreaBuilder(arr[x][y], x, y);
             System.out.println("Hospital built.");
         }
     }
@@ -277,8 +297,7 @@ public class GameLoop {
             } else {
                 RedBuildings++;
             }
-            garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
-            garea.GameAreaInfoBuilder((Building)arr[x][y], x, y);
+            garea.GameAreaBuilder(arr[x][y], x, y);
             System.out.println("Sniper built.");
         }
     }
@@ -287,16 +306,14 @@ public class GameLoop {
             arr[x][y] = new Sniper(x, y, player);
             arr[x][y].setUsed(true);
         }
-        garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
-        garea.GameAreaInfoBuilder((Unit) arr[x][y], x, y);
+        garea.GameAreaBuilder(arr[x][y], x, y);
     }
     private void makeSolider(int x,int y, Player player) {
         if(checkField(x,y)) {
             arr[x][y] = new Soldier(x, y, player);
             arr[x][y].setUsed(true);
         }
-        garea.GameAreaBuilder(arr[x][y].getImg(), x, y);
-        garea.GameAreaInfoBuilder((Unit)arr[x][y], x, y);
+        garea.GameAreaBuilder(arr[x][y], x, y);
     }
     private boolean checkField(int x, int y) {
         if (arr[x][y].isUsed()) {
@@ -304,7 +321,6 @@ public class GameLoop {
             System.out.println(arr[x][y].toString());
             return false;
         } else {
-            System.out.println("success!");
             return true;
         }
     }
@@ -343,16 +359,17 @@ public class GameLoop {
             System.out.println("You can't attack your own unit:" + u2.getLocationX() + ":"+ u2.getLocationY());
         }
     }
-    private void move(Unit u, int newX, int  newY, int distance) {
+    private void move(Unit u, int newX, int  newY, int distance, String whosturn) {
         if(checkField(u.getLocationX() + distance,u.getLocationY() + distance)) {
-            garea.GameAreaBuilder(u.getLocationX(), u.getLocationY(),u.getLocationX() + distance,
-                    u.getLocationY() + distance, u.getImg());
-            garea.GameAreaInfoBuilder(u, u.getLocationX(), u.getLocationY(), newX, newY);
-            arr[newX][newY] = arr[u.getLocationX()][u.getLocationY()];
-            arr[u.getLocationX()][u.getLocationY()] = new Fields(false);
-            u.setLocationX(u.getLocationX() + distance);
-            u.setLocationY(u.getLocationY() + distance);
-            System.out.println("Successful move");
+            if(u.getPlayer().getName() == whosturn) {
+                garea.GameAreaBuilder(u.getLocationX(), u.getLocationY(),u.getLocationX() + distance,
+                        u.getLocationY() + distance, u.getImg());
+                arr[newX][newY] = arr[u.getLocationX()][u.getLocationY()];
+                arr[u.getLocationX()][u.getLocationY()] = new Fields(false);
+                System.out.println("Successful move");
+            } else {
+                System.out.println("It's not your unit.");
+            }
         } else {
             System.out.println("Failed to make move. Location is used by something already.");
         }
