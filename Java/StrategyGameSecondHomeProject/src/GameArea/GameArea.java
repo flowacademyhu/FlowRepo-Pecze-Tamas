@@ -18,7 +18,6 @@ import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.annotation.Target;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,7 +26,6 @@ public class GameArea extends JFrame {
          private JPanel map = new JPanel(new GridLayout(10,10));
          private JLabel[][] labels  = new JLabel[10][10];
          private JTextArea log;
-         private JTextField userInput;
          private JLabel selectedTarget;
          private JLabel whosturnLabel;
          private JButton moveUnitButton;
@@ -36,6 +34,7 @@ public class GameArea extends JFrame {
          private int y = -1;
          private int TargetX = -1;
          private int TargetY = -1;
+         private JButton whosTurnButton;
          AtomicInteger counter = new AtomicInteger(0);
          final int FieldX = 10;
          final int FieldY = 10;
@@ -47,7 +46,8 @@ public class GameArea extends JFrame {
          String whosturn;
          boolean endturn = false;
          String input = "0000";
-         private Icon DefaultIcon = new ImageIcon("img/qwe150.png");
+         private ImageIcon DefaultIcon = new ImageIcon("img/qwe150.png");
+         private JLabel playerPoints;
 
     public GameArea() {
 
@@ -59,48 +59,169 @@ public class GameArea extends JFrame {
         secondXYgetter = false;
 
         JButton attackUnitButton= new JButton("Attack unit");
-        //attackUnitButton.addMouseListener(e -> );
+        attackUnitButton.addActionListener(e -> attackUnit());
         JButton attackBuildingButton= new JButton("Attack building");
+        attackBuildingButton.addActionListener(e -> attackBuilding());
+
+        playerPoints = new JLabel("");
+
+        JComboBox constructBuildingComboBox = new JComboBox();
+        constructBuildingComboBox.addItem(new BuildingList("Build/Recruit", 0));
+        constructBuildingComboBox.addItem(new BuildingList("Headquarter", 1));
+        constructBuildingComboBox.addItem(new BuildingList("Sniper trainer", 2));
+        constructBuildingComboBox.addItem(new BuildingList("Hospital", 3));
+        constructBuildingComboBox.addItem(new BuildingList("Soldier", 4));
+        constructBuildingComboBox.addItem(new BuildingList("SniperTrainer", 5));
+        constructBuildingComboBox.addActionListener(e -> constructBuilding(constructBuildingComboBox));
+
         moveUnitButton= new JButton("Move unit");
         moveUnitButton.addActionListener(e -> moveCheck());
+        whosTurnButton = new JButton("End turn");
+        whosTurnButton.addActionListener(e -> endTurn());
         selectedTarget = new JLabel("Nothing selected yet.");
         whosturnLabel = new JLabel("Waiting for game init");
         JPanel southPanel = new JPanel();
-        JLabel userInputText = new JLabel("Input here please:");
-        log = new JTextArea("Game history");
-        log.setColumns(15);
-        log.setRows(20);
+        log = new JTextArea("Game log",30,30);
         log.setEditable(false);
+        JScrollPane areaScrollPane = new JScrollPane(log);
+        areaScrollPane.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        JLabel fun = new JLabel("/img/")
         southPanel.add(attackUnitButton);
         southPanel.add(attackBuildingButton);
-        southPanel.add(whosturnLabel);
         southPanel.add(moveUnitButton);
+        southPanel.add(whosTurnButton);
+        southPanel.add(constructBuildingComboBox);
+        southPanel.add(playerPoints);
+        southPanel.add(whosturnLabel);
         this.add(southPanel, BorderLayout.SOUTH);
         this.add(selectedTarget, BorderLayout.PAGE_START);
         this.add(map, BorderLayout.CENTER);
-
-        userInput = new JTextField();
-        userInput.setPreferredSize(new Dimension(300,30));
-        Box eastPanel = Box.createVerticalBox();
-        eastPanel.add(Box.createVerticalGlue());
-        eastPanel.add(log);
-        eastPanel.add(Box.createVerticalGlue());
-        eastPanel.add(userInputText, BorderLayout.CENTER);
-        eastPanel.add(Box.createVerticalGlue());
-        eastPanel.add(userInput, BorderLayout.SOUTH);
+        JPanel eastPanel = new JPanel();
+        eastPanel.add(areaScrollPane);
+        eastPanel.add(areaScrollPane);
         this.add(eastPanel, BorderLayout.EAST);
 
         GameAreaInit();
         gameInit();
         gameProcess();
     }
+    private void constructBuilding(JComboBox box) {
+        Object item = box.getSelectedItem();
+        int value = ((BuildingList)item).getValue();
+        log.append(String.valueOf(value));
+        switch (value) {
+            case 1:
+                if(getWhosTurn().getGP() > 200) {
+                makeHeadQuarter(x,y,getWhosTurn());
+                getWhosTurn().setGP(getWhosTurn().getGP() - 200);
+                } else {
+                    log.append("\n You don't have enough points \nto construct a headquarter.");
+                }
+                break;
+            case 2:
+                if(getWhosTurn().getGP() > 250) {
+                    makeSniperTrainer(x,y,getWhosTurn());
+                    getWhosTurn().setGP(getWhosTurn().getGP() - 250);
+                } else {
+                    log.append("\n You don't have enough points \nto construct a sniper trainer.");
+                }
+                break;
+            case 3:
+                if(getWhosTurn().getGP() > 150) {
+                    makeHospital(x,y,getWhosTurn());
+                    getWhosTurn().setGP(getWhosTurn().getGP() - 150);
+                } else {
+                    log.append("\n You don't have enough points \nto construct a hospital.");
+                }
+                break;
+            case 4:
+                if(getWhosTurn().getGP() > 60) {
+                    makeSniper(x,y,getWhosTurn());
+                    getWhosTurn().setGP(getWhosTurn().getGP() - 60);
+                } else {
+                    log.append("\n You don't have enough points \nto recruit a sniper.");
+                }
+                break;
+            case 5:
+                if(getWhosTurn().getGP() > 40) {
+                    makeSniper(x,y,getWhosTurn());
+                    getWhosTurn().setGP(getWhosTurn().getGP() - 40);
+                } else {
+                    log.append("\n You don't have enough points \nto recruit a soldier.");
+                }
+                break;
+        }
+        playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());
+        box.setSelectedIndex(0);
+    }
 
-    private void moveCheck() {
-        if(x >= 0 && y >= 0) {
+    private void attackBuilding() {
+        if((x >= 0 && y >= 0) && arr[x][y] instanceof Unit) {
             secondXYgetter = true;
             if(TargetX >= 0 && TargetY >= 0) {
-                move(x, y, TargetX, TargetY, (Unit) arr[x][y], whosturn);
-                log.append("\nMove successful.");
+                if (arr[TargetX][TargetY] instanceof Building){
+                    AttackBuilding(whosturn,(Unit)arr[x][y],(Building)arr[TargetX][TargetY]);
+                    resetValues();
+                    secondXYgetter = false;
+                } else {
+                    resetValues();
+                    secondXYgetter = false;
+                }
+            }else {
+                log.append("\nSelect a target!");
+            }
+        } else {
+            log.append("\nTarget a unit which you want to attack with.");
+        }
+    }
+
+    private void attackUnit() {
+        if((x >= 0 && y >= 0) && arr[x][y] instanceof Unit) {
+            secondXYgetter = true;
+            if(TargetX >= 0 && TargetY >= 0) {
+                if (arr[TargetX][TargetY] instanceof Unit){
+                    AttackUnit(whosturn,(Unit)arr[x][y],(Unit)arr[TargetX][TargetY]);
+                    resetValues();
+                    secondXYgetter = false;
+                } else {
+                    log.append("\nThe target is not a unit!");
+                    resetValues();
+                    secondXYgetter = false;
+                }
+            }else {
+                log.append("\nSelect a target!");
+            }
+        } else {
+            log.append("\nTarget a unit which you want to attack with.");
+        }
+    }
+
+    private void moveCheck() {
+        if((x >= 0 && y >= 0) && arr[x][y] instanceof Unit) {
+            secondXYgetter = true;
+            if(TargetX >= 0 && TargetY >= 0) {
+                if (arr[TargetX][TargetY] instanceof Unit || arr[TargetX][TargetY] instanceof Building){
+                    log.append("\nCan't move on a unit or a building.");
+                    resetValues();
+                    secondXYgetter = false;
+                } else {
+                    /*int distance = 0;
+                    if(arr[x][y] instanceof Soldier) {
+                        distance =  2;
+                    } else {
+                        distance = 1;
+                    }*/
+                    move(x, y, TargetX, TargetY, (Unit) arr[x][y], whosturn);
+                    /*if(validateDistance(x,y,TargetX,TargetY, distance)) {
+                        move(x, y, TargetX, TargetY, (Unit) arr[x][y], whosturn);
+                    } else  {
+                        log.append("Too far away.");
+                        resetValues();
+                        secondXYgetter = false;
+                    }*/
+            }
             }else {
                 log.append("\nSelect a target!");
             }
@@ -108,8 +229,37 @@ public class GameArea extends JFrame {
             log.append("\nTarget a unit with what you want to move.");
         }
     }
+    private void endTurn() {
+        if(whosturn.equals("BluePlayer")) {
+            getWhosTurn().setGP(getWhosTurn().getGP() + 50);
+            whosturn = "RedPlayer";
+            whosturnLabel.setText(whosturn);
+            log.append("\nBlue players turn");
 
-    private void getUserData(String userInput) {
+        } else if(whosturn.equals("RedPlayer")) {
+            getWhosTurn().setGP(getWhosTurn().getGP() + 50);
+            whosturn = "BluePlayer";
+            whosturnLabel.setText(whosturn);
+            log.append("\nRed players turn");
+        }
+        playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());
+    }
+
+    private boolean validateDistance(int x, int y, int targetX, int targetY, int distance) {
+        if (targetX > x && targetY > y) {
+            if (x + distance > targetX || y + distance > targetY) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
+       /* if (targetX < x && targetY > y) {
+        }
+        if (targetX < x && targetY < y) {
+        }
+        if (targetX > x && targetY > y) {
+        }*/
 
     }
 
@@ -135,14 +285,20 @@ public class GameArea extends JFrame {
         if(!secondXYgetter) {
             x = Integer.parseInt(mouseLocation.substring(0, 1));
             y = Integer.parseInt(mouseLocation.substring(1, 2));
-            selectedTarget.setText("Selected: " + arr[x][y]);
+            selectedTarget.setText("Selected(XY): " + arr[x][y]);
         } else {
             TargetX = Integer.parseInt(mouseLocation.substring(0, 1));
             TargetY = Integer.parseInt(mouseLocation.substring(1, 2));
-            selectedTarget.setText("Selected: " + arr[TargetX][TargetX]);
+            selectedTarget.setText("Selected(TargetXY): " + arr[TargetX][TargetY]);
         }
     }
 
+    public void GameAreaNewEmptyFieldBuilder(int x, int y) {
+        labels[x][y].setIcon(getDefaultIcon());
+        labels[x][y].setText("");
+        map.repaint();
+        map.revalidate();
+    }
     public void GameAreaBuilder(Fields f1, int x, int y) {
                 int hp = 0;
                 if(f1 instanceof Building) {
@@ -158,9 +314,11 @@ public class GameArea extends JFrame {
                 map.repaint();
                 map.revalidate();
     }
-    public void GameAreaBuilder(int OldX, int OldY, int x, int y, ImageIcon newIcon) {
+    public void GameAreaBuilder(int OldX, int OldY, int x, int y, ImageIcon newIcon, Unit u) {
         labels[OldX][OldY].setIcon(DefaultIcon);
+        labels[OldX][OldY].setText("");
         labels[x][y].setIcon(newIcon);
+        labels[x][y].setText(String.valueOf(u.getHealth()));
         map.repaint();
         map.revalidate();
     }
@@ -172,7 +330,7 @@ public class GameArea extends JFrame {
     public void setMap(JPanel map) {
         this.map = map;
     }
-    public Icon getDefaultIcon() {
+    public ImageIcon getDefaultIcon() {
         return DefaultIcon;
     }
 
@@ -187,13 +345,18 @@ public class GameArea extends JFrame {
 
         bp = new BluePlayer(bpNAME,"BLUE");
         rp = new RedPlayer(rpNAME,"RED");
+        playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());
         log.append("\n" + bp.getName() + " VS " + rp.getName());
         System.out.println(bp.getName() + " VS " + rp.getName());
 
-        makeHeadQuarter(1,1,rp);
-        makeHeadQuarter(2,3,bp);
-        makeSolider(3,4,rp);
-        makeSolider(3,5,bp);
+        makeHeadQuarter(0,0,rp);
+        makeHeadQuarter(9,9,bp);
+        makeSoldier(0,1,rp);
+        makeSoldier(1,1,rp);
+        makeSoldier(1,0,rp);
+        makeSoldier(9,8,bp);
+        makeSoldier(8,9,bp);
+        makeSoldier(8,8,bp);
 
         int randomStart = ThreadLocalRandom.current().nextInt(2);
         System.out.println("RANDOM: " + randomStart);
@@ -209,17 +372,13 @@ public class GameArea extends JFrame {
         whosturnLabel.setText(whosturn);
     }
     private void gameProcess() {
-        System.out.println("Welcome to gameProcess!");
-        log.append("\n" + "Welcome to gameProcess!");
-        int roundCounter = 0;
-        while(RedBuildings > 0 && BlueBuildings > 0) {
-            while(!endturn){
-
-            }
-            whosturn = getEnemyName();
-            endturn = false;
-        }
-        GameEnd();
+        /*if(RedBuildings < 0 || BlueBuildings < 0) {
+            GameEnd();*/
+        /*}
+            getWhosTurn().setGP(getWhosTurn().getGP() + 50);
+            playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());*/
+            /*whosturn = getEnemyName();
+            endturn = false;*/
     }
     private void GameEnd() {
         String tempA = "";
@@ -308,7 +467,7 @@ public class GameArea extends JFrame {
                     getMap();
                     System.out.println("XY coordinates please");
                     input = sc.nextLine();
-                    makeSolider(subsStringZeroOne(input), subsStringOneTwo(input), bp);
+                    makeSoldier(subsStringZeroOne(input), subsStringOneTwo(input), bp);
                     break;
                 }else if (input.equals("5")) {
                     getMap();
@@ -410,7 +569,7 @@ public class GameArea extends JFrame {
                 RedBuildings++;
             }
             GameAreaBuilder(arr[x][y], x, y);
-            System.out.println("Sniper built.");
+            System.out.println("Sniper trainer built.");
         }
     }
     private void makeSniper(int x,int y, Player player) {
@@ -420,7 +579,7 @@ public class GameArea extends JFrame {
         }
         GameAreaBuilder(arr[x][y], x, y);
     }
-    private void makeSolider(int x,int y, Player player) {
+    private void makeSoldier(int x, int y, Player player) {
         if(checkField(x,y)) {
             arr[x][y] = new Soldier(x, y, player);
             arr[x][y].setUsed(true);
@@ -437,59 +596,82 @@ public class GameArea extends JFrame {
         }
     }
     private void AttackBuilding(String whosturn, Unit u, Building b) {
-        System.out.println("Attacking Building " + b.getLocationY() + " " + b.getLocationX() + " With unit"
-                + u.getLocationX() + " " + u.getLocationX() + " Building HP: " + b.getHitPoints());
         if(!b.getPlayer().getName().equals(whosturn)) {
             if (u instanceof Sniper) {
                 b.setHitPoints(b.getHitPoints() - 45);
+                log.append("\nSniper unit attacked!");
             } else {
                 b.setHitPoints(b.getHitPoints() - 20);
+                log.append("\nSolider unit attacked!");
             }
             if (b.getHitPoints() <= 0) {
                 arr[b.getLocationX()][b.getLocationY()].setUsed(false);
                 arr[b.getLocationX()][b.getLocationY()] = null;
             }
-            System.out.println("attack ended, building new hitpoints: " + b.getHitPoints());
+            labels[b.getLocationX()][b.getLocationY()].setText(String.valueOf(b.getHitPoints()));
+            if (b.getHitPoints() <= 0) {
+                arr[b.getLocationX()][b.getLocationY()] = new Fields(false);
+                GameAreaNewEmptyFieldBuilder(b.getLocationX(),b.getLocationY());
+                log.append("\nEnemy building eliminated");
+            }
         } else {
-            System.out.println("You are trying to attack your own unit: " + b.getLocationX() + ":"+ b.getLocationY());
+            log.append("\nYou can't attack your own unit.");
         }
     }
     private void AttackUnit(String whosturn, Unit u1, Unit u2) {
         if (!u2.getPlayer().getName().equals(whosturn)) {
             if (u1 instanceof Sniper) {
                 u2.setHealth(u2.getHealth() - 45);
+                log.append("\nSniper unit attacked!");
             } else {
                 u2.setHealth(u2.getHealth() - 20);
+                log.append("\nSolider unit attacked!");
             }
+            labels[u2.getLocationX()][u2.getLocationY()].setText(String.valueOf(u2.getHealth()));
             if (u2.getHealth() <= 0) {
-                arr[u2.getLocationX()][u2.getLocationY()].setUsed(false);
-                arr[u2.getLocationX()][u2.getLocationY()] = null;
-                System.out.println("unit megmurdalt!");
-                System.out.println(arr[u2.getLocationX()][u2.getLocationY()].isUsed());
+                arr[u2.getLocationX()][u2.getLocationY()] = new Fields(false);
+                GameAreaNewEmptyFieldBuilder(u2.getLocationX(),u2.getLocationY());
+                log.append("\nEnemy unit eliminated");
             }
         } else {
-            System.out.println("You can't attack your own unit:" + u2.getLocationX() + ":"+ u2.getLocationY());
-        }
-    }
-    private void move(int x, int y, int newX, int  newY, Unit u, String whosturn) {
-        resetValues();
-        if(checkField(x + u.getMoveDistance(),y + u.getMoveDistance())) {
-            if(u.getPlayer().getName() == whosturn) {
-                GameAreaBuilder(x, y,x+ u.getMoveDistance(),
-                        y + u.getMoveDistance(), u.getImg());
-                arr[newX][newY] = arr[x][y];
-                arr[x][y] = new Fields(false);
-                labels[newX][newY].setIcon(getDefaultIcon());
-                labels[x][y].setIcon(u.getImg());
-                System.out.println("Successful move");
-            } else {
-                System.out.println("It's not your unit.");
-            }
-        } else {
-            System.out.println("Failed to make move. Location is used by something already.");
+            log.append("\nYou can't attack your own unit.");
         }
     }
 
+    private Player getWhosTurn() {
+        if(whosturn.equals(rp.getName())){
+            return rp;
+        } else {
+            return bp;
+        }
+    }
+    private void move(int x, int y, int newX, int  newY, Unit u, String whosturn) {
+        secondXYgetter = false;
+        resetValues();
+        System.out.println("\nX "+ x+ "Y "+ y + "newX " + newX + "newY" + newY );
+        if(checkField(newX,newY)) {
+            if(u.getPlayer().getName() == whosturn) {
+                if(arr[x][y] instanceof Unit) {
+                    System.out.println("\nElotte:" + arr[newX][newY]);
+                    arr[newX][newY] = arr[x][y];
+                    System.out.println("\nUtana:" + arr[newX][newY]);
+                    arr[x][y] = new Fields(false);
+                    GameAreaBuilder(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
+                    log.append("\nSuccessful move");
+                } else {
+                    log.append("\nIt's not a unit");
+                }
+            } else {
+                log.append("\nIt's not your turn.");
+            }
+        } else {
+            log.append("\nFailed to make move. Location is used by something already.");
+        }
+
+    }
+    private boolean getEndturn () {
+        return endturn;
+    }
     private void resetValues() {
         x = -1;
         y = -1;

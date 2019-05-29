@@ -15,9 +15,9 @@ public class Soldier extends Unit {
         this.moveDistance = 2;
         this.player = player;
         if(player.getColor().equals("BLUE")) {
-            this.img = new ImageIcon("img/hq1blue.png");
+            this.img = new ImageIcon("img/blue-soldier-shadow.png");
         } else {
-            this.img = new ImageIcon("img/hq1red.png");
+            this.img = new ImageIcon("img/red-soldier-shadow.png");
         }
 
     }

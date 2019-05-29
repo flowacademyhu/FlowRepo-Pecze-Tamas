@@ -64,6 +64,16 @@ public class Unit extends Fields {
     }
 
     @Override
+    public ImageIcon getImg() {
+        return img;
+    }
+
+    @Override
+    public void setImg(ImageIcon img) {
+        this.img = img;
+    }
+
+    @Override
     public String toString() {
         return "Unit{" +
                 "health=" + health +

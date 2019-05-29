@@ -12,9 +12,9 @@ public class Headquarter extends Building {
         this.locationY = locationY;
         this.player = player;
         if(player.getColor().equals("BLUE")) {
-            this.img = new ImageIcon("img/korhazblue.png");
+            this.img = new ImageIcon("img/blue-hq-shadow.png");
         } else {
-            this.img = new ImageIcon("img/korhazblue.png");
+            this.img = new ImageIcon("img/red-hq-shadow.png");
         }
     }
     @Override
