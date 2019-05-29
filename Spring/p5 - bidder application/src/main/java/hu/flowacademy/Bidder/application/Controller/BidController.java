@@ -26,7 +26,7 @@ public class BidController {
         return ResponseEntity.ok(bidService.save(bid));
     }
     @GetMapping("/get/{id}")
-    public ResponseEntity<Bid> getById(@PathVariable Long  id) {
+    public ResponseEntity<Bid> getBidById(@PathVariable Long  id) {
         return ResponseEntity.ok(bidService.getById(id));
     }
 }

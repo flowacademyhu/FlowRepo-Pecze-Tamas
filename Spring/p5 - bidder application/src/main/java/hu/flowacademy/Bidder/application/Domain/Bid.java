@@ -1,18 +1,27 @@
 package hu.flowacademy.Bidder.application.Domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
 @Table(name = "Qbid")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bid {
     public Bid(int bidPrice, String name, LocalDateTime bidTime) {
         this.bidPrice = bidPrice;
         this.name = name;
         this.bidTime = bidTime;
     }
-
+    public Bid(int bidPrice, String name) {
+        this.bidPrice = bidPrice;
+        this.name = name;
+    }
     public Bid() {
     }
 
@@ -73,5 +82,13 @@ public class Bid {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Product getQproducts() {
+        return Qproducts;
+    }
+
+    public void setQproducts(Product qproducts) {
+        Qproducts = qproducts;
     }
 }

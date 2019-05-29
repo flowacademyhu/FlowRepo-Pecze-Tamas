@@ -1,11 +1,14 @@
 package hu.flowacademy.Bidder.application.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "Qproducts")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
     public Product(String productName, String productDesc, int minimalPrice, Date productAddedDate, Date productTimeLeft) {
         this.productName = productName;
@@ -14,7 +17,14 @@ public class Product {
         this.productAddedDate = productAddedDate;
         this.productTimeLeft = productTimeLeft;
     }
-
+    public Product(String productName, String productDesc, int minimalPrice, Date productAddedDate, Date productTimeLeft, List bid) {
+        this.productName = productName;
+        this.productDesc = productDesc;
+        this.minimalPrice = minimalPrice;
+        this.productAddedDate = productAddedDate;
+        this.productTimeLeft = productTimeLeft;
+        this.Qbid = bid;
+    }
     public Product() {
     }
 
@@ -104,5 +114,13 @@ public class Product {
 
     public void setBid(List<Bid> qbid) {
         this.Qbid = qbid;
+    }
+
+    public List<Bid> getQbid() {
+        return Qbid;
+    }
+
+    public void setQbid(List<Bid> qbid) {
+        Qbid = qbid;
     }
 }
