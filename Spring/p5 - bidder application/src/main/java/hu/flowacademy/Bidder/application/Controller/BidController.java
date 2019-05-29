@@ -17,13 +17,13 @@ public class BidController {
     public ResponseEntity<List<Bid>> getBid() {
         return ResponseEntity.ok(bidService.getAll());
     }
-    @PostMapping("/add")
-    public ResponseEntity<Bid> addBid(@RequestBody Bid bid) {
-        return ResponseEntity.ok(bidService.save(bid));
+    @PostMapping("/add/{productid}")
+    public ResponseEntity<Bid> addBid(@RequestBody Bid bid, @PathVariable Long productid) {
+        return ResponseEntity.ok(bidService.save(bid,productid));
     }
     @PutMapping("/update")
     public ResponseEntity<Bid> updateBid(@RequestBody Bid bid) {
-        return ResponseEntity.ok(bidService.save(bid));
+        return ResponseEntity.ok(bidService.save(bid, null));
     }
     @GetMapping("/get/{id}")
     public ResponseEntity<Bid> getBidById(@PathVariable Long  id) {

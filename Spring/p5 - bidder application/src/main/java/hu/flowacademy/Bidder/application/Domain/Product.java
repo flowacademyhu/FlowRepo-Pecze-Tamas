@@ -1,5 +1,6 @@
 package hu.flowacademy.Bidder.application.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -10,21 +11,15 @@ import java.util.List;
 @Table(name = "Qproducts")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
-    public Product(String productName, String productDesc, int minimalPrice, Date productAddedDate, Date productTimeLeft) {
-        this.productName = productName;
-        this.productDesc = productDesc;
-        this.minimalPrice = minimalPrice;
-        this.productAddedDate = productAddedDate;
-        this.productTimeLeft = productTimeLeft;
+    public Product( String productname, String productdesc, int minimalprice, Date productaddeddate, Date producttimeleft) {
+
+        this.productname = productname;
+        this.productdesc = productdesc;
+        this.minimalprice = minimalprice;
+        this.productaddeddate = productaddeddate;
+        this.producttimeleft = producttimeleft;
     }
-    public Product(String productName, String productDesc, int minimalPrice, Date productAddedDate, Date productTimeLeft, List bid) {
-        this.productName = productName;
-        this.productDesc = productDesc;
-        this.minimalPrice = minimalPrice;
-        this.productAddedDate = productAddedDate;
-        this.productTimeLeft = productTimeLeft;
-        this.Qbid = bid;
-    }
+
     public Product() {
     }
 
@@ -34,74 +29,28 @@ public class Product {
     @Column(name = "id")
     private long id;
 
-    @OneToMany(mappedBy = "Qproducts")
-    private List<Bid> Qbid;
+    @JsonIgnore
+    @OneToMany(mappedBy = "products")
+    private List<Bid> bid;
 
     @Column
-    private String productName;
+    private String productname;
 
     @Column
-    private String productDesc;
+    private String productdesc;
 
     @Column
-    private int minimalPrice;
+    private int minimalprice;
 
     @Column
-    private Date productAddedDate;
+    private Date productaddeddate;
 
     @Column
-    private Date productTimeLeft;
+    private Date producttimeleft;
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductDesc() {
-        return productDesc;
-    }
-
-    public void setProductDesc(String productDesc) {
-        this.productDesc = productDesc;
-    }
-
-    public int getMinimalPrice() {
-        return minimalPrice;
-    }
-
-    public void setMinimalPrice(int minimalPrice) {
-        this.minimalPrice = minimalPrice;
-    }
-
-    public Date getProductAddedDate() {
-        return productAddedDate;
-    }
-
-    public void setProductAddedDate(Date productAddedDate) {
-        this.productAddedDate = productAddedDate;
-    }
-
-    public Date getProductTimeLeft() {
-        return productTimeLeft;
-    }
-
-    public void setProductTimeLeft(Date productTimeLeft) {
-        this.productTimeLeft = productTimeLeft;
-    }
 
     public long getId() {
         return id;
-    }
-
-    public List<Bid> getBids() {
-        return Qbid;
-    }
-
-    public void setBids(List<Bid> bids) {
-        this.Qbid = Qbid;
     }
 
     public void setId(long id) {
@@ -109,18 +58,50 @@ public class Product {
     }
 
     public List<Bid> getBid() {
-        return Qbid;
+        return bid;
     }
 
-    public void setBid(List<Bid> qbid) {
-        this.Qbid = qbid;
+    public void setBid(List<Bid> bid) {
+        this.bid = bid;
     }
 
-    public List<Bid> getQbid() {
-        return Qbid;
+    public String getProductname() {
+        return productname;
     }
 
-    public void setQbid(List<Bid> qbid) {
-        Qbid = qbid;
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
+    public String getProductdesc() {
+        return productdesc;
+    }
+
+    public void setProductdesc(String productdesc) {
+        this.productdesc = productdesc;
+    }
+
+    public int getMinimalprice() {
+        return minimalprice;
+    }
+
+    public void setMinimalprice(int minimalprice) {
+        this.minimalprice = minimalprice;
+    }
+
+    public Date getProductaddeddate() {
+        return productaddeddate;
+    }
+
+    public void setProductaddeddate(Date productaddeddate) {
+        this.productaddeddate = productaddeddate;
+    }
+
+    public Date getProducttimeleft() {
+        return producttimeleft;
+    }
+
+    public void setProducttimeleft(Date producttimeleft) {
+        this.producttimeleft = producttimeleft;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -23,18 +24,17 @@ public class BidderApplicationStartupRunner implements CommandLineRunner {
     @Autowired
     private ProductRepostiry productRepostiry;
 
-    LocalDateTime actualDateTime1 = LocalDateTime
-            .of(2018, Month.JUNE, 25, 5, 0);
-    LocalDateTime actualDateTime2 = LocalDateTime
-            .of(2018, Month.JUNE, 25, 5, 0);
-    LocalDateTime actualDateTime3 = LocalDateTime
-            .of(2018, Month.JUNE, 25, 5, 0);
+    LocalDate actualDateTime1 = LocalDate
+            .of(2018, Month.JUNE,03);
+    LocalDate actualDateTime2 = LocalDate
+            .of(2018, Month.JUNE, 25 );
+    LocalDate actualDateTime3 = LocalDate
+            .of(2018, Month.JUNE, 25);
     @Override
     public void run(String... args) throws Exception {
         Bid bid1 = new Bid(500, "Pali",actualDateTime1);
         Bid bid2 = new Bid(1500, "Jozsi",actualDateTime2);
         Bid bid3 = new Bid(2500, "Pali",actualDateTime3);
-
         Product product1 = new Product("Hasznalt legycsapo",
                 "Alig hasznalt, csak 2 legyet es egy tengeri sullot utottem le vele",
                 1,new Date(13/06/2018),new Date());

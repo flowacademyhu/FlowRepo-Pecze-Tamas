@@ -1,26 +1,26 @@
 package hu.flowacademy.Bidder.application.Domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
-@Table(name = "Qbid")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "bid")
 public class Bid {
-    public Bid(int bidPrice, String name, LocalDateTime bidTime) {
-        this.bidPrice = bidPrice;
+    public Bid(int bidPrice, String name, LocalDate bidTime) {
+        this.bidprice = bidPrice;
         this.name = name;
-        this.bidTime = bidTime;
+        this.bidtime = bidTime;
     }
     public Bid(int bidPrice, String name) {
-        this.bidPrice = bidPrice;
+        this.bidprice = bidPrice;
         this.name = name;
+        this.bidtime = bidtime;
     }
     public Bid() {
     }
@@ -31,33 +31,39 @@ public class Bid {
     @Column(name = "id")
     private long id;
     @Column
-    private int bidPrice;
+    private int bidprice;
     @Column
     private String name;
     @Column
-    private LocalDateTime bidTime;
+    private LocalDate bidtime;
 
     @ManyToOne
-    @JoinColumn(name = "qproducts_id", foreignKey = @ForeignKey(name = "fk_qproducts_qbid"))
-    private Product Qproducts;
+    @JoinColumn(name = "products_id", foreignKey = @ForeignKey(name = "fk_products_bid"))
+    private Product products;
 
-    @Transient
-    private String qproductsid;
-
-    public Product getProducts() {
-        return Qproducts;
+    public int getBidprice() {
+        return bidprice;
     }
 
-    public void setProducts(Product products) {
-        this.Qproducts = products;
+    public void setBidprice(int bidprice) {
+        this.bidprice = bidprice;
     }
+
+    public LocalDate getBidtime() {
+        return bidtime;
+    }
+
+    public void setBidtime(LocalDate bidtime) {
+        this.bidtime = bidtime;
+    }
+
 
     public int getBidPrice() {
-        return bidPrice;
+        return bidprice;
     }
 
     public void setBidPrice(int bidPrice) {
-        this.bidPrice = bidPrice;
+        this.bidprice = bidPrice;
     }
 
     public String getName() {
@@ -68,12 +74,12 @@ public class Bid {
         this.name = name;
     }
 
-    public LocalDateTime getBidTime() {
-        return bidTime;
+    public LocalDate getBidTime() {
+        return bidtime;
     }
 
-    public void setBidTime(LocalDateTime bidTime) {
-        this.bidTime = bidTime;
+    public void setBidTime(LocalDate bidTime) {
+        this.bidtime = bidTime;
     }
 
     public long getId() {
@@ -84,11 +90,11 @@ public class Bid {
         this.id = id;
     }
 
-    public Product getQproducts() {
-        return Qproducts;
+    public Product getProducts() {
+        return products;
     }
 
-    public void setQproducts(Product qproducts) {
-        Qproducts = qproducts;
+    public void setProducts(Product qproducts) {
+        products = qproducts;
     }
 }
