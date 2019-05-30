@@ -12,9 +12,9 @@ public class Hospital extends Building {
         this.locationY = locationY;
         this.player = player;
         if(player.getColor().equals("BLUE")) {
-            this.img = new ImageIcon("img/hqblue.png");
+            this.img = new ImageIcon("img/blue-hospital-shadow.png");
         } else {
-            this.img = new ImageIcon("img/hqred.png");
+            this.img = new ImageIcon("img/red-hospital-shadow.png");
         }
     }
 

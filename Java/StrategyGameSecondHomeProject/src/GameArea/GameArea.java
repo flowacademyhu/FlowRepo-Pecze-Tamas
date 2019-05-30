@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.concurrent.Flow;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -48,12 +48,14 @@ public class GameArea extends JFrame {
          String input = "0000";
          private ImageIcon DefaultIcon = new ImageIcon("img/qwe150.png");
          private JLabel playerPoints;
+         private boolean shopOrMove = false;
 
     public GameArea() {
 
         super("Strategy game");
-        this.setSize(1300,600);
+        this.setSize(960,650);
         this.setVisible(true);
+        this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         secondXYgetter = false;
@@ -72,7 +74,7 @@ public class GameArea extends JFrame {
         constructBuildingComboBox.addItem(new BuildingList("Hospital", 3));
         constructBuildingComboBox.addItem(new BuildingList("Soldier", 4));
         constructBuildingComboBox.addItem(new BuildingList("SniperTrainer", 5));
-        constructBuildingComboBox.addActionListener(e -> constructBuilding(constructBuildingComboBox));
+        constructBuildingComboBox.addActionListener(e -> constructOrRecruit(constructBuildingComboBox));
 
         moveUnitButton= new JButton("Move unit");
         moveUnitButton.addActionListener(e -> moveCheck());
@@ -80,78 +82,94 @@ public class GameArea extends JFrame {
         whosTurnButton.addActionListener(e -> endTurn());
         selectedTarget = new JLabel("Nothing selected yet.");
         whosturnLabel = new JLabel("Waiting for game init");
-        JPanel southPanel = new JPanel();
+        JLabel nowPlaying = new JLabel("Now playing: ");
         log = new JTextArea("Game log",30,30);
         log.setEditable(false);
         JScrollPane areaScrollPane = new JScrollPane(log);
         areaScrollPane.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        JLabel fun = new JLabel("/img/")
+        JLabel fun = new JLabel();
+        fun.setIcon(new ImageIcon("img/qwe150.png"));
+        JPanel southPanel = new JPanel();
         southPanel.add(attackUnitButton);
         southPanel.add(attackBuildingButton);
         southPanel.add(moveUnitButton);
         southPanel.add(whosTurnButton);
         southPanel.add(constructBuildingComboBox);
-        southPanel.add(playerPoints);
-        southPanel.add(whosturnLabel);
         this.add(southPanel, BorderLayout.SOUTH);
         this.add(selectedTarget, BorderLayout.PAGE_START);
         this.add(map, BorderLayout.CENTER);
-        JPanel eastPanel = new JPanel();
-        eastPanel.add(areaScrollPane);
-        eastPanel.add(areaScrollPane);
+        JPanel eastPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.gridy = 0;
+        eastPanel.add(areaScrollPane,c);
+        c.gridy = 1;
+        eastPanel.add(playerPoints, c);
+        c.gridy = 2;
+        eastPanel.add(nowPlaying,c);
+        c.gridy = 3;
+        eastPanel.add(whosturnLabel,c);
         this.add(eastPanel, BorderLayout.EAST);
 
         GameAreaInit();
         gameInit();
-        gameProcess();
     }
-    private void constructBuilding(JComboBox box) {
+    private void constructOrRecruit(JComboBox box) {
         Object item = box.getSelectedItem();
         int value = ((BuildingList)item).getValue();
-        log.append(String.valueOf(value));
+        if(!shopOrMove){
         switch (value) {
             case 1:
-                if(getWhosTurn().getGP() > 200) {
-                makeHeadQuarter(x,y,getWhosTurn());
-                getWhosTurn().setGP(getWhosTurn().getGP() - 200);
+                if (getWhosTurn().getGP() > 200) {
+                    makeHeadQuarter(x, y, getWhosTurn());
+                    getWhosTurn().setGP(getWhosTurn().getGP() - 200);
+                    shopOrMove = true;
                 } else {
                     log.append("\n You don't have enough points \nto construct a headquarter.");
                 }
+                shopOrMove = true;
                 break;
             case 2:
-                if(getWhosTurn().getGP() > 250) {
-                    makeSniperTrainer(x,y,getWhosTurn());
+                if (getWhosTurn().getGP() > 250) {
+                    makeSniperTrainer(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 250);
+                    shopOrMove = true;
                 } else {
                     log.append("\n You don't have enough points \nto construct a sniper trainer.");
                 }
+                shopOrMove = true;
                 break;
             case 3:
-                if(getWhosTurn().getGP() > 150) {
-                    makeHospital(x,y,getWhosTurn());
+                if (getWhosTurn().getGP() > 150) {
+                    makeHospital(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 150);
+                    shopOrMove = true;
                 } else {
                     log.append("\n You don't have enough points \nto construct a hospital.");
                 }
+
                 break;
             case 4:
-                if(getWhosTurn().getGP() > 60) {
-                    makeSniper(x,y,getWhosTurn());
+                if (getWhosTurn().getGP() > 60) {
+                    makeSniper(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 60);
+                    shopOrMove = true;
                 } else {
                     log.append("\n You don't have enough points \nto recruit a sniper.");
                 }
                 break;
             case 5:
-                if(getWhosTurn().getGP() > 40) {
-                    makeSniper(x,y,getWhosTurn());
+                if (getWhosTurn().getGP() > 40) {
+                    makeSniper(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 40);
+                    shopOrMove = true;
                 } else {
                     log.append("\n You don't have enough points \nto recruit a soldier.");
                 }
                 break;
+        }
         }
         playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());
         box.setSelectedIndex(0);
@@ -207,20 +225,7 @@ public class GameArea extends JFrame {
                     resetValues();
                     secondXYgetter = false;
                 } else {
-                    /*int distance = 0;
-                    if(arr[x][y] instanceof Soldier) {
-                        distance =  2;
-                    } else {
-                        distance = 1;
-                    }*/
                     move(x, y, TargetX, TargetY, (Unit) arr[x][y], whosturn);
-                    /*if(validateDistance(x,y,TargetX,TargetY, distance)) {
-                        move(x, y, TargetX, TargetY, (Unit) arr[x][y], whosturn);
-                    } else  {
-                        log.append("Too far away.");
-                        resetValues();
-                        secondXYgetter = false;
-                    }*/
             }
             }else {
                 log.append("\nSelect a target!");
@@ -235,12 +240,14 @@ public class GameArea extends JFrame {
             whosturn = "RedPlayer";
             whosturnLabel.setText(whosturn);
             log.append("\nBlue players turn");
+            shopOrMove = false;
 
         } else if(whosturn.equals("RedPlayer")) {
             getWhosTurn().setGP(getWhosTurn().getGP() + 50);
             whosturn = "BluePlayer";
             whosturnLabel.setText(whosturn);
             log.append("\nRed players turn");
+            shopOrMove = false;
         }
         playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());
     }
@@ -254,12 +261,6 @@ public class GameArea extends JFrame {
             }
         }
         return false;
-       /* if (targetX < x && targetY > y) {
-        }
-        if (targetX < x && targetY < y) {
-        }
-        if (targetX > x && targetY > y) {
-        }*/
 
     }
 
@@ -319,6 +320,8 @@ public class GameArea extends JFrame {
         labels[OldX][OldY].setText("");
         labels[x][y].setIcon(newIcon);
         labels[x][y].setText(String.valueOf(u.getHealth()));
+        labels[x][y].setHorizontalTextPosition(JLabel.CENTER);
+        labels[x][y].setVerticalTextPosition(JLabel.CENTER);
         map.repaint();
         map.revalidate();
     }
@@ -371,15 +374,6 @@ public class GameArea extends JFrame {
         }
         whosturnLabel.setText(whosturn);
     }
-    private void gameProcess() {
-        /*if(RedBuildings < 0 || BlueBuildings < 0) {
-            GameEnd();*/
-        /*}
-            getWhosTurn().setGP(getWhosTurn().getGP() + 50);
-            playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());*/
-            /*whosturn = getEnemyName();
-            endturn = false;*/
-    }
     private void GameEnd() {
         String tempA = "";
         System.out.println("Do you want to play another game?");
@@ -393,125 +387,8 @@ public class GameArea extends JFrame {
         if(tempA.equals("YES") || tempA.equals("yes")) {
             //TODO clear data from old gameinit/processes
             gameInit();
-            gameProcess();
         } else {
             System.exit(1);
-        }
-    }
-    public int gameOptions() {
-        log.setText("");
-        log.append("\n" + "What you want to do?");
-        log.append("\n" + "1 Get map information");
-        log.append("\n" + "2 Attack building");
-        log.append("\n" + "3 Attack unit");
-        log.append("\n" + "4 Build Building/Recruit Unit");
-        log.append("\n" + "5 Move with unit");
-        log.append("\n" + "6 EndTurn");
-        log.append("\n" + "7 Give up");
-        return 1; // fail
-    }
-    public void actionSelect(String whosturn, int x, int y, int targetX, int targetY) {
-        log.setText("");
-        log.append("\n" + "What you want to do?");
-        log.append("\n" + "1 Get map information");
-        log.append("\n" + "2 Attack building");
-        log.append("\n" + "3 Attack unit");
-        log.append("\n" + "4 Build Building/Recruit Unit");
-        log.append("\n" + "5 Move with unit");
-        log.append("\n" + "6 EndTurn");
-        log.append("\n" + "7 Give up");
-        Scanner sc = new Scanner(System.in);
-        input = sc.nextLine();
-        switch (input) {
-            case "1":
-                getMap();
-                break;
-            case "2":
-                System.out.println("YourUnit XY and Enemy Building XY (format:'XYXY') REQUIRED!x");
-                input = sc.nextLine();
-                AttackBuilding(whosturn, (Unit) arr[x][y],(Building) arr[targetX][targetY]);
-                break;
-            case "3":
-                System.out.println("YourUnit XY and Enemy Unit XY (format: 'XYXY' ");
-                input = sc.nextLine();
-                AttackUnit(whosturn, (Unit) arr[x][y], (Unit) arr[targetX][targetY]);
-                break;
-            case "4":
-                if (bp.getName().equals(whosturn)) {
-                    System.out.println("You have " + bp.getGP() + " points to build");
-                } else {
-                    System.out.println("You have " + rp.getGP() + " points to build");
-                }
-                System.out.println("What you want to do? 1 Build HQ" +
-                        " 2 Build SniperTrainer 3 Build Hospital 4 Recruit Solider 5 Reqcruit Sniper 6 Cancel");
-                input = sc.nextLine();
-                if (input.equals("1")) {
-                    getMap();
-                    System.out.println("XY coordinates please");
-                    input = sc.nextLine();
-                    makeHeadQuarter(subsStringZeroOne(input), subsStringOneTwo(input), bp);
-                    break;
-                } else if (input.equals("2")) {
-                    getMap();
-                    System.out.println("XY coordinates please");
-                    input = sc.nextLine();
-                    makeSniperTrainer(subsStringZeroOne(input), subsStringOneTwo(input), bp);
-                    break;
-                }else if (input.equals("3")) {
-                    getMap();
-                    System.out.println("XY coordinates please");
-                    input = sc.nextLine();
-                    makeHospital(subsStringZeroOne(input), subsStringOneTwo(input), bp);
-                    break;
-                }else if (input.equals("4")) {
-                    getMap();
-                    System.out.println("XY coordinates please");
-                    input = sc.nextLine();
-                    makeSoldier(subsStringZeroOne(input), subsStringOneTwo(input), bp);
-                    break;
-                }else if (input.equals("5")) {
-                    getMap();
-                    System.out.println("XY coordinates please");
-                    input = sc.nextLine();
-                    makeSniper(subsStringZeroOne(input), subsStringOneTwo(input), bp);
-                    break;
-                }else if(input.equals("6")) {
-                    break;
-                } else {
-                    System.out.println("Invalid input. Try again...");
-                    break;
-                }
-            case "5":
-                System.out.println("what unit you wanna move? And to What coordinate? XYXY coordinates please.");
-                input = sc.nextLine();
-                /*if(arr[subsStringZeroOne(input)][subsStringOneTwo(input)] instanceof Soldier){
-                    move((Unit)arr[subsStringZeroOne(input)][subsStringOneTwo(input)],
-                            subsStringTwoThree(input),subsStringThreeFour(input), 1, whosturn);
-                } else if(arr[subsStringZeroOne(input)][subsStringOneTwo(input)] instanceof Sniper) {
-                    move((Unit) arr[subsStringZeroOne(input)][subsStringOneTwo(input)],
-                            subsStringTwoThree(input),subsStringThreeFour(input),2, whosturn);
-                } else {
-                    System.out.println(input);
-                    System.out.println(subsStringZeroOne(input) + " " + subsStringOneTwo(input));
-                    System.out.println("not a unit.");
-                }*/
-                break;
-            case "6":
-                System.out.println("End turn? Y/N");
-                input = sc.nextLine();
-                if(input.equals("y") || input.equals("Y")){
-                    System.out.println(whosturn + " turn ended. " + getEnemyName() + "'s turn.");
-                    endturn = true;
-                }
-                break;
-            case "7":
-                System.out.println("Are you sure you want to give up? Y/N");
-                input = sc.nextLine();
-                if(input.equals("y") || input.equals("Y")){
-                    System.out.println(whosturn + "gave up. " + getEnemyName() + " won the game!");
-                    GameEnd();
-                }
-                break;
         }
     }
 
@@ -652,12 +529,15 @@ public class GameArea extends JFrame {
         if(checkField(newX,newY)) {
             if(u.getPlayer().getName() == whosturn) {
                 if(arr[x][y] instanceof Unit) {
-                    System.out.println("\nElotte:" + arr[newX][newY]);
-                    arr[newX][newY] = arr[x][y];
-                    System.out.println("\nUtana:" + arr[newX][newY]);
-                    arr[x][y] = new Fields(false);
-                    GameAreaBuilder(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
-                    log.append("\nSuccessful move");
+                    if(!shopOrMove){
+                        arr[newX][newY] = arr[x][y];
+                        arr[x][y] = new Fields(false);
+                        GameAreaBuilder(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
+                        log.append("\nSuccessful move");
+                        shopOrMove = true;
+                    } else {
+                        log.append("\nYou already moved or shopped this turn.");
+                    }
                 } else {
                     log.append("\nIt's not a unit");
                 }
