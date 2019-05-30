@@ -14,9 +14,9 @@ public class Sniper extends Unit {
         this.moveDistance = 1;
         this.player = player;
         if(player.getColor().equals("BLUE")) {
-            this.img = new ImageIcon("img/blue-soldier-shadow.png");
+            this.img = new ImageIcon("img/blue-sniper-shadow.png");
         } else {
-            this.img = new ImageIcon("img/blue-soldier-shadow.png");
+            this.img = new ImageIcon("img/red-sniper-shadow.png");
         }
     }
     @Override
