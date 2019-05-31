@@ -552,10 +552,11 @@ public class GameArea extends JFrame {
                     u2.setHealth(u2.getHealth() - 20);
                     log.append("\nSolider unit attacked!");
                 }
-                labels[u2.getLocationX()][u2.getLocationY()].setText(String.valueOf(u2.getHealth()));
+                System.out.println(u2.getHealth());
+                labels[TargetX][TargetY].setText(String.valueOf(u2.getHealth()));
                 if (u2.getHealth() <= 0) {
-                    arr[u2.getLocationX()][u2.getLocationY()] = new Fields(false);
-                    GameAreaNewEmptyFieldBuilder(u2.getLocationX(), u2.getLocationY());
+                    arr[TargetX][TargetY] = new Fields(false);
+                    GameAreaNewEmptyFieldBuilder(TargetX, TargetY);
                     log.append("\nEnemy unit eliminated");
                 }
             } else {
