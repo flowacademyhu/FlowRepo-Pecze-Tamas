@@ -20,7 +20,6 @@ public class Soldier extends Unit {
             this.img = new ImageIcon("img/red-soldier-shadow.png");
         }
         this.hasAttackedThisTurn = false;
-
     }
     @Override
     public String toString() {

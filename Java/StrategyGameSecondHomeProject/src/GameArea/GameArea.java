@@ -57,7 +57,7 @@ public class GameArea extends JFrame {
         secondXYgetter = false;
 
         attackUnitButton= new JButton("Attack unit");
-        attackUnitButton.addActionListener(e -> attackUnit());
+        attackUnitButton.addActionListener(e -> attackUnitValidate());
         JButton attackBuildingButton= new JButton("Attack building");
         attackBuildingButton.addActionListener(e -> ValidateAttackBuilding());
 
@@ -208,7 +208,7 @@ public class GameArea extends JFrame {
         }
     }
 
-    private void attackUnit() {
+    private void attackUnitValidate() {
         if((x >= 0 && y >= 0) && arr[x][y] instanceof Unit) {
             secondXYgetter = true;
             if(TargetX >= 0 && TargetY >= 0) {
@@ -490,10 +490,10 @@ public class GameArea extends JFrame {
     private void attackBuilding(String whosturn, Unit u, Building b) {
         if(!b.getPlayer().getName().equals(whosturn)) {
             if (u instanceof Sniper) {
-                b.setHitPoints(b.getHitPoints() - 450);
+                b.setHitPoints(b.getHitPoints() - u.getDmg());
                 log.append("\nSniper unit attacked!");
             } else {
-                b.setHitPoints(b.getHitPoints() - 20);
+                b.setHitPoints(b.getHitPoints() - u.getDmg());
                 log.append("\nSolider unit attacked!");
             }
             if (b.getHitPoints() <= 0) {
@@ -546,10 +546,10 @@ public class GameArea extends JFrame {
             if(!u1.isHasAttackedThisTurn()) {
                 u1.setHasAttackedThisTurn(true);
                 if (u1 instanceof Sniper) {
-                    u2.setHealth(u2.getHealth() - 45);
+                    u2.setHealth(u2.getHealth() - u1.getDmg());
                     log.append("\nSniper unit attacked!");
                 } else {
-                    u2.setHealth(u2.getHealth() - 20);
+                    u2.setHealth(u2.getHealth() - u1.getDmg());
                     log.append("\nSolider unit attacked!");
                 }
                 System.out.println(u2.getHealth());
