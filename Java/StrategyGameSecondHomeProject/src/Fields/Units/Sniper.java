@@ -11,7 +11,7 @@ public class Sniper extends Unit {
         this.price = 60;
         this.locationX = locationX;
         this.locationY = locationY;
-        this.dmg = 45;
+        this.dmg = 450;
         this.moveDistance = 1;
         this.player = player;
         if(player.getColor().equals("BLUE")) {
