@@ -5,5 +5,6 @@ public class RedPlayer extends Player {
         this.name = name;
         this.color = color;
         this.GP = 100;
+        this.numberOfHospitalsPresent = 0;
     }
 }

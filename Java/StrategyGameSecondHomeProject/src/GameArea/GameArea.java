@@ -15,9 +15,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameArea extends JFrame {
@@ -47,6 +44,7 @@ public class GameArea extends JFrame {
          private ImageIcon DefaultIcon = new ImageIcon("img/qwe150.png");
          private JLabel playerPoints;
          private boolean shopOrMove = false;
+         private int hospitalHealingPoints = 5;
 
     public GameArea() {
 
@@ -123,7 +121,7 @@ public class GameArea extends JFrame {
         switch (value) {
             case 1:
                 if (getWhosTurn().getGP() > 200) {
-                    makeHeadQuarter(x, y, getWhosTurn());
+                    buildHeadQuarter(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 200);
                     shopOrMove = true;
                 } else {
@@ -133,7 +131,7 @@ public class GameArea extends JFrame {
                 break;
             case 2:
                 if (getWhosTurn().getGP() > 250) {
-                    makeSniperTrainer(x, y, getWhosTurn());
+                    buildSniperTrainer(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 250);
                     if (getWhosTurn().getName().equals("RedPlayer")) {
                         redSniperTrainerCounter++;
@@ -148,7 +146,7 @@ public class GameArea extends JFrame {
                 break;
             case 3:
                 if (getWhosTurn().getGP() > 150) {
-                    makeHospital(x, y, getWhosTurn());
+                    buildHospital(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 150);
                     shopOrMove = true;
                 } else {
@@ -158,7 +156,6 @@ public class GameArea extends JFrame {
                 break;
             case 4:
                 if (getWhosTurn().getGP() > 40) {
-
                     makeSoldier(x, y, getWhosTurn());
                     getWhosTurn().setGP(getWhosTurn().getGP() - 40);
                     shopOrMove = true;
@@ -251,6 +248,8 @@ public class GameArea extends JFrame {
         }
     }
     private void endTurn() {
+        hospitalHeal();
+        resetUnitAttackedThisTurn();
         if(whosturn.equals("BluePlayer")) {
             getWhosTurn().setGP(getWhosTurn().getGP() + 50);
             whosturn = "RedPlayer";
@@ -265,6 +264,41 @@ public class GameArea extends JFrame {
         }
         playerPoints.setText("Red players points:" + rp.getGP() + " Blue players points:" + bp.getGP());
     }
+
+    private void hospitalHeal() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (arr[i][j] instanceof Unit) {
+                    if (((Unit) arr[i][j]).getPlayer().getName().equals(whosturn)) {
+                        if (((Unit) arr[i][j]).getMaxhealth() >= ((Unit) arr[i][j]).getHealth() +
+                                (rp.getNumberOfHospitalsPresent() * hospitalHealingPoints)) {
+                            ((Unit) arr[i][j]).setHealth(((Unit) arr[i][j]).getHealth()
+                                    + (rp.getNumberOfHospitalsPresent() * hospitalHealingPoints));
+                            GameAreaRefresher(arr[i][j],i,j);
+                        }
+                    } else if (((Unit) arr[i][j]).getPlayer().getName().equals(whosturn)) {
+                        if (((Unit) arr[i][j]).getMaxhealth() >= ((Unit) arr[i][j]).getHealth() +
+                                (bp.getNumberOfHospitalsPresent() * hospitalHealingPoints)) {
+                            ((Unit) arr[i][j]).setHealth(((Unit) arr[i][j]).getHealth()
+                                    + (bp.getNumberOfHospitalsPresent() * hospitalHealingPoints));
+                        }
+                        GameAreaRefresher(arr[i][j],i,j);
+                    }
+                }
+            }
+        }
+    }
+
+    private void resetUnitAttackedThisTurn() {
+        for(int i=0; i<10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if(arr[i][j] instanceof Unit) {
+                    ((Unit) arr[i][j]).setHasAttackedThisTurn(false);
+                }
+            }
+        }
+
+        }
 
     private boolean validateDistance(int x, int y, int targetX, int targetY, int distance) {
         if (targetX > x && targetY > y) {
@@ -288,7 +322,6 @@ public class GameArea extends JFrame {
                 labels[i][j].addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-                        System.out.println(mouseLocation);
                         getMouseClick(mouseLocation);
                     }
                 });
@@ -330,7 +363,7 @@ public class GameArea extends JFrame {
         map.repaint();
         map.revalidate();
     }
-    public void GameAreaBuilder(Fields f1, int x, int y) {
+    public void GameAreaRefresher(Fields f1, int x, int y) {
                 int hp = 0;
                 if(f1 instanceof Building) {
                     hp = ((Building) f1).getHitPoints();
@@ -345,7 +378,7 @@ public class GameArea extends JFrame {
                 map.repaint();
                 map.revalidate();
     }
-    public void GameAreaBuilder(int OldX, int OldY, int x, int y, ImageIcon newIcon, Unit u) {
+    public void GameAreaRefresher(int OldX, int OldY, int x, int y, ImageIcon newIcon, Unit u) {
         labels[OldX][OldY].setIcon(DefaultIcon);
         labels[OldX][OldY].setText("");
         labels[x][y].setIcon(newIcon);
@@ -371,8 +404,8 @@ public class GameArea extends JFrame {
         log.append("\n" + bp.getName() + " VS " + rp.getName());
         System.out.println(bp.getName() + " VS " + rp.getName());
 
-        makeHeadQuarter(0,0,rp);
-        makeHeadQuarter(9,9,bp);
+        buildHeadQuarter(0,0,rp);
+        buildHeadQuarter(9,9,bp);
         makeSoldier(0,1,rp);
         makeSoldier(1,1,rp);
         makeSoldier(1,0,rp);
@@ -390,24 +423,7 @@ public class GameArea extends JFrame {
         }
         whosturnLabel.setText(whosturn);
     }
-    private void GameEnd() {
-        String tempA = "";
-        System.out.println("Do you want to play another game?");
-        log.append("\n" + "Do you want to play another game?");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            tempA = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if(tempA.equals("YES") || tempA.equals("yes")) {
-            //TODO clear data from old gameinit/processes
-            gameInit();
-        } else {
-            System.exit(1);
-        }
-    }
-    private void makeHeadQuarter(int x, int y, Player player) {
+    private void buildHeadQuarter(int x, int y, Player player) {
         if(checkField(x,y)) {
             arr[x][y] = new Headquarter(x, y, player);
             arr[x][y].setUsed(true);
@@ -416,23 +432,25 @@ public class GameArea extends JFrame {
             } else {
                 RedBuildings++;
             }
-            GameAreaBuilder(arr[x][y], x, y);
+            GameAreaRefresher(arr[x][y], x, y);
         }
     }
-    private void makeHospital(int x, int y, Player player) {
+    private void buildHospital(int x, int y, Player player) {
         if(checkField(x,y)) {
             arr[x][y] = new Hospital(x, y, player);
             arr[x][y].setUsed(true);
             if (player.getColor().equals(bp.getColor())) {
                 BlueBuildings++;
+                bp.setNumberOfHospitalsPresent(bp.getNumberOfHospitalsPresent() + 1);
             } else {
                 RedBuildings++;
+                rp.setNumberOfHospitalsPresent(rp.getNumberOfHospitalsPresent() + 1);
             }
-            GameAreaBuilder(arr[x][y], x, y);
+            GameAreaRefresher(arr[x][y], x, y);
             System.out.println("Hospital built.");
         }
     }
-    private void makeSniperTrainer(int x, int y, Player player) {
+    private void buildSniperTrainer(int x, int y, Player player) {
         if(checkField(x,y)) {
             System.out.println("hello");
             arr[x][y] = new SniperTrainer(x, y, player);
@@ -442,7 +460,7 @@ public class GameArea extends JFrame {
             } else {
                 RedBuildings++;
             }
-            GameAreaBuilder(arr[x][y], x, y);
+            GameAreaRefresher(arr[x][y], x, y);
             System.out.println("Sniper trainer built.");
         }
     }
@@ -451,14 +469,14 @@ public class GameArea extends JFrame {
             arr[x][y] = new Sniper(x, y, player);
             arr[x][y].setUsed(true);
         }
-        GameAreaBuilder(arr[x][y], x, y);
+        GameAreaRefresher(arr[x][y], x, y);
     }
     private void makeSoldier(int x, int y, Player player) {
         if(checkField(x,y)) {
             arr[x][y] = new Soldier(x, y, player);
             arr[x][y].setUsed(true);
         }
-        GameAreaBuilder(arr[x][y], x, y);
+        GameAreaRefresher(arr[x][y], x, y);
     }
     private boolean checkField(int x, int y) {
         if (arr[x][y].isUsed()) {
@@ -491,6 +509,13 @@ public class GameArea extends JFrame {
                         blueSniperTrainerCounter--;
                     }
                 }
+                if(b instanceof Hospital) {
+                    if (b.getPlayer().getName().equals("RedPlayer")) {
+                        rp.setNumberOfHospitalsPresent(rp.getNumberOfHospitalsPresent() - 1);
+                    } else {
+                        rp.setNumberOfHospitalsPresent(rp.getNumberOfHospitalsPresent() - 1);
+                    }
+                }
                 arr[b.getLocationX()][b.getLocationY()] = new Fields(false);
                 GameAreaNewEmptyFieldBuilder(b.getLocationX(),b.getLocationY());
                 log.append("\nEnemy building eliminated");
@@ -518,18 +543,23 @@ public class GameArea extends JFrame {
 
     private void AttackUnit(String whosturn, Unit u1, Unit u2) {
         if (!u2.getPlayer().getName().equals(whosturn)) {
-            if (u1 instanceof Sniper) {
-                u2.setHealth(u2.getHealth() - 45);
-                log.append("\nSniper unit attacked!");
+            if(!u1.isHasAttackedThisTurn()) {
+                u1.setHasAttackedThisTurn(true);
+                if (u1 instanceof Sniper) {
+                    u2.setHealth(u2.getHealth() - 45);
+                    log.append("\nSniper unit attacked!");
+                } else {
+                    u2.setHealth(u2.getHealth() - 20);
+                    log.append("\nSolider unit attacked!");
+                }
+                labels[u2.getLocationX()][u2.getLocationY()].setText(String.valueOf(u2.getHealth()));
+                if (u2.getHealth() <= 0) {
+                    arr[u2.getLocationX()][u2.getLocationY()] = new Fields(false);
+                    GameAreaNewEmptyFieldBuilder(u2.getLocationX(), u2.getLocationY());
+                    log.append("\nEnemy unit eliminated");
+                }
             } else {
-                u2.setHealth(u2.getHealth() - 20);
-                log.append("\nSolider unit attacked!");
-            }
-            labels[u2.getLocationX()][u2.getLocationY()].setText(String.valueOf(u2.getHealth()));
-            if (u2.getHealth() <= 0) {
-                arr[u2.getLocationX()][u2.getLocationY()] = new Fields(false);
-                GameAreaNewEmptyFieldBuilder(u2.getLocationX(),u2.getLocationY());
-                log.append("\nEnemy unit eliminated");
+                log.append("\nUnit already attacked this turn");
             }
         } else {
             log.append("\nYou can't attack your own unit.");
@@ -546,14 +576,13 @@ public class GameArea extends JFrame {
     private void move(int x, int y, int newX, int  newY, Unit u, String whosturn) {
         secondXYgetter = false;
         resetValues();
-        System.out.println("\nX "+ x+ "Y "+ y + "newX " + newX + "newY" + newY );
         if(checkField(newX,newY)) {
             if(u.getPlayer().getName().equals(whosturn)) {
                 if(arr[x][y] instanceof Unit) {
                     if(!shopOrMove){
                         arr[newX][newY] = arr[x][y];
                         arr[x][y] = new Fields(false);
-                        GameAreaBuilder(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
+                        GameAreaRefresher(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
                         log.append("\nSuccessful move");
                         shopOrMove = true;
                     } else {

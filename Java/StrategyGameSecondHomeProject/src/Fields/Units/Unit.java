@@ -14,6 +14,24 @@ public class Unit extends Fields {
     protected Player player;
     protected ImageIcon img;
     protected int dmg;
+    protected boolean hasAttackedThisTurn;
+    protected int maxhealth;
+
+    public int getDmg() {
+        return dmg;
+    }
+
+    public void setDmg(int dmg) {
+        this.dmg = dmg;
+    }
+
+    public boolean isHasAttackedThisTurn() {
+        return hasAttackedThisTurn;
+    }
+
+    public void setHasAttackedThisTurn(boolean hasAttackedThisTurn) {
+        this.hasAttackedThisTurn = hasAttackedThisTurn;
+    }
 
     public int getHealth() {
         return health;
@@ -71,6 +89,14 @@ public class Unit extends Fields {
     @Override
     public void setImg(ImageIcon img) {
         this.img = img;
+    }
+
+    public int getMaxhealth() {
+        return maxhealth;
+    }
+
+    public void setMaxhealth(int maxhealth) {
+        this.maxhealth = maxhealth;
     }
 
     @Override

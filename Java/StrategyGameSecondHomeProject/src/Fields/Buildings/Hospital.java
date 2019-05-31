@@ -5,6 +5,7 @@ import Players.Player;
 import javax.swing.*;
 
 public class Hospital extends Building {
+
     public Hospital(int locationX, int locationY, Player player) {
         this.hitPoints = 100;
         this.price = 150;
@@ -17,7 +18,6 @@ public class Hospital extends Building {
             this.img = new ImageIcon("img/red-hospital-shadow.png");
         }
     }
-
     @Override
     public String toString() {
         return "Hospital, HP:" + hitPoints + " " + getPlayer().getName();

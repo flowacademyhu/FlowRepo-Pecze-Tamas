@@ -5,9 +5,9 @@ import Players.Player;
 import javax.swing.*;
 
 public class Soldier extends Unit {
-
     public Soldier(int locationX, int locationY, Player player) {
         this.health = 50;
+        this.maxhealth = 50;
         this.price = 40;
         this.locationX = locationX;
         this.locationY = locationY;
@@ -19,6 +19,7 @@ public class Soldier extends Unit {
         } else {
             this.img = new ImageIcon("img/red-soldier-shadow.png");
         }
+        this.hasAttackedThisTurn = false;
 
     }
     @Override
