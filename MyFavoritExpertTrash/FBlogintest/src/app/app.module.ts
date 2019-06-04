@@ -1,0 +1,42 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { AppComponent } from './app.component';
+import { FbloginComponent } from './fblogin/fblogin.component';
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("405508596802-gms61jrg7n7ib8tovknfgq1nm2fq7g7b.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("446685369498451")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FbloginComponent
+  ],
+  imports: [
+    BrowserModule,
+    SocialLoginModule
+  ],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+    useFactory: provideConfig
+    }],
+  bootstrap: [AppComponent]
+})
+
+
+
+export class AppModule { }
