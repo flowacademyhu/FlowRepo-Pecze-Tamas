@@ -8,7 +8,7 @@ import { FbloginComponent } from './fblogin/fblogin.component';
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("405508596802-gms61jrg7n7ib8tovknfgq1nm2fq7g7b.apps.googleusercontent.com")
+    provider: new GoogleLoginProvider('405508596802-7tk4fk6mj6dmpmds2lvs16fgf85hbck1.apps.googleusercontent.com')
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
