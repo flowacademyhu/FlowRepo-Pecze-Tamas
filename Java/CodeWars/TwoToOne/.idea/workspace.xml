@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e023824-4d1f-4d79-8d04-0807052cd039" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AnPractise2/Practise2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" beforeDir="false" afterPath="$PROJECT_DIR$/../../AngularPractise/AngularPractise6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DB/epsilon-pub-database" beforeDir="false" afterPath="$PROJECT_DIR$/../../DB/epsilon-pub-database" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecursionPractice - Fibonacci/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice - Fibonacci/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecursionPractice/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecursionPractice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecursionPractice/RecursionPractice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursionPractice/RecursionPractice - factorial.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/progalapok/1Projekt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JavaTeszt" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaTeszt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../spring_gyak" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring_gyak" afterDir="false" />
-    </list>
+    <list default="true" id="aec31639-2dc2-4dfc-8e67-3167fa5b3a00" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +17,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="229">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#124#125#0" expanded="true" />
+                <element signature="e#212#213#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,8 +37,10 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>abcdefghilnoprstu</find>
+    </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -58,36 +50,31 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="47" />
-    <option name="width" value="1221" />
-    <option name="height" value="602" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="RecursionPractice2-bunnyEars" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecursionPractice2-bunnyEars" type="462c0819:PsiDirectoryNode" />
+              <item name="TwoToOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TwoToOne" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -102,9 +89,15 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="RecursionPractice2-bunnyEars" />
+      <module name="TwoToOne" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,11 +108,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8e023824-4d1f-4d79-8d04-0807052cd039" name="Default Changelist" comment="" />
-      <created>1557423380611</created>
+      <changelist id="aec31639-2dc2-4dfc-8e67-3167fa5b3a00" name="Default Changelist" comment="" />
+      <created>1560007415086</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1557423380611</updated>
+      <updated>1560007415086</updated>
     </task>
     <servers />
   </component>
@@ -135,7 +128,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32890365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -143,7 +136,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32890365" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -157,8 +150,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="229">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#124#125#0" expanded="true" />
+            <element signature="e#212#213#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
