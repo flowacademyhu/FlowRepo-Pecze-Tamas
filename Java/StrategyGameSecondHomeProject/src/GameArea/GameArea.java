@@ -301,14 +301,19 @@ public class GameArea extends JFrame {
         }
 
     private boolean validateDistance(int x, int y, int targetX, int targetY, int distance) {
-        if (targetX > x && targetY > y) {
-            if (x + distance > targetX || y + distance > targetY) {
-                return false;
-            } else {
-                return true;
-            }
+        if(x > targetX && y > targetY) {
+            log.append("balra fel");
+        } else if(x > targetX && y < targetY) {
+            log.append("balra le");
+        } else if(x < targetX && y > targetY) {
+            log.append("jobbra fel");
+        } else if(x > targetX && y > targetY) {
+            log.append("jobbra le");
+        } else {
+            log.append("x:" + x + " y:" + y + " targetX: " + targetX + "targetY: " + targetY);
+            log.append("WTF?");
         }
-        return false;
+        return true;
 
     }
 
@@ -581,11 +586,15 @@ public class GameArea extends JFrame {
             if(u.getPlayer().getName().equals(whosturn)) {
                 if(arr[x][y] instanceof Unit) {
                     if(!shopOrMove){
-                        arr[newX][newY] = arr[x][y];
-                        arr[x][y] = new Fields(false);
-                        GameAreaRefresher(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
-                        log.append("\nSuccessful move");
-                        shopOrMove = true;
+                        if(validateDistance(x,y,newX,newY,u.getMoveDistance())){
+                            arr[newX][newY] = arr[x][y];
+                            arr[x][y] = new Fields(false);
+                            GameAreaRefresher(x, y, newX, newY, u.getImg(), (Unit)arr[newX][newY]);
+                            log.append("\nSuccessful move");
+                            shopOrMove = true;
+                        } else {
+                         log.append("\nToo far away.");
+                        }
                     } else {
                         log.append("\nYou already moved or shopped this turn.");
                     }
